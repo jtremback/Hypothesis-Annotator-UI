@@ -1,7 +1,9 @@
 - content_for :head do
   %title Hypothesis Annotator Integration
 
-= partial "cispa.erb"
-
+#airlock
+  .annotator-wrapper
+    = partial "cispa.erb"
+    = partial "detail.haml"
 
 
