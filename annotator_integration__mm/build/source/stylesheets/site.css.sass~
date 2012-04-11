@@ -1,0 +1,209 @@
+@import "cispa.sass"
+@import compass
+
+//SOURCE VIEWPORT
+#source
+//  margin-right: 500px
+//  overflow: auto
+
+//GLOBAL STUFF FOR ANNOTATOR- #annotator protects from css conflicts
+//#annotator
+//  $link-color: #0388a6
+//  $link-hover-color: #009ce0
+//  $link-focus-color: false
+//  $link-active-color: false
+//  $link-visited-color: false
+
+//  $font-color: rgb(144, 144, 144)
+//  $font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+//  $base-font-size: 12px
+//  $base-line-height: 18px
+
+//  $total-cols: 12
+//  $col-width: 4em
+//  $gutter-width: 1em
+//  $side-gutter-width: $gutter-width
+
+//  +global-reset
+
+//  body
+//    font-family: $font-family
+//    color: $font-color
+
+//  a
+//    +link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color)
+
+//  #main
+//    padding: 50px
+
+//  li
+//    margin: 2em
+
+
+//ANNOTATOR STYLING- annotator- protects css
+
+// Base Reset
+
+.annotator-notice, .annotator-filter *, .annotator-widget *
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+  font-size: 14px
+  line-height: 1
+  font-weight: normal
+  text-align: left
+  margin: 0
+  padding: 0
+  background: none
+  -webkit-transition: none
+  -moz-transition: none
+  -o-transition: none
+  transition: none
+  -moz-box-shadow: none
+  -webkit-box-shadow: none
+  -o-box-shadow: none
+  box-shadow: none
+  color: rgb(144, 144, 144)
+  p
+    margin-bottom: .5em
+
+$xlight-border: hsla(0, 0%, 82%, 0.31)
+$light-border: hsla(0, 0%, 52%, 0.31)
+$med-border: hsla(0, 0%, 12%, 0.31)
+$dark-border: hsla(0,0%, 0%, 0.31)
+$light-bg: #fbfbfb
+$med-bg: #f8f8f8
+$dark-bg: #F3F3F3
+$xdark-bg: #ededed
+$med-red: #c12c3b
+
+//ANNOTATOR LAYOUT STUFF
+
+.annotator-hl
+  background: rgba(255, 255, 10, 0.3)
+
+.annotator-group:after
+  visibility: hidden
+  display: block
+  content: ""
+  clear: both
+  height: 0
+
+.annotator-outer
+
+.annotator-listing
+  list-style-type: none
+  padding: 0
+  margin: 0
+
+//ANNOTATOR DETAIL
+.annotator-detail
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  overflow: auto
+  width: 500px
+  background: $light-bg
+  border-left: 2px solid $xlight-border
+
+//ANNOTATOR WIDGET
+.annotator-widget
+  padding: .5em
+  padding-bottom: 0 
+  margin-top: 1em
+  border-top: 1px solid $light-border
+  //ANNOTATOR BUTTONS
+  button
+    border: 1px solid $light-border
+    border-radius: 3px
+    padding: .5em
+    background: $med-bg
+    &:hover
+      +background-image(linear-gradient($light-bg, $dark-bg))
+    &:active
+      +background-image(linear-gradient($med-bg, $xdark-bg))
+      border: 1px solid $dark-border
+    //ANNOTATOR FORMS
+  input, textarea
+    border: 1px solid $light-border
+    background: $med-bg
+    border-radius: 3px
+    padding: .5em
+    width: 97%
+    &:focus
+      outline: none
+      background: $med-bg
+      border: 1px solid $dark-border   
+    
+
+//ANNOTATOR ITEM
+.annotator-item
+  padding-top: .8em
+
+//ANNOTATOR EXCERPT
+.annotator-excerpt
+  border: 1px solid $light-border
+  border-radius: 3px
+  padding: .5em
+  background: $med-bg
+  .annotator-big
+    font-size: 16px
+    color: $med-red
+    margin-bottom: .25em
+  
+
+//ANNOTATOR CONTENT
+.annotator-content
+  p    
+    line-height: 1.2em
+  &p:last-child
+    margin-bottom: 0
+
+//THREADING
+.annotator-listing.annotator-replies
+  padding-left: 1em
+
+//ANNOTATOR CONTROLS
+.annotator-controls
+  height: 2em
+
+.annotator-reply 
+  float: right
+
+.annotator-flag
+  float: right
+  margin-right: .25em
+
+//ANNOTATOR SCORE
+.annotator-score
+  border: 1px solid $light-border
+  border-radius: 3px
+  padding: .5em
+  float: left
+  span
+    display: inline-block
+    border-right: 1px solid $light-border
+    padding-right: .25em
+    &:last-child
+      border-right: none
+      padding-right: none
+  .annotator-big
+    font-size: 16px
+    color: $med-red
+    display: inline
+  .annotator-small
+    display: inline
+
+//ANNOTATOR USER
+.annotator-user
+  color: $med-red
+  font-size: 16px
+
+//ANNOTATOR TAGS
+.annotator-tag
+  vertical-align: super
+  background: $dark-bg
+  border: 1px solid $dark-border
+  border-radius: 3px
+  padding: 0 .25em
+
+  
