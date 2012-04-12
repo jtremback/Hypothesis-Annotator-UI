@@ -1,0 +1,26 @@
+              %li.annotator-reply.annotator-widget
+                .annotator-item.annotator-meta
+                  .annotator-score
+                    .annotator-up
+                    .annotator-small 34.5
+                  .annotator-info
+                    .annotator-user bo1024
+                    .annotator-time posted 5 days ago
+                .annotator-item.annotator-content
+                  %p
+                    I would not argue against your guys' reading. In fact, although I personally read it differently, I would rather go with your reading. However, the very fact that it can be read the way the OP and I read it means that it is too ambiguous.
+                  %p
+                    Yes, the bill is about cyber security. And yes, the bill is clearly designed to facilitate the foiling of and the apprehension of those who would hack into networks or systems to do malicious things. And yes, the bill does not create new crimes of any sort.
+                  %p
+                    However, it allows for novel forms of collection and aggregation of personal data. This data can then be used for myriad purposes, all in the guise of "cyber security," such as "theft" of intellectual property. Copyright infringement, patent infringement, and piracy of any sort are sometimes equated to theft, and although perhaps in most places at the current time it is not, that could easily become a widespread interpretation of this clause. Besides, if any company or government organization is caught misinterpreting it, they are safe anyway. Once they have evidence of someone "stealing" their IP, they have plenty of opportunity to persecute them through existing statutes.
+                  %p
+                    I believe that there should be a law passed to stop hackers from taking down websites, stealing personal information, blowing up power plants, etc.
+                  %p
+                    This isn't it.
+                  %p
+                    Nor is any law that attempts to protect IP. IP should be protected in its own laws, using its own rules. Preferably several laws dealing with different forms of IP.
+                .annotator-item.annotator-controls
+                  %button.annotator-writebutton
+                  %button.annotator-flagbutton
+                  %button.annotator-favebutton
+                  %span.annotator-tag Think about it.
