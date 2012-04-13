@@ -74,9 +74,6 @@ $med-red: #c12c3b
   color: $warm-white
   font-weight: bold
 
-//ANNOTATOR SHADOW STYLES
-@mixin bigshadow
-  +box-shadow(0px 0px 20px $light-border)
 
 //ANNOTATOR BOX STYLES
 //Box styles have borders, backgrounds, and shadows. Visual effects that do not mess with the positioning much.
@@ -176,7 +173,7 @@ $iconset: iconset_wireframe
   bottom: 0
   overflow: auto
   width: 500px
-  +bigshadow
+  +box-shadow(0px 0px 40px hsla($cool-hue, 40%, 10%, .05))
 
 
 //GLOBAL STYLES
@@ -203,31 +200,29 @@ $iconset: iconset_wireframe
 .annotator-time
   +secondarytext
 
-//SCORE INDICATORS
-.annotator-up
-  +icon(up_4)
-  opacity: .8
-
-.annotator-down
-  +icon(down_4)
-  opacity: .8
-
 //ANNOTATOR SCORE
 //This holds information about the score of the annotation in question.
 .annotator-score
   text-align: center
+  margin-bottom: .25em
   .annotator-up
     padding: 0
     width: 2.5em
     height: 1.5em
+    +icon(up_2)
+    opacity: .8
+    margin-bottom: .25em
+
   .annotator-down
     padding: 0
     width: 2.5em
     height: 1.5em
+    +icon(down_2)
+    opacity: .8
   .annotator-label
+    +primarytext
     font-size: 16px
     font-weight: bold
-    +primarytext
 
 //ANNOTATOR OBJECT STYLES
 //Object styles define settings relative to the relationships between elements. Widgets, which are only applied to li's, go inside of listings, which are only applied to ul's. They hold nicely padded components. Inside of components, it's a free for all. Put positioning stuff and other things that only apply to an element in a specific place here.
@@ -264,36 +259,36 @@ $iconset: iconset_wireframe
     display: inline-block
   .annotator-controls
     float: right
-    vertical-align: middle
+
     button
-      margin-right: 1em
+      margin-bottom: 1em
     &button:last-child
       margin-right: 0
 
 .annotator-meta
-  +clearfix
   background: $desat-minor
+  float: left
+  padding-right: 1em
+
   .annotator-score
-    float: left
     display: inline-block
-    clear: none
-    margin-right: 1em
-    .annotator-controls
-      float: right
-      button
-        margin-right: .25em
-      &button:last-child
-        margin-right: 0
-  .annotator-container
+
+  .annotator-controls
+    button
+      margin-left: auto
+      margin-right: auto
+      display: block
+      margin-top: .5em
+
+.annotator-container
+  +clearfix
+  .annotator-info
     float: left
     clear: none
-  .annotator-controls
+  .annotator-tags
     float: right
-    vertical-align: top
-    button
-      margin-right: 1em
-    &button:last-child
-      margin-right: 0
+    clear: none
+
 
 .annotator-tags
   margin-bottom: .25em

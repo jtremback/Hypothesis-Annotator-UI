@@ -1,22 +1,24 @@
 %li.annotator-widget.annotator-reply
 
-  .annotator-component.annotator-meta
-    .annotator-score
-      .annotator-up
-      .annotator-label 11.2
+  .annotator-container
+    .annotator-component.annotator-meta
+      .annotator-score
+        .annotator-up
+        .annotator-label 11
+      .annotator-controls
+        %button.annotator-fave Favorite
+        %button.annotator-write Reply
+        %button.annotator-flag Flag
     .annotator-container
-      .annotator-user malogos
-      .annotator-time posted 4 days ago
-    .annotator-controls
-      %button.annotator-write Reply
-      %button.annotator-flag Flag
-      %button.annotator-fave Favorite
+      .annotator-info
+        .annotator-user malogos
+        .annotator-time posted 4 days ago
+      .annotator-component.annotator-tags
+        %span.annotator-tag Good point
 
-  %article.annotator-component.annotator-content
-    %p
-      Your reading is correct. This bill is about cyber security and not copyright protection. ISPs are actually a minor part of this bill it's aimed to protect critical infrastructure. ISPs would only be sharing data that involves there role as critical US infrastructure, and so monitoring individual users isn't the point at all. If the wording needs cleaned up, that's one thing, but the intent is clearly not to spy on citizens.
-  .annotator-component.annotator-tags
-    %span.annotator-tag tag goes here
+    %article.annotator-component.annotator-content
+      %p
+        Your reading is correct. This bill is about cyber security and not copyright protection. ISPs are actually a minor part of this bill it's aimed to protect critical infrastructure. ISPs would only be sharing data that involves there role as critical US infrastructure, and so monitoring individual users isn't the point at all. If the wording needs cleaned up, that's one thing, but the intent is clearly not to spy on citizens.
 
   %ul.annotator-listing.annotator-replies
     = partial "reply-3.haml"

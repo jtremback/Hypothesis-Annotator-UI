@@ -8,28 +8,29 @@
     %p
       `(B) theft or misappropriation of private or government information, intellectual property, or personally identifiable information.
 
-  .annotator-component.annotator-meta
-    .annotator-score
-      .annotator-up
-      .annotator-label 34.5
+  .annotator-container
+    .annotator-component.annotator-meta
+      .annotator-score
+        .annotator-up
+        .annotator-label 34.5
+      .annotator-controls
+        %button.annotator-fave Favorite
+        %button.annotator-write Reply
+        %button.annotator-flag Flag
     .annotator-container
-      .annotator-user bo1024
-      .annotator-time posted 5 days ago
-    .annotator-controls
-      %button.annotator-write Reply
-      %button.annotator-flag Flag
-      %button.annotator-fave Favorite
+      .annotator-info
+        .annotator-user bo1024
+        .annotator-time posted 5 days ago
+      .annotator-component.annotator-tags
+        %span.annotator-tag tag goes here
 
-  %article.annotator-component.annotator-content
-    %p
-      From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
-  .annotator-component.annotator-tags
-    %span.annotator-tag tag goes here
+    %article.annotator-component.annotator-content
+      %p
+        From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
 
   %form.annotator-component.annotator-editor
     %textarea#annotator-field-0{:placeholder => "Comments…"}
-    .annotator-container
-      %input#annotator-field-1{:placeholder => "Add a stance."}
+    %input#annotator-field-1{:placeholder => "Add a stance."}
     .annotator-controls
       %button.annotator-delete Delete
       %button.annotator-save Save
