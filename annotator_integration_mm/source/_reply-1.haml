@@ -1,10 +1,10 @@
-%li.annotator-reply.annotator-widget
+%li.annotator-widget.annotator-reply
 
-  .annotator-meta.annotator-component
+  .annotator-component.annotator-meta
     .annotator-score
       .annotator-up
       .annotator-label 7.3
-    .annotator-info
+    .annotator-container
       .annotator-user IWantSpaceships
       .annotator-time posted 5 days ago
     .annotator-controls
@@ -12,13 +12,10 @@
       %button.annotator-flag Flag
       %button.annotator-fave Favorite
 
-  %article.annotator-content.annotator-component
+  %article.annotator-component.annotator-content
     %p
       That's not what I see when I read it. It doesn't state that intellectual property as a cybersecurity issue unto itself, only "protection of a system or network" from theft or misappropriation of that property. The bill does not expand an entity's power to control the distribution of that property after its theft/misappropriation from its network.
-  .annotator-controls
-    %button.annotator-write
-    %button.annotator-flag
-    %button.annotator-fave
-    %span.annotator-tag Intellectual Property
-  %ul.annotator-replies
+  .annotator-component.annotator-tags
+    %span.annotator-tag tag goes here
+  %ul.annotator-listing.annotator-replies
     = partial "reply-2.haml"

@@ -1,6 +1,6 @@
-%li.annotator-annotation_detail.annotator-widget
+%li.annotator-widget.annotator-annotation_detail
 
-  %blockquote.annotator-excerpt.annotator-component
+  %blockquote.annotator-component.annotator-excerpt
     %p
       `(2) CYBER THREAT INTELLIGENCE- The term `cyber threat intelligence' means information in the possession of an element of the intelligence community directly pertaining to a vulnerability of, or threat to, a system or network of a government or private entity, including information pertaining to the protection of a system or network from--
     %p
@@ -8,11 +8,11 @@
     %p
       `(B) theft or misappropriation of private or government information, intellectual property, or personally identifiable information.
 
-  .annotator-meta.annotator-component
+  .annotator-component.annotator-meta
     .annotator-score
       .annotator-up
       .annotator-label 34.5
-    .annotator-info
+    .annotator-container
       .annotator-user bo1024
       .annotator-time posted 5 days ago
     .annotator-controls
@@ -20,17 +20,18 @@
       %button.annotator-flag Flag
       %button.annotator-fave Favorite
 
-  %article.annotator-content.annotator-component
+  %article.annotator-component.annotator-content
     %p
       From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
+  .annotator-component.annotator-tags
+    %span.annotator-tag tag goes here
 
-
-  %form.annotator-editor.annotator-component
+  %form.annotator-component.annotator-editor
     %textarea#annotator-field-0{:placeholder => "Comments…"}
+    %input#annotator-field-1{:placeholder => "Add a stance."}
     .annotator-controls
-      %input#annotator-field-1{:placeholder => "Add a stance."}
       %button.annotator-delete Delete
       %button.annotator-save Save
 
-  %ul.annotator-replies.annotator-listing
+  %ul.annotator-listing.annotator-replies
     = partial "reply-1.haml"

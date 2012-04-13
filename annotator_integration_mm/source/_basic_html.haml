@@ -55,7 +55,6 @@
               body of reply goes here.
           .annotator-tags.annotator-component
             %span.annotator-tag tag goes here
-
 /*Simple bucket view- this is more likely to change significantly than the annotation detail view above. For example, there's a good chance that we'll rearrange things inside of .annotator-meta
 #annotator-sidebar
   %ul.annotator-listing
@@ -67,10 +66,11 @@
         .annotator-info
           .annotator-user username goes here
           .annotator-time time posted goes here.
-        %excerpt.annotator-content.annotator-component
+        %blockquote.annotator-content.annotator-component
           %p
             truncated body of annotation goes here.
-  %ul.annotator-listing
+        .annotator-tags.annotator-component
+          %span.annotator-tag tag goes here
     %li.annotator-annotation_summary
       .annotator-meta.annotator-component
         .annotator-score
@@ -79,6 +79,8 @@
         .annotator-info
           .annotator-user username goes here
           .annotator-time time posted goes here.
-        %excerpt.annotator-content.annotator-component
+        %blockquote.annotator-content.annotator-component
           %p
             truncated body of another annotation goes here.
+        .annotator-tags.annotator-component
+          %span.annotator-tag tag goes here
