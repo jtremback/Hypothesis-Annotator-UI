@@ -41,7 +41,7 @@ a.external {
     text-decoration: none;
     color: #003366; }
   #container a.external:link span.external2, #container a.external:hover span.external2, #container a.external:visited span.external2 {
-    background: transparent url(http://www.loc.gov/images/icon-ext2.gif) 100% 100% no-repeat;
+    background: transparent url(http://www.loc.gov../images/icon-ext2.gif) 100% 100% no-repeat;
     padding: 0 5px 0 3px;
     width: 8px;
     height: 10px;
@@ -61,7 +61,7 @@ div#topnav {
   margin: 0;
   padding-top: 0px;
   border-bottom: 1px solid #99ccff;
-  background: white url(../images/line_red100.gif) top left no-repeat; }
+  background: white url(..../images/line_red100.gif) top left no-repeat; }
   div#topnav ul#menu {
     height: 55px;
     width: 400px;
@@ -81,12 +81,12 @@ ul#menu li, ul#menu a {
   display: block; }
 
 #logo_lc {
-  background: transparent url(../images/logo_lc.gif) 0px 3px no-repeat;
+  background: transparent url(..../images/logo_lc.gif) 0px 3px no-repeat;
   left: 0;
   width: 215px; }
 
 #logo {
-  background: transparent url(../images/logo_thomas.gif) 0px 3px no-repeat;
+  background: transparent url(..../images/logo_thomas.gif) 0px 3px no-repeat;
   left: 216px;
   width: 208px; }
 
@@ -96,7 +96,7 @@ ul#menu li, ul#menu a {
   padding: 0px 0px 0px 15px;
   color: white;
   border-bottom: 1px solid #0a2948;
-  background: #000033 url(../images/gradient.jpg) top right no-repeat; }
+  background: #000033 url(..../images/gradient.jpg) top right no-repeat; }
   #crumb_nav #crumb {
     color: white;
     text-align: left;
@@ -217,7 +217,7 @@ ul#menu li, ul#menu a {
   text-decoration: none;
   background: none; }
   #container #footer a.external:link span.external2, #container #footer a.external:hover span.external2, #container #footer a.external:visited span.external2 {
-    background: transparent url(http://www.loc.gov/images/icon-ext-foot.gif) 90% 100% no-repeat; }
+    background: transparent url(http://www.loc.gov../images/icon-ext-foot.gif) 90% 100% no-repeat; }
 #container #footer span.underline {
   text-decoration: underline; }
 
@@ -522,7 +522,7 @@ ul#menu li, ul#menu a {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
-    background-image: url("/images/iconset_wireframe/up_2.png");
+    background-image: url("../images/iconset_wireframe/up_2.png");
     opacity: 0.8;
     margin-bottom: 0.25em; }
   .annotator-score .annotator-down {
@@ -533,7 +533,7 @@ ul#menu li, ul#menu a {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
-    background-image: url("/images/iconset_wireframe/down_2.png");
+    background-image: url("../images/iconset_wireframe/down_2.png");
     opacity: 0.8;
     margin-bottom: 0.25em; }
   .annotator-score .annotator-label {
@@ -620,28 +620,28 @@ ul#menu li, ul#menu a {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-  background-image: url("/images/iconset_wireframe/edit_1.png"); }
+  background-image: url("../images/iconset_wireframe/edit_1.png"); }
 
 .annotator-flag {
   text-indent: -9999px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-  background-image: url("/images/iconset_wireframe/flag_1.png"); }
+  background-image: url("../images/iconset_wireframe/flag_1.png"); }
 
 .annotator-fave {
   text-indent: -9999px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-  background-image: url("/images/iconset_wireframe/fave_1.png"); }
+  background-image: url("../images/iconset_wireframe/fave_1.png"); }
 
 .annotator-save {
   text-indent: -9999px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-  background-image: url("/images/iconset_wireframe/submit_1.png");
+  background-image: url("../images/iconset_wireframe/submit_1.png");
   width: 2.5em;
   height: 2.5em; }
 
@@ -650,6 +650,6 @@ ul#menu li, ul#menu a {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-  background-image: url("/images/iconset_wireframe/delete_1.png");
+  background-image: url("../images/iconset_wireframe/delete_1.png");
   width: 2.5em;
   height: 2.5em; }

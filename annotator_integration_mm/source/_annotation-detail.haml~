@@ -8,32 +8,32 @@
     %p
       `(B) theft or misappropriation of private or government information, intellectual property, or personally identifiable information.
 
-  .annotator-container
-    .annotator-component.annotator-meta
-      .annotator-score
-        .annotator-up
-        .annotator-label 34.5
-      .annotator-controls
-        %button.annotator-fave Favorite
-        %button.annotator-write Reply
-        %button.annotator-flag Flag
+  .annotator-component.annotator-meta
+    .annotator-score
+      .annotator-label 25
+      .annotator-down
     .annotator-container
-      .annotator-info
-        .annotator-user bo1024
-        .annotator-time posted 5 days ago
-      .annotator-component.annotator-tags
-        %span.annotator-tag tag goes here
+      .annotator-user bo1024
+      .annotator-time posted 5 days ago
+    .annotator-controls
+      %button.annotator-write Reply
+      %button.annotator-fave Favorite
+      %button.annotator-flag Flag
 
-    %article.annotator-component.annotator-content
-      %p
-        From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
+  %article.annotator-component.annotator-content
+    %p
+      From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
+  .annotator-component.annotator-tags
+    %span.annotator-tag tag goes here
 
   %form.annotator-component.annotator-editor
-    %textarea#annotator-field-0{:placeholder => "Comments…"}
-    %input#annotator-field-1{:placeholder => "Add a stance."}
+    %textarea#annotator-field-0{:placeholder => "Comments..."}
+    %input#annotator-field-1{:placeholder => "Add a tag..."}
     .annotator-controls
-      %button.annotator-delete Delete
+      %button.annotator-up
+      %button.annotator-down
       %button.annotator-save Save
+      %button.annotator-delete Delete
 
   %ul.annotator-listing.annotator-replies
     = partial "reply-1.haml"
