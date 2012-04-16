@@ -187,7 +187,6 @@ $iconset: iconset_wireframe
   padding: .1em .5em
   padding-bottom: .25em
 
-
 .annotator-excerpt
   +whitebox
   padding: .5em
