@@ -1,0 +1,397 @@
+@import "cispa.css"
+@import compass
+
+//SOURCE VIEWPORT
+#source
+  margin-right: 500px
+  overflow: auto
+
+//GLOBAL STUFF FOR ANNOTATOR
+//COLORS
+//
+
+$trace-border: hsla(48, 0%, 90%,.5)
+$xlight-border: hsla(0, 0%, 82%, 0.31)
+$light-border: hsla(0, 0%, 52%, 0.31)
+$med-border: hsla(0, 0%, 12%, 0.31)
+$dark-border: hsla(0, 0%, 0%, 0.31)
+
+$cool-hue: 220
+$cool-huesat: 220, 5%
+
+$desat-minor: hsla($cool-hue, 50%, 98%,.1)
+$desat-major: hsla($cool-hue, 98%, 98%,.3)
+
+$a-gray_c: hsla($cool-hue, 60%, 98%, 1)
+
+$o-gray_c: hsla($cool-hue, 10%, 40%, 1)
+$p-gray_c: hsla($cool-hue, 10%, 50%, 1)
+$q-gray_c: hsla($cool-hue, 10%, 70%, 1)
+
+
+$y-gray_c: hsla($cool-hue, 0%, 95%, 1)
+$z-gray_c: hsla($cool-hue, 0%, 99%, 1)
+
+$warm-hue: 45
+$warm-huesat: 45, 5%
+
+$warm-white: hsla(55, 98%, 96%, 1)
+
+$a-gray_w: hsla($warm-hue, 60%, 98%, 1)
+
+$o-gray_w: hsla($warm-hue, 10%, 40%, 1)
+$p-gray_w: hsla($warm-hue, 10%, 50%, 1)
+$q-gray_w: hsla($warm-hue, 10%, 60%, 1)
+
+$y-gray_w: hsla($warm-hue, 0%, 95%, 1)
+$z-gray_w: hsla($warm-hue, 0%, 99%, 1)
+
+
+$med-red: #c12c3b
+
+
+//ANNOTATOR TEXT STYLES
+//Text styles have font size, color, decoration, spacing, etc. Use only for properties relating directly to the display of text. The style for body text is defined up in the resets and is the default.
+@mixin redtitletext
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+  font-weight: normal
+  font-size: 16px
+  color: $med-red
+  line-height: 1.2em
+  text-align: left
+
+@mixin bodytext
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+  font-weight: normal
+  font-size: 13px
+  color: hsla($warm-hue, 10%, 40%, 1)
+  line-height: 1.2em
+  text-align: left
+
+@mixin primarytext
+  color: $o-gray_w
+@mixin secondarytext
+  color: $q-gray_w
+  font-size: .8em
+@mixin tagtext
+
+
+//ANNOTATOR SHADOW STYLES
+@mixin bigshadow
+  +box-shadow(0px 0px 50px hsla(0, 0%, 52%, 0.31))
+
+//ANNOTATOR BOX STYLES
+//Box styles have borders, backgrounds, and shadows. Visual effects that do not mess with the positioning much.
+@mixin whitebox
+  +background-image(linear-gradient(white, $z-gray_w))
+  border: 1px solid $med-border
+  border-radius: 3px
+  box-shadow: 1px 1px 4px $xlight-border
+  @include bodytext
+
+@mixin threadbox
+  border-left: 1px dotted hsla($warm-hue, 5%, 70%, 1)
+  background: $desat-minor
+
+@mixin buttonbox
+  border: 1px solid $med-border
+  border-radius: 3px
+  padding: .5em
+  box-shadow: 1px 1px 4px $xlight-border
+  &:hover
+    opacity: 1
+
+@mixin basebox
+  background: hsla($warm-hue, 0%, 98%, 1)
+  border-left: 1px dotted hsla($warm-hue, 5%, 60%, 1)
+
+@mixin tagbox
+  background: hsla($cool-hue, 10%, 90%, 1)
+  color: hsla($warm-hue, 10%, 30%, 1)
+  border-radius: 2px
+  border: 1px solid hsla($cool-hue, 10%, 70%, 1)
+//  box-shadow: 0px 1px 8px hsla($cool-hue, 10%, 30%, .3)
+//  border-bottom: 2px solid hsla($cool-hue, 10%, 60%, 1)
+
+//This applies to the annotator as a whole, plus styles specific to the .annotator-listing class
+.annotator-listing
+  list-style-type: none
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+  font-weight: normal
+  font-size: 13px
+  color: $p-gray_w
+  line-height: 1.2em
+  text-align: left
+  margin: 0
+  padding: 0
+  background: none
+  p
+    margin: 0
+    margin-bottom: .5em
+  input, textarea
+    +whitebox
+    +box-sizing(border-box)
+    padding: .5em
+    &:focus
+      outline: none
+      border: 1px solid $o-gray_w
+
+.annotator-component
+  padding-left: 1em
+  padding-right: 1em
+  padding-top: 1em
+
+//ICON IMAGES
+//This class provides some useful defaults for setting icon images.
+//It has a variable allowing you to switch between iconsets (folders inside /images directory)
+$iconset: iconset_wireframe
+@mixin icon_resets
+  text-indent: -9999px
+  background-repeat: no-repeat
+  background-position: center
+  background-size: 100% 100%
+
+@mixin icon($icon)
+  +icon_resets
+  background-image: url('../images/#{$iconset}/#{$icon}.png')
+
+//ANNOTATOR LAYOUT STUFF
+
+.annotator-hl
+  background: rgba(255, 255, 10, 0.3)
+
+//ANNOTATOR
+//
+#annotator
+  +basebox
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  margin:
+    left: 1em
+  padding:
+    bottom: 1em
+  overflow: auto
+  width: 500px
+  +bigshadow
+
+
+//GLOBAL STYLES
+//Add settings in here if they will apply to the class globally. Visual styles, extends, padding, etc. Don't put margins or absolute positioning in here. Instead, use the object styles for things having to do with positioning.
+
+//MISC
+.annotator-tag
+  +tagbox
+  +tagtext
+  padding: .1em .5em
+  padding-bottom: .25em
+
+.annotator-excerpt
+  +whitebox
+  padding: .5em
+
+.annotator-content
+  &p:last-child
+    margin-bottom: 0
+
+.annotator-user
+  +redtitletext
+
+.annotator-time
+  +secondarytext
+
+//ANNOTATOR SCORE
+//This holds information about the score of the annotation in question.
+.annotator-score
+  &div:first-child
+    margin:
+      bottom: .25em
+  text-align: center
+  .annotator-up
+    +icon(up_3)
+    opacity: .5
+    padding: 0
+    width: 2em
+    height: 1.5em
+    margin:
+      bottom: .25em
+      left: auto
+      right: auto
+  .annotator-down
+    +icon(down_3)
+    opacity: .5
+    padding: 0
+    width: 2em
+    height: 1.5em
+    margin:
+      bottom: .25em
+      left: auto
+      right: auto
+  .annotator-label
+    font-size: 16px
+    font-weight: bold
+    margin: 0
+    +primarytext
+
+//ANNOTATOR OBJECT STYLES
+//Object styles define settings relative to the relationships between elements. Widgets, which are only applied to li's, go inside of listings, which are only applied to ul's. They hold nicely padded components. Inside of components, it's a free for all. Put positioning stuff and other things that only apply to an element in a specific place here.
+
+//ANNOTATOR LISTINGS
+.annotator-replies
+  padding-left: 1em
+
+//ANNOTATOR WIDGETS
+.annotator-annotation_detail
+  &:first-child
+    margin-top: 0
+.annotator-reply
+  +threadbox
+  margin-top: 1.5em
+.annotator-annotation_summary
+
+//ANNOTATOR COMPONENTS
+.annotator-component
+  &:first-child
+    padding-top: .5em
+
+
+//This applies to the editor.
+.annotator-editor
+  +clearfix
+  margin-bottom: 1em
+  textarea
+    width: 100%
+    max-width: 100%
+    margin-bottom: 1em
+    min-height: 5em
+  input
+    float: left
+    width: 100%
+  .annotator-controls
+    float: left
+    vertical-align: middle
+    padding-top: .5em
+    button
+      margin-right: .25em
+    &button:last-child
+      margin-right: 0
+
+//META
+//This applies to the bar at the top of annotations and replies.
+.annotator-meta
+  +clearfix
+  background: $desat-minor
+  div
+    vertical-align: middle
+  .annotator-score
+    float: left
+    display: inline-block
+    clear: none
+    margin-right: 1em
+  .annotator-container
+    float: left
+    clear: none
+  .annotator-controls
+    float: right
+    vertical-align: top
+    button
+      margin-right: 1em
+    &button:last-child
+      margin-right: 0
+
+//This applies to the spot for tags.
+.annotator-tags
+  margin-bottom: .25em
+
+//This applies to the excerpt of the source material, and possibly other excerpts.
+.annotator-excerpt
+  padding: .5em
+  margin-top: 1em
+  margin-left: 1em
+  margin-right: .5em
+
+//MODS
+
+////BUTTONS AS LINKS
+//.annotator-linkbutton
+//  border: none
+//  background: non
+//  text-decoration: underline
+//  font-size: 14px
+
+//.annotator-iconbutton
+//  border: none
+//  background: none
+//  width: 2em
+//  height: 2em
+//  opacity: .6
+//  &:hover, :active
+//    opacity: .8
+
+//.annotator-write
+//  @extend .annotator-linkbutton
+
+//.annotator-flag
+//  @extend .annotator-linkbutton
+
+//.annotator-fave
+//  @extend .annotator-linkbutton
+
+//.annotator-save
+//  +icon(submit_1)
+//  @extend .annotator-iconbutton
+//  width: 2.5em
+//  height: 2.5em
+
+//.annotator-delete
+//  +icon(delete_1)
+//  @extend .annotator-iconbutton
+//  width: 2.5em
+//  height: 2.5em
+
+//BUTTONS AS ICONS
+.annotator-iconbutton
+  border: none
+  background: none
+  width: 2em
+  height: 2em
+  opacity: .4
+  &:hover, :active
+    opacity: .8
+
+.annotator-write
+  +icon(reply_2)
+  @extend .annotator-iconbutton
+
+.annotator-flag
+  +icon(flag_1)
+  @extend .annotator-iconbutton
+
+.annotator-fave
+  +icon(fave_3)
+  @extend .annotator-iconbutton
+
+.annotator-save
+  +icon(submit_1)
+  @extend .annotator-iconbutton
+  width: 2em
+  height: 2em
+
+.annotator-delete
+  +icon(delete_1)
+  @extend .annotator-iconbutton
+  width: 2em
+  height: 2em
+
+button.annotator-up
+  +icon(up_3)
+  @extend .annotator-iconbutton
+  width: 2em
+  height: 1.5em
+
+button.annotator-down
+  +icon(down_3)
+  @extend .annotator-iconbutton
+  width: 2em
+  height: 1.5em

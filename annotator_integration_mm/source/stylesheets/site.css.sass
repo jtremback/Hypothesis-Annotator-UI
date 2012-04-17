@@ -78,20 +78,24 @@ $med-red: #c12c3b
 
 //ANNOTATOR SHADOW STYLES
 @mixin bigshadow
-  +box-shadow(0px 0px 50px hsla(0, 0%, 52%, 0.31))
+  +box-shadow(0px 0px 50px hsla(0, 0%, 52%, 0.1))
 
 //ANNOTATOR BOX STYLES
 //Box styles have borders, backgrounds, and shadows. Visual effects that do not mess with the positioning much.
 @mixin whitebox
   +background-image(linear-gradient(white, $z-gray_w))
   border: 1px solid $med-border
-  border-radius: 3px
   box-shadow: 1px 1px 4px $xlight-border
   @include bodytext
+
+@mixin excerptbox
+  +background-image(linear-gradient(white, $z-gray_w))
+  border-bottom: 1px dotted hsla($warm-hue, 5%, 60%, 1)
 
 @mixin threadbox
   border-left: 1px dotted hsla($warm-hue, 5%, 70%, 1)
   background: $desat-minor
+  +box-shadow(0px 0px 50px hsla(0, 0%, 52%, 0.1))
 
 @mixin buttonbox
   border: 1px solid $med-border
@@ -102,8 +106,13 @@ $med-red: #c12c3b
     opacity: 1
 
 @mixin basebox
-  background: hsla($warm-hue, 0%, 98%, 1)
+  background: hsla($warm-hue, 0%, 99%, 1)
   border-left: 1px dotted hsla($warm-hue, 5%, 60%, 1)
+
+@mixin invisibox
+  background: none
+  border: none
+  outline: none
 
 @mixin tagbox
   background: hsla($cool-hue, 10%, 90%, 1)
@@ -187,10 +196,6 @@ $iconset: iconset_wireframe
   padding: .1em .5em
   padding-bottom: .25em
 
-.annotator-excerpt
-  +whitebox
-  padding: .5em
-
 .annotator-content
   &p:last-child
     margin-bottom: 0
@@ -239,16 +244,29 @@ $iconset: iconset_wireframe
 
 //ANNOTATOR LISTINGS
 .annotator-replies
-  padding-left: 1em
 
 //ANNOTATOR WIDGETS
 .annotator-annotation_detail
   &:first-child
     margin-top: 0
+//    display: none
+
 .annotator-reply
   +threadbox
+  margin-left: 1em
   margin-top: 1.5em
+
 .annotator-annotation_summary
+  +threadbox
+  margin-left: 1em
+  margin-top: 1em
+  padding-bottom: 1em
+  .annotator-tag
+    clear: none
+    float: right
+    margin-right: .5em
+    margin-top: .2em
+
 
 //ANNOTATOR COMPONENTS
 .annotator-component
@@ -258,14 +276,18 @@ $iconset: iconset_wireframe
 
 //This applies to the editor.
 .annotator-editor
+  +whitebox
   +clearfix
-  margin-bottom: 1em
+  margin: 0
+  border-radius: 3px
   textarea
+    +invisibox
     width: 100%
     max-width: 100%
-    margin-bottom: 1em
+    margin: 0
     min-height: 5em
   input
+    +invisibox
     float: left
     width: 100%
   .annotator-controls
@@ -306,10 +328,11 @@ $iconset: iconset_wireframe
 
 //This applies to the excerpt of the source material, and possibly other excerpts.
 .annotator-excerpt
-  padding: .5em
-  margin-top: 1em
-  margin-left: 1em
-  margin-right: .5em
+  @include excerptbox
+  font-family: serif
+  font-size: 1.1em
+  padding: 1em
+  margin: 0
 
 //MODS
 
@@ -354,15 +377,16 @@ $iconset: iconset_wireframe
 .annotator-iconbutton
   border: none
   background: none
-  width: 2em
-  height: 2em
+  width: 1.8em
+  height: 1.8em
   opacity: .4
   &:hover, :active
     opacity: .8
 
 .annotator-write
-  +icon(reply_2)
+  +icon(pen_1)
   @extend .annotator-iconbutton
+  background-image: url('../images/iconset_wireframe/pen_1.svg')
 
 .annotator-flag
   +icon(flag_1)

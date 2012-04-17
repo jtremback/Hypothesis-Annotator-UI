@@ -4,7 +4,7 @@
     <meta charset='utf-8' />
     <!-- Always force latest IE rendering engine (even in intranet) &amp; Chrome Frame -->
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
-    <link type="text/css" media="screen" href="/stylesheets/site.css" rel="stylesheet" />
+    <link href='stylesheets/site.css' rel='stylesheet' type='text/css' />
     <title>Hypothesis Annotator Integration</title>
   </head>
   <body class='index'>
@@ -100,164 +100,264 @@
             <p><ul>  (d) Table of Contents Amendment- The table of contents in the first section of such Act is amended by adding at the end the following new item:</ul>
             <p><ul><ul>`Sec. 1104. Cyber threat intelligence and information sharing.'.</ul></ul>
           </div>
-          <ul class='annotator-listing annotator-detail'>
-            <li class='annotator-widget annotator-annotation'>
-              <div class='annotator-item annotator-excerpt'>
-                <p>
-                  `(2) CYBER THREAT INTELLIGENCE- The term `cyber threat intelligence' means information in the possession of an element of the intelligence community directly pertaining to a vulnerability of, or threat to, a system or network of a government or private entity, including information pertaining to the protection of a system or network from--
-                </p>
-                <p>
-                  `(A) efforts to degrade, disrupt, or destroy such system or network; or
-                </p>
-                <p>
-                  `(B) theft or misappropriation of private or government information, intellectual property, or personally identifiable information.
-                </p>
-              </div>
-              <div class='annotator-item annotator-meta'>
-                <div class='annotator-score'>
-                  <div class='annotator-up'></div>
-                  <div class='annotator-small'>34.5</div>
+          <div id='annotator'>
+            <ul class='annotator-listing'>
+              <li class='annotator-widget annotator-annotation_detail'>
+                <blockquote class='annotator-component annotator-excerpt'>
+                  <p>
+                    `(2) CYBER THREAT INTELLIGENCE- The term `cyber threat intelligence' means information in the possession of an element of the intelligence community directly pertaining to a vulnerability of, or threat to, a system or network of a government or private entity, including information pertaining to the protection of a system or network from--
+                  </p>
+                  <p>
+                    `(A) efforts to degrade, disrupt, or destroy such system or network; or
+                  </p>
+                  <p>
+                    `(B) theft or misappropriation of private or government information, intellectual property, or personally identifiable information.
+                  </p>
+                </blockquote>
+                <div class='annotator-component annotator-meta'>
+                  <div class='annotator-score'>
+                    <div class='annotator-label'>25</div>
+                    <div class='annotator-down'></div>
+                  </div>
+                  <div class='annotator-container'>
+                    <div class='annotator-user'>bo1024</div>
+                    <div class='annotator-time'>posted 5 days ago</div>
+                  </div>
+                  <div class='annotator-controls'>
+                    <button class='annotator-write'>Reply</button>
+                    <button class='annotator-fave'>Favorite</button>
+                    <button class='annotator-flag'>Flag</button>
+                  </div>
                 </div>
-                <div class='annotator-info'>
-                  <div class='annotator-user'>bo1024</div>
-                  <div class='annotator-time'>posted 5 days ago</div>
+                <article class='annotator-component annotator-content'>
+                  <p>
+                    From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
+                  </p>
+                </article>
+                <div class='annotator-component annotator-tags'>
+                  <span class='annotator-tag'>Government Overreach</span>
                 </div>
-              </div>
-              <div class='annotator-item annotator-content'>
-                <p>
-                  From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
-                </p>
-              </div>
-              <div class='annotator-item annotator-controls'>
-                <button class='annotator-writebutton'></button>
-                <button class='annotator-flagbutton'></button>
-                <button class='annotator-favebutton'></button>
-                <span class='annotator-tag'>I oppose this.</span>
-              </div>
-              <li class='annotator-editor annotator-widget'>
-                <form>
-                  <div class='annotator-item'>
-                    <textarea id='annotator-field-0' placeholder='Comments…'></textarea>
+                <form class='annotator-component annotator-editor'>
+                  <textarea id='annotator-field-0' placeholder='Comments...'></textarea>
+                  <input id='annotator-field-1' placeholder='Add a tag...' />
+                  <div class='annotator-controls'>
+                    <button class='annotator-up'></button>
+                    <button class='annotator-down'></button>
+                    <button class='annotator-save'>Save</button>
+                    <button class='annotator-delete'>Delete</button>
                   </div>
                 </form>
-                <div class='annotator-item annotator-controls'>
-                  <input id='annotator-field-1' placeholder='Add a stance.' />
-                  <button class='annotator-deletebutton'></button>
-                  <button class='annotator-savebutton'></button>
-                </div>
+                <ul class='annotator-listing annotator-replies'>
+                  <li class='annotator-widget annotator-reply'>
+                    <div class='annotator-component annotator-meta'>
+                      <div class='annotator-score'>
+                        <div class='annotator-up'></div>
+                        <div class='annotator-label'>7</div>
+                      </div>
+                      <div class='annotator-container'>
+                        <div class='annotator-user'>IWantSpaceships</div>
+                        <div class='annotator-time'>posted 5 days ago</div>
+                      </div>
+                      <div class='annotator-controls'>
+                        <button class='annotator-write'>Reply</button>
+                        <button class='annotator-fave'>Favorite</button>
+                        <button class='annotator-flag'>Flag</button>
+                      </div>
+                    </div>
+                    <article class='annotator-component annotator-content'>
+                      <p>
+                        That's not what I see when I read it. It doesn't state that intellectual property as a cybersecurity issue unto itself, only "protection of a system or network" from theft or misappropriation of that property. The bill does not expand an entity's power to control the distribution of that property after its theft/misappropriation from its network.
+                      </p>
+                    </article>
+                    <div class='annotator-component annotator-tags'>
+                      <span class='annotator-tag'>Factually Incorrect</span>
+                    </div>
+                    <ul class='annotator-listing annotator-replies'>
+                      <li class='annotator-widget annotator-reply'>
+                        <div class='annotator-component annotator-meta'>
+                          <div class='annotator-score'>
+                            <div class='annotator-up'></div>
+                            <div class='annotator-label'>45</div>
+                          </div>
+                          <div class='annotator-container'>
+                            <div class='annotator-user'>malogos</div>
+                            <div class='annotator-time'>posted 4 days ago</div>
+                          </div>
+                          <div class='annotator-controls'>
+                            <button class='annotator-write'>Reply</button>
+                            <button class='annotator-fave'>Favorite</button>
+                            <button class='annotator-flag'>Flag</button>
+                          </div>
+                        </div>
+                        <article class='annotator-component annotator-content'>
+                          <p>
+                            Your reading is correct. This bill is about cyber security and not copyright protection. ISPs are actually a minor part of this bill it's aimed to protect critical infrastructure. ISPs would only be sharing data that involves there role as critical US infrastructure, and so monitoring individual users isn't the point at all. If the wording needs cleaned up, that's one thing, but the intent is clearly not to spy on citizens.
+                          </p>
+                        </article>
+                        <div class='annotator-component annotator-tags'>
+                          <span class='annotator-tag'>Agree</span>
+                        </div>
+                        <ul class='annotator-listing annotator-replies'>
+                          <li class='annotator-widget annotator-reply'>
+                            <div class='annotator-component annotator-meta'>
+                              <div class='annotator-score'>
+                                <div class='annotator-up'></div>
+                                <div class='annotator-label'>112</div>
+                              </div>
+                              <div class='annotator-container'>
+                                <div class='annotator-user'>Thethoughtful1</div>
+                                <div class='annotator-time'>posted 4 days ago</div>
+                              </div>
+                              <div class='annotator-controls'>
+                                <button class='annotator-write'>Reply</button>
+                                <button class='annotator-fave'>Favorite</button>
+                                <button class='annotator-flag'>Flag</button>
+                              </div>
+                            </div>
+                            <article class='annotator-component annotator-content'>
+                              <p>
+                                I would not argue against your guys' reading. In fact, although I personally read it differently, I would rather go with your reading. However, the very fact that it can be read the way the OP and I read it means that it is too ambiguous.
+                              </p>
+                              <p>
+                                Yes, the bill is about cyber security. And yes, the bill is clearly designed to facilitate the foiling of and the apprehension of those who would hack into networks or systems to do malicious things. And yes, the bill does not create new crimes of any sort.
+                              </p>
+                              <p>
+                                However, it allows for novel forms of collection and aggregation of personal data. This data can then be used for myriad purposes, all in the guise of "cyber security," such as "theft" of intellectual property. Copyright infringement, patent infringement, and piracy of any sort are sometimes equated to theft, and although perhaps in most places at the current time it is not, that could easily become a widespread interpretation of this clause. Besides, if any company or government organization is caught misinterpreting it, they are safe anyway. Once they have evidence of someone "stealing" their IP, they have plenty of opportunity to persecute them through existing statutes.
+                              </p>
+                              <p>
+                                I believe that there should be a law passed to stop hackers from taking down websites, stealing personal information, blowing up power plants, etc.
+                              </p>
+                              <p>
+                                This isn't it.
+                              </p>
+                              <p>
+                                Nor is any law that attempts to protect IP. IP should be protected in its own laws, using its own rules. Preferably several laws dealing with different forms of IP.
+                              </p>
+                            </article>
+                            <div class='annotator-component annotator-tags'>
+                              <span class='annotator-tag'>Think about it.</span>
+                            </div>
+                          </li>
+                          <li class='annotator-widget annotator-reply'>
+                            <div class='annotator-component annotator-meta'>
+                              <div class='annotator-score'>
+                                <div class='annotator-label'>28</div>
+                                <div class='annotator-down'></div>
+                              </div>
+                              <div class='annotator-container'>
+                                <div class='annotator-user'>jnt8686</div>
+                                <div class='annotator-time'>posted 5 days ago</div>
+                              </div>
+                              <div class='annotator-controls'>
+                                <button class='annotator-write'>Reply</button>
+                                <button class='annotator-fave'>Favorite</button>
+                                <button class='annotator-flag'>Flag</button>
+                              </div>
+                            </div>
+                            <article class='annotator-component annotator-content'>
+                              <p>
+                                While you guys are technically correct, why does it seem like our government keeps passing laws that are designed to be confusing and misleading? I don't care what the nitpicky little reading could be, if a law appears at all to infringe upon our constitutional rights, it needs to be rewritten.
+                              </p>
+                            </article>
+                            <div class='annotator-component annotator-tags'>
+                              <span class='annotator-tag'>Disagree</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
               </li>
-              <ul class='annotator-listing annotator-replies'>
-                <li class='annotator-widget annotator-reply'>
-                  <div class='annotator-item annotator-meta'>
-                    <div class='annotator-score'>
-                      <div class='annotator-small'>7.3</div>
-                      <div class='annotator-down'></div>
-                    </div>
-                    <div class='annotator-info'>
-                      <div class='annotator-user'>IWantSpaceships</div>
-                      <div class='annotator-time'>posted 5 days ago</div>
-                    </div>
+              <li class='annotator-widget annotator-annotation_summary'>
+                <div class='annotator-component annotator-meta'>
+                  <div class='annotator-score'>
+                    <div class='annotator-up'></div>
+                    <div class='annotator-label'>47</div>
                   </div>
-                  <div class='annotator-item annotator-content'>
-                    <p>
-                      That's not what I see when I read it. It doesn't state that intellectual property as a cybersecurity issue unto itself, only "protection of a system or network" from theft or misappropriation of that property. The bill does not expand an entity's power to control the distribution of that property after its theft/misappropriation from its network.
-                    </p>
+                  <div class='annotator-container'>
+                    <div class='annotator-user'>trevorEFF</div>
+                    <div class='annotator-time'>posted 4 days ago</div>
                   </div>
-                  <div class='annotator-item annotator-controls'>
-                    <button class='annotator-writebutton'></button>
-                    <button class='annotator-flagbutton'></button>
-                    <button class='annotator-favebutton'></button>
-                    <span class='annotator-tag'>Downvote</span>
+                  <span class='annotator-tag'>Factually Incorrect</span>
+                </div>
+                <article class='annotator-component annotator-content'>
+                  <p>From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)</p>
+                </article>
+              </li>
+              <li class='annotator-widget annotator-annotation_summary'>
+                <div class='annotator-component annotator-meta'>
+                  <div class='annotator-score'>
+                    <div class='annotator-up'></div>
+                    <div class='annotator-label'>45</div>
                   </div>
-                  <ul class='annotator-listing annotator-replies'>
-                    <li class='annotator-widget annotator-reply'>
-                      <div class='annotator-item annotator-meta'>
-                        <div class='annotator-score'>
-                          <div class='annotator-up'></div>
-                          <div class='annotator-small'>11.2</div>
-                        </div>
-                        <div class='annotator-info'>
-                          <div class='annotator-user'>malogos</div>
-                          <div class='annotator-time'>posted 4 days ago</div>
-                        </div>
-                      </div>
-                      <div class='annotator-item annotator-content'>
-                        <p>
-                          Your reading is correct. This bill is about cyber security and not copyright protection. ISPs are actually a minor part of this bill it's aimed to protect critical infrastructure. ISPs would only be sharing data that involves there role as critical US infrastructure, and so monitoring individual users isn't the point at all. If the wording needs cleaned up, that's one thing, but the intent is clearly not to spy on citizens.
-                        </p>
-                      </div>
-                      <div class='annotator-item annotator-controls'>
-                        <button class='annotator-writebutton'></button>
-                        <button class='annotator-flagbutton'></button>
-                        <button class='annotator-favebutton'></button>
-                        <span class='annotator-tag'>Upvote</span>
-                      </div>
-                      <ul class='annotator-listing annotator-replies'>
-                        <li class='annotator-widget annotator-reply'>
-                          <div class='annotator-item annotator-meta'>
-                            <div class='annotator-score'>
-                              <div class='annotator-up'></div>
-                              <div class='annotator-small'>34.5</div>
-                            </div>
-                            <div class='annotator-info'>
-                              <div class='annotator-user'>bo1024</div>
-                              <div class='annotator-time'>posted 5 days ago</div>
-                            </div>
-                          </div>
-                          <div class='annotator-item annotator-content'>
-                            <p>
-                              I would not argue against your guys' reading. In fact, although I personally read it differently, I would rather go with your reading. However, the very fact that it can be read the way the OP and I read it means that it is too ambiguous.
-                            </p>
-                            <p>
-                              Yes, the bill is about cyber security. And yes, the bill is clearly designed to facilitate the foiling of and the apprehension of those who would hack into networks or systems to do malicious things. And yes, the bill does not create new crimes of any sort.
-                            </p>
-                            <p>
-                              However, it allows for novel forms of collection and aggregation of personal data. This data can then be used for myriad purposes, all in the guise of "cyber security," such as "theft" of intellectual property. Copyright infringement, patent infringement, and piracy of any sort are sometimes equated to theft, and although perhaps in most places at the current time it is not, that could easily become a widespread interpretation of this clause. Besides, if any company or government organization is caught misinterpreting it, they are safe anyway. Once they have evidence of someone "stealing" their IP, they have plenty of opportunity to persecute them through existing statutes.
-                            </p>
-                            <p>
-                              I believe that there should be a law passed to stop hackers from taking down websites, stealing personal information, blowing up power plants, etc.
-                            </p>
-                            <p>
-                              This isn't it.
-                            </p>
-                            <p>
-                              Nor is any law that attempts to protect IP. IP should be protected in its own laws, using its own rules. Preferably several laws dealing with different forms of IP.
-                            </p>
-                          </div>
-                          <div class='annotator-item annotator-controls'>
-                            <button class='annotator-writebutton'></button>
-                            <button class='annotator-flagbutton'></button>
-                            <button class='annotator-favebutton'></button>
-                            <span class='annotator-tag'>Think about it.</span>
-                          </div>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <!-- /          .annotator-item.annotator-checkbox -->
-          <!-- /            %input#annotator-field-2{:checked => "checked", :placeholder => "Allow anyone to <strong>Reply</strong> this annotation", :type => "checkbox"} -->
-          <!-- /              %label{:for => "annotator-field-2"} -->
-          <!-- /                Allow anyone to -->
-          <!-- /                %strong Reply -->
-          <!-- /                this annotation -->
-          <!-- /          .annotator-item.annotator-checkbox -->
-          <!-- /            %input#annotator-field-1{:checked => "checked", :placeholder => "Allow anyone to <strong>view</strong> this annotation", :type => "checkbox"} -->
-          <!-- /              %label{:for => "annotator-field-1"} -->
-          <!-- /                Allow anyone to -->
-          <!-- /                %strong view -->
-          <!-- /                this annotation -->
-          <!-- / -->
-          <!-- /          %span.annotator-resize -->
-          <!-- /      %span.annotator-controls -->
-          <!-- /        %button.annotator-reply Reply -->
-          <!-- /        %button.annotator-flag Flag -->
+                  <div class='annotator-container'>
+                    <div class='annotator-user'>trevorEFF</div>
+                    <div class='annotator-time'>posted 5 days ago</div>
+                  </div>
+                  <span class='annotator-tag'>Facebook</span>
+                  <span class='annotator-tag'>Privacy</span>
+                </div>
+                <article class='annotator-component annotator-content'>
+                  <p>The bill's authors could take this provision out and companies will still get all the benefits they wanted in the first place. This spying section is the portion that will destroy our privacy and it's a section that's not even needed to accomplish the bill's goals.</p>
+                  <p>Facebook even admitted on Friday they don't like this section, don't need it, or don't want it, but for now, it's still in the bill. So that's why we need people to go here and email their member of Congress to vote against it.</p>
+                </article>
+              </li>
+              <li class='annotator-widget annotator-annotation_summary'>
+                <div class='annotator-component annotator-meta'>
+                  <div class='annotator-score'>
+                    <div class='annotator-up'></div>
+                    <div class='annotator-label'>17</div>
+                  </div>
+                  <div class='annotator-container'>
+                    <div class='annotator-user'>-glass</div>
+                    <div class='annotator-time'>posted 2 days ago</div>
+                  </div>
+                  <span class='annotator-tag'>NewZealand</span>
+                  <span class='annotator-tag'>Copyright</span>
+                </div>
+                <article class='annotator-component annotator-content'>
+                  <p>Here's the situation: you live in a country where the Government imposed a state of emergency due to an earthquake which decimated a city and killed hundreds of people. They then used the emergency powers they are granted under the state of emergency laws to force through a bill, that had been opposed multiple times in the past, that implements a three-strikes law on copyright infringement with the penalty being internet disconnection. After about 5 minutes of outrage the media got bored and now no one seems to care about 1) how the law was passed and 2) that the law is passed.</p>
+                </article>
+              </li>
+              <li class='annotator-widget annotator-annotation_summary'>
+                <div class='annotator-component annotator-meta'>
+                  <div class='annotator-score'>
+                    <div class='annotator-up'></div>
+                    <div class='annotator-label'>7</div>
+                  </div>
+                  <div class='annotator-container'>
+                    <div class='annotator-user'>IlovePopcorn</div>
+                    <div class='annotator-time'>posted 21 hours ago</div>
+                  </div>
+                  <span class='annotator-tag'>Reactive</span>
+                  <span class='annotator-tag'>InternetBillOfRights</span>
+                </div>
+                <article class='annotator-component annotator-content'>
+                  <p>I am fearful that the current reactive approach to these bills will fail. They keep coming and coming and the ability to mobilize people time after time decreases. Eventually, the lobbying groups will slip these pieces of legislation through one small piece at a time. It's an effective tactic. It is my opinion that we need take a proactive stance to preempt these actions. My question to you, EFF, is what are our options, legislatively or other wise, to pass/ensure some basic protections for the architecture of a free and open Internet to discourage the seemingly unending onslaught to these harmful pieces of legislation?</p>
+                  <p>Instead of trying to educate, organize, and mobilize citizens 10,20, or 50 times, why can't we nail down some sort of basic internet bill of rights and mobilize everybody once to support it? The impact of that would be magnitudes greater.</p>
+                </article>
+              </li>
+              <li class='annotator-widget annotator-annotation_summary'>
+                <div class='annotator-component annotator-meta'>
+                  <div class='annotator-score'>
+                    <div class='annotator-up'></div>
+                    <div class='annotator-label'>3</div>
+                  </div>
+                  <div class='annotator-container'>
+                    <div class='annotator-user'>waywardfrantz</div>
+                    <div class='annotator-time'>posted 6 days ago</div>
+                  </div>
+                  <span class='annotator-tag'>WTF</span>
+                </div>
+                <article class='annotator-component annotator-content'>
+                  <p>I say focus on two lines, the main description where it says "for other purpose" i mean WTF? and then later when it says people are clear of liability if they have good intentions. Lets get people to read the bill, these are ludicrous lines in a fairly moderate bill. The line stating that any requests authorized by this bill must be reported in non-classified form is AWESOME and helps us a lot.</p>
+                </article>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <script src='javascripts/bootstrap.min.js'></script>
     </div>
   </body>
 </html>

@@ -437,49 +437,49 @@ ul#menu li, ul#menu a {
   border-radius: 3px; }
 
 .annotator-up {
-  background-image: url("/images/iconset_wireframe/up_4.png");
+  background-image: url("../images/iconset_wireframe/up_4.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
   opacity: 0.8; }
 
 .annotator-down {
-  background-image: url("/images/iconset_wireframe/down_4.png");
+  background-image: url("../images/iconset_wireframe/down_4.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
   opacity: 0.8; }
 
 .annotator-writebutton {
-  background-image: url("/images/iconset_wireframe/edit_1.png");
+  background-image: url("../images/iconset_wireframe/edit_1.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 90% 90%;
   opacity: 0.6; }
 
 .annotator-flagbutton {
-  background-image: url("/images/iconset_wireframe/flag_1.png");
+  background-image: url("../images/iconset_wireframe/flag_1.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 90% 90%;
   opacity: 0.6; }
 
 .annotator-favebutton {
-  background-image: url("/images/iconset_wireframe/fave_1.png");
+  background-image: url("../images/iconset_wireframe/fave_1.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 90% 90%;
   opacity: 0.6; }
 
 .annotator-savebutton {
-  background-image: url("/images/iconset_wireframe/submit_1.png");
+  background-image: url("../images/iconset_wireframe/submit_1.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 90% 90%;
   opacity: 0.6; }
 
 .annotator-deletebutton {
-  background-image: url("/images/iconset_wireframe/delete_1.png");
+  background-image: url("../images/iconset_wireframe/delete_1.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 90% 90%;
