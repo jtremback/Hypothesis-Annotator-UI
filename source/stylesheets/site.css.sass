@@ -88,12 +88,18 @@ $med-red: #c12c3b
 @mixin whitebox
   +background-image(linear-gradient(white, $z-gray_w))
   border: 1px solid $med-border
+
   box-shadow: 1px 1px 4px $xlight-border
   @include bodytext
 
+//@mixin excerptbox
+//  +background-image(linear-gradient(white, $z-gray_w))
+//  border-bottom: 1px dotted hsla($warm-hue, 5%, 60%, 1)
+
 @mixin excerptbox
   +background-image(linear-gradient(white, $z-gray_w))
-  border-bottom: 1px dotted hsla($warm-hue, 5%, 60%, 1)
+//  border-bottom: 1px dotted hsla($warm-hue, 5%, 60%, 1)
+//  border-top: 1px dotted hsla($warm-hue, 5%, 60%, 1)
 
 @mixin threadbox
   border-left: 1px dotted hsla($warm-hue, 5%, 70%, 1)
@@ -326,6 +332,22 @@ $iconset: iconset_wireframe
     &button:last-child
       margin-right: 0
 
+//TABS
+//This applies to tab bars
+.annotator-tabs
+  +clearfix
+  border-bottom: 1px dotted hsla(0, 0%, 52%, 1)
+  .annotator-tab
+    float: left
+    padding: .25em .5em
+    margin-right: .5em
+    margin-bottom: -1px
+    border-radius: 3px
+    background: white
+    border-bottom: none
+    +smallshadow
+
+
 //META
 //This applies to the bar at the top of annotations and replies.
 .annotator-meta
@@ -358,11 +380,12 @@ $iconset: iconset_wireframe
 
 //This applies to the excerpt of the source material, and possibly other excerpts.
 .annotator-excerpt
-  @include excerptbox
+  +smallshadow
+  background: white
   font-family: serif
   font-size: 1.1em
   padding: 1em
-  margin: 0
+  margin: 1em
 
 //MODS
 
