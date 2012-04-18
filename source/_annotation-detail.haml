@@ -9,8 +9,7 @@
       `(B) theft or misappropriation of private or government information, intellectual property, or personally identifiable information.
 
   .annotator-component.annotator-meta
-    .annotator-score
-      .annotator-label 25
+    .annotator-updown
       .annotator-down
     .annotator-container
       .annotator-user bo1024
@@ -27,22 +26,15 @@
     %span.annotator-tag Government Overreach
 
   %form.annotator-component.annotator-editor
-    %fieldset
+    .fake_fieldset
+      .annotator-updown
+        %button.annotator-up
+        %button.annotator-down
       %textarea#annotator-field-0{:placeholder => "Comments..."}
-        .annotator-controls
-          %button.annotator-up
-          %button.annotator-down
       %input#annotator-field-1{:placeholder => "Add a tag..."}
+      .annotator-controls
         %button.annotator-save Save
         %button.annotator-delete Delete
 
   %ul.annotator-listing.annotator-replies
     = partial "reply-1.haml"
-
-%form.annotator-component.annotator-editor
-  %fieldset
-    %legend Create New Annotation
-    %label{:for => "comments"}
-    %input{:autofocus => "", :name => "comments", :placeholder => "Comments...", :required => "", :type => "textarea"}
-    %label{:for => "tags"} Password:
-    %input{:name => "tags", :placeholder => "Add a tag.", :required => "", :type => "input"}

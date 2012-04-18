@@ -78,7 +78,10 @@ $med-red: #c12c3b
 
 //ANNOTATOR SHADOW STYLES
 @mixin bigshadow
-  +box-shadow(0px 0px 50px hsla(0, 0%, 52%, 0.1))
+  +box-shadow(0px 0px 50px hsla(0, 0%, 0%, 0.05))
+
+@mixin smallshadow
+  +box-shadow(2px 2px 8px hsla(0, 0%, 0%, .1))
 
 //ANNOTATOR BOX STYLES
 //Box styles have borders, backgrounds, and shadows. Visual effects that do not mess with the positioning much.
@@ -110,9 +113,13 @@ $med-red: #c12c3b
   border-left: 1px dotted hsla($warm-hue, 5%, 60%, 1)
 
 @mixin invisibox
+  &:active
+    border: none
+    outline: none
   background: none
   border: none
   outline: none
+  box-shadow: none
 
 @mixin tagbox
   background: hsla($cool-hue, 10%, 90%, 1)
@@ -182,7 +189,7 @@ $iconset: iconset_wireframe
   padding:
     bottom: 1em
   overflow: auto
-  width: 500px
+  width: 400px
   +bigshadow
 
 
@@ -206,16 +213,15 @@ $iconset: iconset_wireframe
 .annotator-time
   +secondarytext
 
-//ANNOTATOR SCORE
-//This holds information about the score of the annotation in question.
-.annotator-score
+//ANNOTATOR UPDOWN
+//This holds up and down arrows above each other (refactor)
+.annotator-updown
   &div:first-child
     margin:
       bottom: .25em
   text-align: center
   .annotator-up
-    +icon(up_3)
-    opacity: .5
+    +icon(up_1)
     padding: 0
     width: 2em
     height: 1.5em
@@ -223,9 +229,9 @@ $iconset: iconset_wireframe
       bottom: .25em
       left: auto
       right: auto
+    vertical-align: middle
   .annotator-down
-    +icon(down_3)
-    opacity: .5
+    +icon(down_1)
     padding: 0
     width: 2em
     height: 1.5em
@@ -233,6 +239,7 @@ $iconset: iconset_wireframe
       bottom: .25em
       left: auto
       right: auto
+    vertical-align: middle
   .annotator-label
     font-size: 16px
     font-weight: bold
@@ -278,24 +285,43 @@ $iconset: iconset_wireframe
 .annotator-editor
   +clearfix
   margin: 0
-  border-radius: 3px
-  fieldset
+  .fake_fieldset
+    border-radius: 3px
+    +clearfix
     +whitebox
+    +smallshadow
+    padding: .5em
+    position: relative
+  .annotator-updown
+    position: absolute
+    top: .5em
+    button
+      margin-bottom: .5em
+      clear: both
+      display: block
+      width: 1.5em
+      height: 1em
+    &button:last-child
+      margin-bottom: 0
   textarea
     +invisibox
     width: 100%
-    max-width: 100%
+    max-width: 90%
     margin: 0
+    margin-left: 9%
+    float: right
     min-height: 5em
+    padding: 0
   input
     +invisibox
     float: left
-    width: 100%
+    width: 80%
+    vertical-align: bottom
   .annotator-controls
-    float: left
-    vertical-align: middle
+    float: right
     padding-top: .5em
     button
+      clear: none
       margin-right: .25em
     &button:last-child
       margin-right: 0
@@ -307,11 +333,14 @@ $iconset: iconset_wireframe
   background: $desat-minor
   div
     vertical-align: middle
-  .annotator-score
+  .annotator-updown
     float: left
     display: inline-block
     clear: none
     margin-right: 1em
+    margin-top: .5em
+    div
+      opacity: .8
   .annotator-container
     float: left
     clear: none
@@ -384,26 +413,26 @@ $iconset: iconset_wireframe
   &:hover, :active
     opacity: .8
 
-.annotator-write
+button.annotator-write
   +icon(pen_1)
   @extend .annotator-iconbutton
   background-image: url('../images/pen_1.png')
 
-.annotator-flag
+button.annotator-flag
   +icon(flag_1)
   @extend .annotator-iconbutton
 
-.annotator-fave
+button.annotator-fave
   +icon(fave_3)
   @extend .annotator-iconbutton
 
-.annotator-save
+button.annotator-save
   +icon(submit_1)
   @extend .annotator-iconbutton
   width: 2em
   height: 2em
 
-.annotator-delete
+button.annotator-delete
   +icon(delete_1)
   @extend .annotator-iconbutton
   width: 2em
@@ -412,12 +441,11 @@ $iconset: iconset_wireframe
 button.annotator-up
   +icon(up_1)
   @extend .annotator-iconbutton
-  width: 2em
-  height: 1.5em
+  height: 1em
+  width: 1.5em
 
 button.annotator-down
   +icon(down_1)
   @extend .annotator-iconbutton
-  width: 2em
-  height: 1.5em
-  background-image: url('../images/down_1.png')
+  height: 1em
+  width: 1.5em
