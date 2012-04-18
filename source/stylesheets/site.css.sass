@@ -162,7 +162,7 @@ $iconset: iconset_wireframe
 
 @mixin icon($icon)
   +icon_resets
-  background-image: url('../images/#{$iconset}/#{$icon}.png')
+  background-image: url('../images/#{$icon}.png')
 
 //ANNOTATOR LAYOUT STUFF
 
@@ -276,10 +276,11 @@ $iconset: iconset_wireframe
 
 //This applies to the editor.
 .annotator-editor
-  +whitebox
   +clearfix
   margin: 0
   border-radius: 3px
+  fieldset
+    +whitebox
   textarea
     +invisibox
     width: 100%
@@ -386,7 +387,7 @@ $iconset: iconset_wireframe
 .annotator-write
   +icon(pen_1)
   @extend .annotator-iconbutton
-  background-image: url('../images/iconset_wireframe/pen_1.svg')
+  background-image: url('../images/pen_1.png')
 
 .annotator-flag
   +icon(flag_1)
@@ -409,13 +410,14 @@ $iconset: iconset_wireframe
   height: 2em
 
 button.annotator-up
-  +icon(up_3)
+  +icon(up_1)
   @extend .annotator-iconbutton
   width: 2em
   height: 1.5em
 
 button.annotator-down
-  +icon(down_3)
+  +icon(down_1)
   @extend .annotator-iconbutton
   width: 2em
   height: 1.5em
+  background-image: url('../images/down_1.png')
