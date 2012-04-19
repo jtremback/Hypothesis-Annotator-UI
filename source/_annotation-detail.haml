@@ -34,13 +34,13 @@
     .annotator-score
       .annotator-label 3
 
-  %form.annotator-component.annotator-editor
+  %form.annotator-component.annotator-writer
     .fake_fieldset
       .annotator-updown
         %button.annotator-up
         %button.annotator-down
-      %textarea#annotator-field-0{:placeholder => "Comments..."}
-      %input#annotator-field-1{:placeholder => "Add a tag..."}
+      %textarea{:placeholder => "Comments..."}
+      %input{:placeholder => "Add a tag..."}
       .annotator-controls
         %button.annotator-save Save
         %button.annotator-delete Delete

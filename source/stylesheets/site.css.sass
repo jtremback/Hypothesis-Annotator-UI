@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Antic+Slab)
 @import "cispa.css"
 @import compass
 
@@ -74,6 +75,7 @@ $med-red: #c12c3b
 @mixin secondarytext
   color: $q-gray_w
   font-size: .8em
+
 @mixin tagtext
 
 
@@ -81,8 +83,8 @@ $med-red: #c12c3b
 @mixin bigshadow
   +box-shadow(0px 0px 50px hsla(0, 0%, 0%, 0.05))
 
-@mixin smallshadow
-  +box-shadow(2px 2px 8px hsla(0, 0%, 0%, .1))
+@mixin smallshadow($a: 2px, $b: 2px)
+  +box-shadow($a $b 8px hsla(0, 0%, 0%, .1))
 
 //ANNOTATOR BOX STYLES
 //Box styles have borders, backgrounds, and shadows. Visual effects that do not mess with the positioning much.
@@ -105,9 +107,12 @@ $med-red: #c12c3b
   border: 1px solid $med-border
   border-radius: 3px
   padding: .5em
-  box-shadow: 1px 1px 4px $xlight-border
+  +box-shadow(0px 1px 0px #999)
+  position: relative
   &:hover
-    opacity: 1
+  &:active
+    top: 1px
+    +box-shadow(none)
 
 @mixin basebox
   background: $base-gray
@@ -119,7 +124,6 @@ $med-red: #c12c3b
     background: $desat_major
   &:active
     box-shadow: none
-
 
 @mixin invisibox
   &:active
@@ -136,33 +140,6 @@ $med-red: #c12c3b
   border-radius: 2px
   border: 1px solid hsla($cool-hue, 10%, 70%, 1)
 
-//This applies to the annotator as a whole, plus styles specific to the .annotator-listing class
-.annotator-listing
-  list-style-type: none
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
-  font-weight: normal
-  font-size: 13px
-  color: $p-gray_w
-  line-height: 1.2em
-  text-align: left
-  margin: 0
-  padding: 0
-  background: none
-  p
-    margin: 0
-    margin-bottom: .5em
-  input, textarea
-    +box-sizing(border-box)
-    padding: .5em
-    &:focus
-      outline: none
-      border: 1px solid $o-gray_w
-
-.annotator-component
-  padding-left: 1em
-  padding-right: 1em
-  padding-top: 1em
-
 //ICON IMAGES
 //This class provides some useful defaults for setting icon images.
 //It has a variable allowing you to switch between iconsets (folders inside /images directory)
@@ -176,6 +153,38 @@ $iconset: iconset_wireframe
 @mixin icon($icon)
   +icon_resets
   background-image: url('../images/#{$icon}.png')
+
+
+//This applies to the annotator as a whole, plus styles specific to the .annotator-listing class
+.annotator-listing
+  list-style-type: none
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+  font-weight: normal
+  font-size: 13px
+  color: #666
+  line-height: 1.2em
+  text-align: left
+  margin: 0
+  padding: 0
+  background: none
+  p
+    margin: 0
+    margin-bottom: .5em
+  input, textarea
+    +invisibox
+    +box-sizing(border-box)
+    font: sans-serif
+    padding: .5em
+    &:focus
+      outline: none
+  button
+    +buttonbox
+
+.annotator-component
+  padding-left: 1em
+  padding-right: 1em
+  padding-top: 1em
+
 
 //ANNOTATOR LAYOUT STUFF
 
@@ -299,7 +308,12 @@ $iconset: iconset_wireframe
 
 
 //This applies to the editor.
-.annotator-editor
+@mixin editorpresets
+  button
+    margin: 1em
+
+.annotator-writer
+  +editorpresets
   +clearfix
   margin: 0
   .fake_fieldset
@@ -321,7 +335,6 @@ $iconset: iconset_wireframe
     &button:last-child
       margin-bottom: 0
   textarea
-    +invisibox
     width: 100%
     max-width: 90%
     margin: 0
@@ -330,7 +343,6 @@ $iconset: iconset_wireframe
     min-height: 5em
     padding: 0
   input
-    +invisibox
     float: left
     width: 80%
     vertical-align: bottom
@@ -342,6 +354,53 @@ $iconset: iconset_wireframe
       margin-right: .25em
     &button:last-child
       margin-right: 0
+
+.annotator-faver
+  +editorpresets
+  +clearfix
+  margin: 0
+  .fake_fieldset
+    z-index: 10
+    +clearfix
+    +whitebox
+    +smallshadow
+    padding: .5em
+    position: relative
+  textarea
+    width: 100%
+    max-width: 90%
+    margin: 0
+    margin-left: 9%
+    float: right
+    min-height: 5em
+    padding: 0
+  input
+    float: left
+    width: 80%
+    vertical-align: bottom
+  .annotator-controls
+    float: right
+    padding-top: .5em
+    button
+      clear: none
+      margin-right: .25em
+    &button:last-child
+      margin-right: 0
+
+.annotator-flagger
+  +editorpresets
+  +clearfix
+  margin: 0
+  .fake_fieldset
+    z-index: 10
+    +clearfix
+    +whitebox
+    +smallshadow
+    padding: .5em
+    position: relative
+    text-align: center
+
+
 
 //TABS
 //This applies to tab bars
@@ -390,13 +449,20 @@ $iconset: iconset_wireframe
 
 //This applies to the excerpt of the source material, and possibly other excerpts.
 .annotator-excerpt
+  font-family: "Antic Slab", serif
+  font-size: 1.1em
+  color: black
+  margin: 0
+  margin-bottom: 2em
   padding: 1em
-  margin: 1em
+
 
 //BUTTONS AS ICONS
 .annotator-iconbutton
   border: none
   background: none
+  +box-shadow(none)
+  margin: 0
   width: 1.8em
   height: 1.8em
   opacity: .4
