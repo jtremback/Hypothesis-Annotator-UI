@@ -46,6 +46,7 @@ $q-gray_w: hsla($warm-hue, 10%, 60%, 1)
 $y-gray_w: hsla($warm-hue, 0%, 95%, 1)
 $z-gray_w: hsla($warm-hue, 0%, 99%, 1)
 
+$base-gray: hsla($warm-hue, 0%, 99%, 1)
 
 $med-red: #c12c3b
 
@@ -89,17 +90,11 @@ $med-red: #c12c3b
   background: white
   box-shadow: 1px 1px 4px $xlight-border
   @include bodytext
-//  +background-image(linear-gradient(white, $z-gray_w))
-//  border: 1px solid $med-border
-
-//@mixin excerptbox
-//  +background-image(linear-gradient(white, $z-gray_w))
-//  border-bottom: 1px dotted hsla($warm-hue, 5%, 60%, 1)
 
 @mixin excerptbox
-  +background-image(linear-gradient(white, $z-gray_w))
-//  border-bottom: 1px dotted hsla($warm-hue, 5%, 60%, 1)
-//  border-top: 1px dotted hsla($warm-hue, 5%, 60%, 1)
+  background: white
+  font-family: serif
+  font-size: 1.1em
 
 @mixin threadbox
   border-left: 1px dotted hsla($warm-hue, 5%, 70%, 1)
@@ -115,8 +110,16 @@ $med-red: #c12c3b
     opacity: 1
 
 @mixin basebox
-  background: hsla($warm-hue, 0%, 99%, 1)
-  border-left: 1px dotted hsla($warm-hue, 5%, 60%, 1)
+  background: $base-gray
+
+@mixin tabbox
+  +smallshadow
+  background: $base-gray
+  &:hover
+    background: $desat_major
+  &:active
+    box-shadow: none
+
 
 @mixin invisibox
   &:active
@@ -132,8 +135,6 @@ $med-red: #c12c3b
   color: hsla($warm-hue, 10%, 30%, 1)
   border-radius: 2px
   border: 1px solid hsla($cool-hue, 10%, 70%, 1)
-//  box-shadow: 0px 1px 8px hsla($cool-hue, 10%, 30%, .3)
-//  border-bottom: 2px solid hsla($cool-hue, 10%, 60%, 1)
 
 //This applies to the annotator as a whole, plus styles specific to the .annotator-listing class
 .annotator-listing
@@ -151,7 +152,6 @@ $med-red: #c12c3b
     margin: 0
     margin-bottom: .5em
   input, textarea
-    +whitebox
     +box-sizing(border-box)
     padding: .5em
     &:focus
@@ -185,7 +185,7 @@ $iconset: iconset_wireframe
 //ANNOTATOR
 //
 #annotator
-  +basebox
+  background: white
   position: fixed
   top: 0
   right: 0
@@ -197,6 +197,7 @@ $iconset: iconset_wireframe
   overflow: auto
   width: 400px
   +bigshadow
+  border-left: 1px dotted hsla($warm-hue, 5%, 60%, 1)
 
 
 //GLOBAL STYLES
@@ -252,17 +253,14 @@ $iconset: iconset_wireframe
     margin: 0
     +primarytext
 
-//ANNOTATOR OBJECT STYLES
-//Object styles define settings relative to the relationships between elements. Widgets, which are only applied to li's, go inside of listings, which are only applied to ul's. They hold nicely padded components. Inside of components, it's a free for all. Put positioning stuff and other things that only apply to an element in a specific place here.
-
 //ANNOTATOR LISTINGS
 .annotator-replies
 
 //ANNOTATOR WIDGETS
 .annotator-annotation_detail
-  &:first-child
-    margin-top: 0
-//    display: none
+  +bigshadow
+  +basebox
+  position: relative
 
 .annotator-reply
   +threadbox
@@ -282,7 +280,6 @@ $iconset: iconset_wireframe
     margin-top: .8em
     .annotator-label
       font-size: 1.8em
-
   .annotator-tag
     clear: none
     float: right
@@ -350,16 +347,15 @@ $iconset: iconset_wireframe
 //This applies to tab bars
 .annotator-tabs
   +clearfix
-  border-bottom: 1px dotted hsla(0, 0%, 52%, 1)
+  position: absolute
+  top: -2em
   .annotator-tab
     float: left
     padding: .25em .5em
     margin-right: .5em
     margin-bottom: -1px
-    border-radius: 3px
-    background: white
-    border-bottom: none
     +smallshadow
+    +tabbox
 
 
 //META
@@ -394,51 +390,8 @@ $iconset: iconset_wireframe
 
 //This applies to the excerpt of the source material, and possibly other excerpts.
 .annotator-excerpt
-  +box-shadow(1px 1px 8px hsla(0, 0%, 0%, .1) inset)
-  background: white
-  font-family: serif
-  font-size: 1.1em
   padding: 1em
   margin: 1em
-
-//MODS
-
-////BUTTONS AS LINKS
-//.annotator-linkbutton
-//  border: none
-//  background: non
-//  text-decoration: underline
-//  font-size: 14px
-
-//.annotator-iconbutton
-//  border: none
-//  background: none
-//  width: 2em
-//  height: 2em
-//  opacity: .6
-//  &:hover, :active
-//    opacity: .8
-
-//.annotator-write
-//  @extend .annotator-linkbutton
-
-//.annotator-flag
-//  @extend .annotator-linkbutton
-
-//.annotator-fave
-//  @extend .annotator-linkbutton
-
-//.annotator-save
-//  +icon(submit_1)
-//  @extend .annotator-iconbutton
-//  width: 2.5em
-//  height: 2.5em
-
-//.annotator-delete
-//  +icon(delete_1)
-//  @extend .annotator-iconbutton
-//  width: 2.5em
-//  height: 2.5em
 
 //BUTTONS AS ICONS
 .annotator-iconbutton
