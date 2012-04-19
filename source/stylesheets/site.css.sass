@@ -86,11 +86,11 @@ $med-red: #c12c3b
 //ANNOTATOR BOX STYLES
 //Box styles have borders, backgrounds, and shadows. Visual effects that do not mess with the positioning much.
 @mixin whitebox
-  +background-image(linear-gradient(white, $z-gray_w))
-  border: 1px solid $med-border
-
+  background: white
   box-shadow: 1px 1px 4px $xlight-border
   @include bodytext
+//  +background-image(linear-gradient(white, $z-gray_w))
+//  border: 1px solid $med-border
 
 //@mixin excerptbox
 //  +background-image(linear-gradient(white, $z-gray_w))
@@ -271,15 +271,29 @@ $iconset: iconset_wireframe
 
 .annotator-annotation_summary
   +threadbox
+  +whitebox
   margin-left: 1em
   margin-top: 1em
   padding-bottom: 1em
+  border: 0
+  .annotator-score
+    float: left
+    margin-right: 1em
+    margin-top: .8em
+    .annotator-label
+      font-size: 1.8em
+
   .annotator-tag
     clear: none
     float: right
     margin-right: .5em
     margin-top: .2em
 
+.annotator-tags
+  .annotator-score
+    float: right
+    font-size: 1.8em
+    margin-top: -.7em
 
 //ANNOTATOR COMPONENTS
 .annotator-component
@@ -292,7 +306,7 @@ $iconset: iconset_wireframe
   +clearfix
   margin: 0
   .fake_fieldset
-    border-radius: 3px
+    z-index: 10
     +clearfix
     +whitebox
     +smallshadow
@@ -380,7 +394,7 @@ $iconset: iconset_wireframe
 
 //This applies to the excerpt of the source material, and possibly other excerpts.
 .annotator-excerpt
-  +smallshadow
+  +box-shadow(1px 1px 8px hsla(0, 0%, 0%, .1) inset)
   background: white
   font-family: serif
   font-size: 1.1em
