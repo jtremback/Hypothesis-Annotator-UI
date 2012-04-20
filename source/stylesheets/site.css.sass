@@ -4,7 +4,7 @@
 
 //SOURCE VIEWPORT
 #source
-  margin-right: 500px
+  margin-right: 400px
   overflow: auto
   position: relative
 
@@ -72,7 +72,7 @@ $med-red: #c12c3b
   text-align: left
 
 @mixin primarytext
-  color: $o-gray_w
+  color: #666
 @mixin secondarytext
   color: $q-gray_w
   font-size: .8em
@@ -122,7 +122,7 @@ $med-red: #c12c3b
   +smallshadow
   background: $base-gray
   &:hover
-    background: $desat_major
+    background: #eee
   &:active
     box-shadow: none
 
@@ -206,7 +206,7 @@ $iconset: iconset_wireframe
   padding:
     bottom: 1em
   overflow: auto
-  width: 510px
+  width: 410px
   +bigshadow
   border-left: 1px dotted hsla($warm-hue, 5%, 60%, 1)
 
@@ -220,11 +220,14 @@ $iconset: iconset_wireframe
   +tagtext
   padding: .1em .5em
   padding-bottom: .25em
+  &.var1
+    padding: 0
 
-.annotator-content
-  &p:last-child
-    margin-bottom: 0
-
+//.annotator-content
+//  &p:first-child
+//    margin-top: 0
+//  &p:last-child
+//    margin-bottom: 0
 .annotator-user
   +redtitletext
 
@@ -251,41 +254,52 @@ $iconset: iconset_wireframe
     font-family: sans-serif
     font-size: 1em
     border: 1px dotted #999
-    border-right: 1px solid white
-
+    border-right: none
 
 //SCORE
 //This is for the score indicator part
 .annotator-score
-  &div:first-child
-    margin:
-      bottom: .25em
+  font-size: 1.3em
   text-align: center
+  +box-shadow(2px 2px 8px #666 inset)
+  border-radius: .5em
+  float: left
+  display: inline-block
+  padding: 0 .5em
+  margin:
+    right: .5em
+    bottom: .25em
   .annotator-up
-    +icon(up_3)
+    +icon(up_1)
     opacity: .5
     padding: 0
     width: 2em
     height: 1.5em
     margin:
-      bottom: .25em
+      top: .5em
       left: auto
       right: auto
   .annotator-down
-    +icon(down_3)
+    +icon(down_1)
     opacity: .5
     padding: 0
     width: 2em
     height: 1.5em
     margin:
-      bottom: .25em
+      bottom: .5em
       left: auto
       right: auto
   .annotator-label
-    font-size: 16px
     font-weight: bold
     margin: 0
+    padding: .25em 0
     +primarytext
+    &.annotator-selected
+      border:
+        top: .5em solid #666
+        bottom: .5em solid #666
+
+
 
 //ANNOTATOR UPDOWN
 //This holds up and down arrows above each other (refactor)
@@ -334,6 +348,7 @@ $iconset: iconset_wireframe
   margin-left: 1em
   margin-top: 1.5em
 
+
 .annotator-annotation_summary
   +threadbox
   +basebox
@@ -353,19 +368,11 @@ $iconset: iconset_wireframe
     margin-right: .5em
     margin-top: .2em
 
-.annotator-tags
-  .annotator-score
-    float: right
-    font-size: 1.8em
-    margin-top: -.7em
-
-//ANNOTATOR COMPONENTS
-.annotator-component
-  &:first-child
-    padding-top: .5em
 
 
-//This applies to the editor.
+
+//This applies to the editors (writer, faver, and flagger)
+
 @mixin editorpresets
   button
     margin: 1em
@@ -485,30 +492,45 @@ $iconset: iconset_wireframe
 .annotator-meta
   +clearfix
   background: $desat-minor
-  div
-    vertical-align: middle
-  .annotator-updown
-    float: left
-    display: inline-block
-    clear: none
-    margin-right: 1em
-    margin-top: .5em
-    div
-      opacity: .8
-  .annotator-container
-    float: left
-    clear: none
-  .annotator-controls
-    float: right
-    vertical-align: top
-    button
-      margin-right: 1em
-    &button:last-child
-      margin-right: 0
 
-//This applies to the spot for tags.
-.annotator-tags
-  margin-bottom: .25em
+  &.var1
+    padding: .25em
+    .annotator-tags
+      float: left
+      width: 60%
+      white-space: nowrap
+      text-overflow: ellipsis
+      overflow: hidden
+      margin:
+        top: .5em
+        bottom: .5em
+      .annotator-tag
+        padding: .25em
+    .annotator-container
+      text-align: right
+      float: right
+
+//  div
+//    vertical-align: middle
+//  .annotator-updown
+//    float: left
+//    display: inline-block
+//    clear: none
+//    margin-right: 1em
+//    margin-top: .5em
+//    div
+//      opacity: .8
+//  .annotator-container
+//    float: left
+//    clear: none
+//  .annotator-controls
+//    float: right
+//    vertical-align: top
+//    button
+//      margin-right: 1em
+//    &button:last-child
+//      margin-right: 0
+
 
 //This applies to the excerpt of the source material, and possibly other excerpts.
 .annotator-excerpt
