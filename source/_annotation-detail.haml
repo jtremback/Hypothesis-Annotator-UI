@@ -14,8 +14,9 @@
 
 %li.annotator-annotation
   %article.annotator-content
-    .annotator-score{:style => "background: rgba(205, 101, 110, .2)"}
+    .annotator-score
       .annotator-container
+        .annotator-dot
         .annotator-label 25
         .annotator-down
     %p
@@ -34,9 +35,11 @@
 
   %form.annotator-component.annotator-writer
     .fake_fieldset
-      .annotator-updown
-        %button.annotator-up
-        %button.annotator-down
+      .annotator-score
+        .annotator-container
+          .annotator-dot
+          .annotator-label 12
+          .annotator-dot
       %textarea{:placeholder => "Comments..."}
       %input{:placeholder => "Add a tag..."}
       .annotator-controls
@@ -45,3 +48,4 @@
 
   %ul.annotator-listing.annotator-replies
     = partial "reply-1.haml"
+//{:style => "background: rgba(205, 101, 110, .2)"}

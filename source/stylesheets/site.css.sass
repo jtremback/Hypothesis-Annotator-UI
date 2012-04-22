@@ -261,8 +261,8 @@ $iconset: iconset_wireframe
   border-radius: .5em
   float: left
   height: 4em
-  width: 3.5em
-  +box-shadow(.15em .15em .5em #666 inset)
+  background: rgba(0, 0, 0, 0)
+  padding-right: .5em
   .annotator-container
     display: table-cell
     vertical-align: middle
@@ -274,8 +274,8 @@ $iconset: iconset_wireframe
     +icon(up_1)
     opacity: .5
     padding: 0
-    width: 2em
-    height: 1.25em
+    width: 1.5em
+    height: .8em
     margin:
       left: auto
       right: auto
@@ -283,8 +283,8 @@ $iconset: iconset_wireframe
     +icon(down_1)
     opacity: .5
     padding: 0
-    width: 2em
-    height: 1.25em
+    width: 1.5em
+    height: .8em
     margin:
       left: auto
       right: auto
@@ -292,8 +292,8 @@ $iconset: iconset_wireframe
     +icon(dot_1)
     opacity: .5
     padding: 0
-    height: .5em
-    width: .5em
+    height: .75em
+    width: .75em
     margin:
       left: auto
       right: auto
@@ -340,36 +340,28 @@ $iconset: iconset_wireframe
 
 @mixin editorpresets
   z-index: 10
-  margin-bottom: 1em
   button
     margin: 1em
+  .fake_fieldset
+    background: white
+    +smallshadow(.2em, .2em)
+    margin-bottom: 1em
+//    border-left: 1px dotted #999
+//    border-bottom: 1px dotted #999
 
 .annotator-writer
   +editorpresets
-  +clearfix
   .fake_fieldset
-    z-index: 10
     +clearfix
-    +whitebox
-    +smallshadow
     padding: .5em
     position: relative
-  .annotator-updown
-    position: absolute
-    top: .5em
-    button
-      margin-bottom: .5em
-      clear: both
-      display: block
-      width: 1.5em
-      height: 1em
-    &button:last-child
-      margin-bottom: 0
+  .annotator-score
+    font-size: .8em
   textarea
     width: 100%
     max-width: 90%
     margin: 0
-    margin-left: 9%
+
     float: right
     min-height: 5em
     padding: 0
@@ -456,6 +448,7 @@ $iconset: iconset_wireframe
 .annotator-meta
   +clearfix
   background: $desat-minor
+  border-bottom: 1px dotted #999
 
   &.var1
     padding: .25em

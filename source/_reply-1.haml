@@ -1,8 +1,9 @@
 %li.annotator-widget.annotator-reply
 
   %article.annotator-content
-    .annotator-score{:style => "background: rgba(205, 101, 110, .3)"}
+    .annotator-score
       .annotator-container
+        .annotator-dot
         .annotator-label 56
         .annotator-down
     %p
@@ -18,3 +19,4 @@
   %ul.annotator-listing.annotator-replies
     = partial "reply-2.haml"
     = partial "reply-5.haml"
+//{:style => "background: rgba(205, 101, 110, .3)"}
