@@ -1,17 +1,10 @@
 %li.annotator-widget.annotator-reply
-
-  .annotator-component.annotator-meta
-    .annotator-updown
-      .annotator-up
-    .annotator-container
-      .annotator-user Thethoughtful1
-      .annotator-time posted 4 days ago
-    .annotator-controls
-      %button.annotator-write Reply
-      %button.annotator-fave Favorite
-      %button.annotator-flag Flag
-
-  %article.annotator-component.annotator-content
+  %article.annotator-content
+    .annotator-score{:style => "background: rgba(58, 139, 194, .5)"}
+      .annotator-container
+        .annotator-dot
+        .annotator-label 7
+        .annotator-dot
     %p
       I would not argue against your guys' reading. In fact, although I personally read it differently, I would rather go with your reading. However, the very fact that it can be read the way the OP and I read it means that it is too ambiguous.
     %p
@@ -25,15 +18,12 @@
     %p
       Nor is any law that attempts to protect IP. IP should be protected in its own laws, using its own rules. Preferably several laws dealing with different forms of IP.
 
-  %form.annotator-component.annotator-faver
-    .fake_fieldset
-      .annotator-controls
-        %button.annotator-facebook Facebook
-        %button.annotator-twitter Twitter
-        %button.annotator-google Google
-      %input{:placeholder => "Add a tag..."}
-      .annotator-controls
-        %button.annotator-save Save
-        %button.annotator-delete Delete
-  .annotator-component.annotator-tags
-    %span.annotator-tag Think about it.
+  .annotator-meta.var1
+    .annotator-tags.var1
+      %span.annotator-tag Think about it.
+      %span.annotator-tag Think about it.
+      %span.annotator-tag Think about it.
+    .annotator-container
+      .annotator-user Thethoughtful1
+      .annotator-time posted 4 days ago
+  %ul.annotator-listing.annotator-replies

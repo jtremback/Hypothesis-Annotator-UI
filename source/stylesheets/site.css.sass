@@ -73,6 +73,8 @@ $med-red: #c12c3b
 
 @mixin primarytext
   color: #666
+  font-weight: bold
+
 @mixin secondarytext
   color: $q-gray_w
   font-size: .8em
@@ -102,7 +104,6 @@ $med-red: #c12c3b
 @mixin threadbox
   border-left: 1px dotted hsla($warm-hue, 5%, 70%, 1)
   background: $desat-minor
-  +box-shadow(0px 0px 50px hsla(0, 0%, 52%, 0.1))
 
 @mixin buttonbox
   border: 1px solid $med-border
@@ -155,8 +156,6 @@ $iconset: iconset_wireframe
   +icon_resets
   background-image: url('../images/#{$icon}.png')
 
-
-
 //This applies to the annotator as a whole, plus styles specific to the .annotator-listing class
 .annotator-listing
   list-style-type: none
@@ -195,7 +194,7 @@ $iconset: iconset_wireframe
 
 //ANNOTATOR
 //
-#annotator
+.annotator-sidepane
   background: white
   position: fixed
   top: 0
@@ -208,7 +207,7 @@ $iconset: iconset_wireframe
   overflow: auto
   width: 410px
   +bigshadow
-  border-left: 1px dotted hsla($warm-hue, 5%, 60%, 1)
+  border-left: 1px solid #ddd
 
 
 //GLOBAL STYLES
@@ -223,11 +222,8 @@ $iconset: iconset_wireframe
   &.var1
     padding: 0
 
-//.annotator-content
-//  &p:first-child
-//    margin-top: 0
-//  &p:last-child
-//    margin-bottom: 0
+
+
 .annotator-user
   +redtitletext
 
@@ -259,24 +255,28 @@ $iconset: iconset_wireframe
 //SCORE
 //This is for the score indicator part
 .annotator-score
-  font-size: 1.3em
-  text-align: center
-  +box-shadow(2px 2px 8px #666 inset)
+  display: table
+  vertical-align: middle
+  +box-sizing(border-box)
   border-radius: .5em
   float: left
-  display: inline-block
-  padding: 0 .5em
-  margin:
-    right: .5em
-    bottom: .25em
+  height: 4em
+  width: 3.5em
+  +box-shadow(.15em .15em .5em #666 inset)
+  .annotator-container
+    display: table-cell
+    vertical-align: middle
+    text-align: center
+    margin:
+      left: auto
+      right: auto
   .annotator-up
     +icon(up_1)
     opacity: .5
     padding: 0
     width: 2em
-    height: 1.5em
+    height: 1.25em
     margin:
-      top: .5em
       left: auto
       right: auto
   .annotator-down
@@ -284,103 +284,69 @@ $iconset: iconset_wireframe
     opacity: .5
     padding: 0
     width: 2em
-    height: 1.5em
+    height: 1.25em
     margin:
-      bottom: .5em
+      left: auto
+      right: auto
+  .annotator-dot
+    +icon(dot_1)
+    opacity: .5
+    padding: 0
+    height: .5em
+    width: .5em
+    margin:
       left: auto
       right: auto
   .annotator-label
-    font-weight: bold
-    margin: 0
-    padding: .25em 0
     +primarytext
+    font-size: 1.5em
+    padding: .25em 0
     &.annotator-selected
       border:
         top: .5em solid #666
         bottom: .5em solid #666
 
-
-
-//ANNOTATOR UPDOWN
-//This holds up and down arrows above each other (refactor)
-.annotator-updown
-  &div:first-child
-    margin:
-      bottom: .25em
-  text-align: center
-  .annotator-up
-    +icon(up_1)
-    padding: 0
-    width: 2em
-    height: 1.5em
-    margin:
-      bottom: .25em
-      left: auto
-      right: auto
-    vertical-align: middle
-  .annotator-down
-    +icon(down_1)
-    padding: 0
-    width: 2em
-    height: 1.5em
-    margin:
-      bottom: .25em
-      left: auto
-      right: auto
-    vertical-align: middle
-  .annotator-label
-    font-size: 16px
-    font-weight: bold
-    margin: 0
-    +primarytext
-
-//ANNOTATOR LISTINGS
 .annotator-replies
+  padding-left: 1em
 
 //ANNOTATOR WIDGETS
-.annotator-annotation_detail
-  +bigshadow
-  +basebox
-  position: relative
-
 .annotator-reply
   +threadbox
-  margin-left: 1em
   margin-top: 1.5em
+  line-height: 1.25em
+  .annotator-score
+    font-size: .9em
+    margin-right: .5em
+  .annotator-content
+    padding:
+      left: 1em
+      right: 1em
+      top: 1em
 
+.annotator-annotation
+  @extend .annotator-reply
+  margin-left: 0
+  margin-top: 0
+  border: none
+  background: $base-gray
 
 .annotator-annotation_summary
-  +threadbox
-  +basebox
-  margin-left: 1em
-  margin-top: 1em
-  padding-bottom: 1em
-  border: 0
-  .annotator-score
-    float: left
-    margin-right: 1em
-    margin-top: .8em
-    .annotator-label
-      font-size: 1.8em
-  .annotator-tag
-    clear: none
-    float: right
-    margin-right: .5em
-    margin-top: .2em
+  @extend .annotator-reply
 
 
 
-
+//ANNOTATOR EDITORS
 //This applies to the editors (writer, faver, and flagger)
 
 @mixin editorpresets
+  z-index: 10
+  margin-bottom: 1em
   button
     margin: 1em
 
 .annotator-writer
   +editorpresets
   +clearfix
-  margin: 0
   .fake_fieldset
     z-index: 10
     +clearfix
@@ -476,8 +442,6 @@ $iconset: iconset_wireframe
 //This applies to tab bars
 .annotator-tabs
   +clearfix
-  position: absolute
-  top: -2em
   .annotator-tab
     float: left
     padding: .25em .5em
@@ -497,39 +461,21 @@ $iconset: iconset_wireframe
     padding: .25em
     .annotator-tags
       float: left
-      width: 60%
+      width: 50%
       white-space: nowrap
       text-overflow: ellipsis
       overflow: hidden
       margin:
         top: .5em
         bottom: .5em
+        left: 1em
       .annotator-tag
         padding: .25em
     .annotator-container
       text-align: right
       float: right
-
-//  div
-//    vertical-align: middle
-//  .annotator-updown
-//    float: left
-//    display: inline-block
-//    clear: none
-//    margin-right: 1em
-//    margin-top: .5em
-//    div
-//      opacity: .8
-//  .annotator-container
-//    float: left
-//    clear: none
-//  .annotator-controls
-//    float: right
-//    vertical-align: top
-//    button
-//      margin-right: 1em
-//    &button:last-child
-//      margin-right: 0
+      margin:
+        right: 1em
 
 
 //This applies to the excerpt of the source material, and possibly other excerpts.

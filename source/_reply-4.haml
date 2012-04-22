@@ -1,18 +1,18 @@
 %li.annotator-widget.annotator-reply
 
-  .annotator-component.annotator-meta
-    .annotator-updown
-      .annotator-down
+  %article.annotator-content
+    .annotator-score{:style => "background: rgba(205, 101, 110, .2)"}
+      .annotator-container
+        .annotator-label 12
+        .annotator-down
+    %p
+      While you guys are technically correct, why does it seem like our government keeps passing laws that are designed to be confusing and misleading? I don't care what the nitpicky little reading could be, if a law appears at all to infringe upon our constitutional rights, it needs to be rewritten.
+  .annotator-meta.var1
+    .annotator-tags.var1
+      %span.annotator-tag Disagree
+      %span.annotator-tag Disagree
+      %span.annotator-tag Disagree
     .annotator-container
       .annotator-user jnt8686
       .annotator-time posted 5 days ago
-    .annotator-controls
-      %button.annotator-write Reply
-      %button.annotator-fave Favorite
-      %button.annotator-flag Flag
-
-  %article.annotator-component.annotator-content
-    %p
-      While you guys are technically correct, why does it seem like our government keeps passing laws that are designed to be confusing and misleading? I don't care what the nitpicky little reading could be, if a law appears at all to infringe upon our constitutional rights, it needs to be rewritten.
-  .annotator-component.annotator-tags
-    %span.annotator-tag Disagree
+  %ul.annotator-listing.annotator-replies
