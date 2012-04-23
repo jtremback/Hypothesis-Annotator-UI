@@ -13,38 +13,38 @@
   .annotator-tab Latest
 
 %li.annotator-annotation
-  %article.annotator-content
-    .annotator-score
-      .annotator-container
-        .annotator-dot
-        .annotator-label 25
-        .annotator-down
-    %p
-      From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
-
-  %ul.annotator-listing.annotator-replies
-  .annotator-meta.var1
-    .annotator-tags.var1
-      %span.annotator-tag Government Overreach
-      %span.annotator-tag Government Overreach
-      %span.annotator-tag Government Overreach
-    .annotator-container
-      .annotator-user bo1024
-      .annotator-time posted 5 days ago
-  %ul.annotator-listing.annotator-replies
-
-  %form.annotator-component.annotator-writer
-    .fake_fieldset
-      .annotator-score
+  .annotator-body
+    %article.annotator-content
+      .annotator-score.red
         .annotator-container
           .annotator-dot
-          .annotator-label 12
-          .annotator-dot
-      %textarea{:placeholder => "Comments..."}
-      %input{:placeholder => "Add a tag..."}
-      .annotator-controls
-        %button.annotator-save Save
-        %button.annotator-delete Delete
+          .annotator-label 25
+          .annotator-down
+      %p
+        From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
+
+    .annotator-meta
+      .annotator-tags.var1
+        %span.annotator-tag Government Overreach
+        %span.annotator-tag Government Overreach
+        %span.annotator-tag Government Overreach
+      .annotator-container
+        .annotator-user bo1024
+        .annotator-time posted 5 days ago
+    %ul.annotator-listing.annotator-replies
+
+    %form.annotator-component.annotator-writer
+      .fake_fieldset
+        .annotator-score
+          .annotator-container
+            .annotator-dot
+            .annotator-label 12
+            .annotator-dot
+        %textarea{:placeholder => "Comments..."}
+        %input{:placeholder => "Add a tag..."}
+        .annotator-controls
+          %button.annotator-save Save
+          %button.annotator-delete Delete
 
   %ul.annotator-listing.annotator-replies
     = partial "reply-1.haml"

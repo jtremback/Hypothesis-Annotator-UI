@@ -219,8 +219,7 @@ $iconset: iconset_wireframe
   +tagtext
   padding: .1em .5em
   padding-bottom: .25em
-  &.var1
-    padding: 0
+
 
 
 
@@ -238,7 +237,7 @@ $iconset: iconset_wireframe
   width: 1.5em
   +smallshadow(0px, -2px)
   background: white
-  border-left: 1px dotted #999
+  border-left: 1px solid #bbb
   .annotator-heatmap_tab
     text-align: center
     +tabbox
@@ -249,8 +248,47 @@ $iconset: iconset_wireframe
     padding: .25em 0
     font-family: sans-serif
     font-size: 1em
-    border: 1px dotted #999
+    border: 1px solid #bbb
     border-right: none
+
+.annotator-controls
+  &.var1
+    position: absolute
+    top: 2em
+    left: -2.7em
+    background: $base-gray
+    border:
+      left: 1px dotted #999
+      top: 1px dotted #999
+      bottom: 1px dotted #999
+    z-index: 100
+    button
+      display: block
+      margin: .5em
+      height: 1.5em
+      width: 1.5em
+  &.var2
+    text-indent: 1em
+    margin-bottom: .5em
+    button
+      height: 1em
+      width: 1em
+    label
+      vertical-align: top
+      margin-right: 1em
+  &.var3
+    position: absolute
+    top: 50em
+    left: 10em
+    background: $base-gray
+    border: 1px solid #bbb
+    z-index: 100
+    +smallshadow
+    button
+      margin: .5em
+      height: 1.5em
+      width: 1.5em
+
 
 //SCORE
 //This is for the score indicator part
@@ -306,6 +344,26 @@ $iconset: iconset_wireframe
         top: .5em solid #666
         bottom: .5em solid #666
 
+  &.red
+    .annotator-dot
+      +icon(dot_1-red)
+    .annotator-down
+      +icon(down_1-red)
+    .annotator-up
+      +icon(up_1-red)
+
+  &.green
+    .annotator-dot
+      +icon(dot_1-green)
+    .annotator-down
+      +icon(down_1-green)
+    .annotator-up
+      +icon(up_1-green)
+
+  &.blue
+    .annotator-dot
+      +icon(dot_1-blue)
+
 .annotator-replies
   padding-left: 1em
 
@@ -314,6 +372,7 @@ $iconset: iconset_wireframe
   +threadbox
   margin-top: 1.5em
   line-height: 1.25em
+  position: relative
   .annotator-score
     font-size: .9em
     margin-right: .5em
@@ -330,8 +389,11 @@ $iconset: iconset_wireframe
   border: none
   background: $base-gray
 
-.annotator-annotation_summary
+.annotator-summary
   @extend .annotator-reply
+  background: $base-gray
+  border-left: none
+  margin-bottom: 1em
 
 
 
@@ -442,33 +504,34 @@ $iconset: iconset_wireframe
     +smallshadow
     +tabbox
 
+//BODY
+.annotator-body
+  border-bottom: 1px dotted #999
+
 
 //META
 //This applies to the bar at the top of annotations and replies.
 .annotator-meta
   +clearfix
   background: $desat-minor
-  border-bottom: 1px dotted #999
-
-  &.var1
-    padding: .25em
-    .annotator-tags
-      float: left
-      width: 50%
-      white-space: nowrap
-      text-overflow: ellipsis
-      overflow: hidden
-      margin:
-        top: .5em
-        bottom: .5em
-        left: 1em
-      .annotator-tag
-        padding: .25em
-    .annotator-container
-      text-align: right
-      float: right
-      margin:
-        right: 1em
+  padding: .25em
+  .annotator-tags
+    float: left
+    width: 50%
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+    margin:
+      top: .5em
+      bottom: .5em
+      left: 1em
+    .annotator-tag
+      padding: .25em
+  .annotator-container
+    text-align: right
+    float: right
+    margin:
+      right: 1em
 
 
 //This applies to the excerpt of the source material, and possibly other excerpts.
@@ -486,7 +549,6 @@ $iconset: iconset_wireframe
   border: none
   background: none
   +box-shadow(none)
-  margin: 0
   width: 1.8em
   height: 1.8em
   opacity: .4
