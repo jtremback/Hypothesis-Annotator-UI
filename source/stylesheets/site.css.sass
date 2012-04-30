@@ -12,56 +12,17 @@
 //COLORS
 //
 
-$trace-border: hsla(48, 0%, 90%,.5)
-$xlight-border: hsla(0, 0%, 82%, 0.31)
-$light-border: hsla(0, 0%, 52%, 0.31)
-$med-border: hsla(0, 0%, 12%, 0.31)
-$dark-border: hsla(0, 0%, 0%, 0.31)
-
 $cool-hue: 220
-$cool-huesat: 220, 5%
+$warm-hue: 45
 
 $desat-minor: hsla($cool-hue, 50%, 98%,.1)
 $desat-major: hsla($cool-hue, 98%, 98%,.3)
 
-$a-gray_c: hsla($cool-hue, 60%, 98%, 1)
-
-$o-gray_c: hsla($cool-hue, 10%, 40%, 1)
-$p-gray_c: hsla($cool-hue, 10%, 50%, 1)
-$q-gray_c: hsla($cool-hue, 10%, 70%, 1)
-
-
-$y-gray_c: hsla($cool-hue, 0%, 95%, 1)
-$z-gray_c: hsla($cool-hue, 0%, 99%, 1)
-
-$warm-hue: 45
-$warm-huesat: 45, 5%
-
-$warm-white: hsla(55, 98%, 96%, 1)
-
-$a-gray_w: hsla($warm-hue, 60%, 98%, 1)
-
-$o-gray_w: hsla($warm-hue, 10%, 40%, 1)
-$p-gray_w: hsla($warm-hue, 10%, 50%, 1)
-$q-gray_w: hsla($warm-hue, 10%, 60%, 1)
-
-$y-gray_w: hsla($warm-hue, 0%, 95%, 1)
-$z-gray_w: hsla($warm-hue, 0%, 99%, 1)
-
 $base-gray: hsla($warm-hue, 0%, 99%, 1)
-
-$med-red: #c12c3b
 
 
 //ANNOTATOR TEXT STYLES
 //Text styles have font size, color, decoration, spacing, etc. Use only for properties relating directly to the display of text. The style for body text is defined up in the resets and is the default.
-@mixin redtitletext
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
-  font-weight: normal
-  font-size: 16px
-  color: $med-red
-  line-height: 1.2em
-  text-align: left
 
 @mixin bodytext
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
@@ -76,10 +37,11 @@ $med-red: #c12c3b
   font-weight: bold
 
 @mixin secondarytext
-  color: $q-gray_w
+  color: #666
   font-size: .8em
 
 @mixin tagtext
+  color: #ddd
 
 
 //ANNOTATOR SHADOW STYLES
@@ -93,7 +55,6 @@ $med-red: #c12c3b
 //Box styles have borders, backgrounds, and shadows. Visual effects that do not mess with the positioning much.
 @mixin whitebox
   background: white
-  box-shadow: 1px 1px 4px $xlight-border
   @include bodytext
 
 @mixin excerptbox
@@ -106,7 +67,7 @@ $med-red: #c12c3b
   background: $desat-minor
 
 @mixin buttonbox
-  border: 1px solid $med-border
+  border: 1px solid black
   border-radius: 3px
   padding: .5em
   +box-shadow(0px 1px 0px #999)
@@ -137,24 +98,23 @@ $med-red: #c12c3b
   box-shadow: none
 
 @mixin tagbox
-  background: hsla($cool-hue, 10%, 90%, 1)
-  color: hsla($warm-hue, 10%, 30%, 1)
+  background: #999
+  color: #ddd
   border-radius: 2px
-  border: 1px solid hsla($cool-hue, 10%, 70%, 1)
+  border: 1px solid #999
 
 //ICON IMAGES
 //This class provides some useful defaults for setting icon images.
 //It has a variable allowing you to switch between iconsets (folders inside /images directory)
 $iconset: iconset_wireframe
 @mixin icon_resets
-  text-indent: -9999px
   background-repeat: no-repeat
   background-position: center
   background-size: 100% 100%
 
 @mixin icon($icon)
   +icon_resets
-  background-image: url('../images/#{$icon}.png')
+  background-image: url('../images/#{$icon}')
 
 //This applies to the annotator as a whole, plus styles specific to the .annotator-listing class
 .annotator-listing
@@ -224,7 +184,9 @@ $iconset: iconset_wireframe
 
 
 .annotator-user
-  +redtitletext
+  font-weight: bold
+  font-size: 1.8em
+  line-height: 1em
 
 .annotator-time
   +secondarytext
@@ -290,110 +252,6 @@ $iconset: iconset_wireframe
       width: 1.5em
 
 
-//SCORE
-//This is for the score indicator part
-.annotator-score
-  display: table
-  vertical-align: middle
-  +box-sizing(border-box)
-  border-radius: .5em
-  float: left
-  height: 4em
-  background: rgba(0, 0, 0, 0)
-  padding-right: .5em
-  .annotator-container
-    display: table-cell
-    vertical-align: middle
-    text-align: center
-    margin:
-      left: auto
-      right: auto
-  .annotator-up
-    +icon(up_1)
-    opacity: .5
-    padding: 0
-    width: 1.5em
-    height: .8em
-    margin:
-      left: auto
-      right: auto
-  .annotator-down
-    +icon(down_1)
-    opacity: .5
-    padding: 0
-    width: 1.5em
-    height: .8em
-    margin:
-      left: auto
-      right: auto
-  .annotator-dot
-    +icon(dot_1)
-    opacity: .5
-    padding: 0
-    height: .75em
-    width: .75em
-    margin:
-      left: auto
-      right: auto
-  .annotator-label
-    +primarytext
-    font-size: 1.5em
-    padding: .25em 0
-    &.annotator-selected
-      border:
-        top: .5em solid #666
-        bottom: .5em solid #666
-
-  &.red
-    .annotator-dot
-      +icon(dot_1-red)
-    .annotator-down
-      +icon(down_1-red)
-    .annotator-up
-      +icon(up_1-red)
-
-  &.green
-    .annotator-dot
-      +icon(dot_1-green)
-    .annotator-down
-      +icon(down_1-green)
-    .annotator-up
-      +icon(up_1-green)
-
-  &.blue
-    .annotator-dot
-      +icon(dot_1-blue)
-
-.annotator-replies
-  padding-left: 1em
-
-//ANNOTATOR WIDGETS
-.annotator-reply
-  +threadbox
-  margin-top: 1.5em
-  line-height: 1.25em
-  position: relative
-  .annotator-score
-    font-size: .9em
-    margin-right: .5em
-  .annotator-content
-    padding:
-      left: 1em
-      right: 1em
-      top: 1em
-
-.annotator-annotation
-  @extend .annotator-reply
-  margin-left: 0
-  margin-top: 0
-  border: none
-  background: $base-gray
-
-.annotator-summary
-  @extend .annotator-reply
-  background: $base-gray
-  border-left: none
-  margin-bottom: 1em
 
 
 
@@ -504,35 +362,88 @@ $iconset: iconset_wireframe
     +smallshadow
     +tabbox
 
-//BODY
-.annotator-body
-  border-bottom: 1px dotted #999
 
+
+$thread-padding: 1.5em
+
+.annotator-replies
+  padding-left: $thread-padding
+
+//ANNOTATOR WIDGETS
+.annotator-reply
+  +threadbox
+  margin-top: 1.5em
+  line-height: 1.25em
+  position: relative
+  padding-top: .5em
+  .annotator-meta
+    padding-left: $thread-padding
+  .annotator-body
+    padding-left: $thread-padding
+
+.annotator-annotation
+  @extend .annotator-reply
+  margin-left: 0
+  margin-top: 0
+  border: none
+  background: $base-gray
+
+.annotator-summary
+  @extend .annotator-reply
+  background: $base-gray
+  border-left: none
+  margin-bottom: 1em
+
+.annotator-threadexp
+  font-family: mono
+  color: #666
+  box-sizing: border-box
+  text-align: center
+  background: $base-gray
 
 //META
 //This applies to the bar at the top of annotations and replies.
+$threadexp-width: 1em
 .annotator-meta
   +clearfix
   background: $desat-minor
-  padding: .25em
-  .annotator-tags
+  .annotator-user
     float: left
-    width: 50%
-    white-space: nowrap
-    text-overflow: ellipsis
-    overflow: hidden
-    margin:
-      top: .5em
-      bottom: .5em
-      left: 1em
-    .annotator-tag
-      padding: .25em
-  .annotator-container
-    text-align: right
-    float: right
-    margin:
-      right: 1em
+    font-weight: bold
+    font-size: 1.8em
 
+  .annotator-time
+    float: right
+  .annotator-threadexp
+    font-size: 1.8em
+    font-weight: bold
+    position: absolute
+    left: -.5em
+    width: 1em
+
+//SCORE
+//This is for the score indicator part
+$scorewidth: 2em
+.annotator-score
+  width: $scorewidth
+  height: $scorewidth
+  text-align: center
+  label
+    font-weight: bold
+    position: relative
+  &.annotator-positive
+    +icon("up_2.svg")
+    label
+      top: .7em
+
+//BODY
+.annotator-body
+  margin-top: .5em
+  .annotator-score
+    position: absolute
+    top: 2.5em
+    font-size: 1.3em
+    left: -$scorewidth / 2
 
 //This applies to the excerpt of the source material, and possibly other excerpts.
 .annotator-excerpt
@@ -542,7 +453,6 @@ $iconset: iconset_wireframe
   margin: 0
   margin-bottom: 2em
   padding: 1em
-
 
 //BUTTONS AS ICONS
 .annotator-iconbutton
