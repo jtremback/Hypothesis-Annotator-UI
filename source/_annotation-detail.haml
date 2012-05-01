@@ -7,45 +7,37 @@
     `(B) theft or misappropriation of private or government information, intellectual property, or personally identifiable information.
 
 %li.annotator-tabs
-  .annotator-tab Best
+  .annotator-tab.annotator-selected Best
   .annotator-tab Hot
   .annotator-tab Earliest
   .annotator-tab Latest
+%li.annotator-widget.annotator-annotation
+  .annotator-reply
+    .annotator-meta.var1
+      .annotator-threadexp +
+      .annotator-user bo1024
+      .annotator-time posted 5 days ago - 5 replies
+    .annotator-body
+      .annotator-score.annotator-negative 25
+      %article.annotator-content
+        %p
+          From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
+        .annotator-tags.var1
+          %span.annotator-tag GovernmentOverreach
 
-%li.annotator-annotation
-  .annotator-body
-    %article.annotator-content
-      .annotator-score.red
-        .annotator-container
-          .annotator-dot
-          .annotator-label 25
-          .annotator-down
-      %p
-        From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
 
-    .annotator-meta
-      .annotator-tags.var1
-        %span.annotator-tag Government Overreach
-        %span.annotator-tag Government Overreach
-        %span.annotator-tag Government Overreach
-      .annotator-container
-        .annotator-user bo1024
-        .annotator-time posted 5 days ago
+      %form.annotator-component.annotator-writer
+        .fake_fieldset
+          .annotator-score
+            .annotator-container
+              .annotator-dot
+              .annotator-label 12
+              .annotator-dot
+          %textarea{:placeholder => "Comments..."}
+          %input{:placeholder => "Add a tag..."}
+          .annotator-controls
+            %button.annotator-save Save
+            %button.annotator-delete Delete
+
     %ul.annotator-listing.annotator-replies
-
-    %form.annotator-component.annotator-writer
-      .fake_fieldset
-        .annotator-score
-          .annotator-container
-            .annotator-dot
-            .annotator-label 12
-            .annotator-dot
-        %textarea{:placeholder => "Comments..."}
-        %input{:placeholder => "Add a tag..."}
-        .annotator-controls
-          %button.annotator-save Save
-          %button.annotator-delete Delete
-
-  %ul.annotator-listing.annotator-replies
-    = partial "reply-1.haml"
-//{:style => "background: rgba(205, 101, 110, .2)"}
+      = partial "reply-1.haml"
