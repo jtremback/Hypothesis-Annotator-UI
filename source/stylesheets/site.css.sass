@@ -2,9 +2,15 @@
 @import "cispa.css"
 @import compass
 
+body
+  padding: 0
+  margin: 0
+  height: 100%
+  width: 100%
+
 //SOURCE VIEWPORT
 #source
-  margin-right: 400px
+  margin-right: 0
   overflow: auto
   position: relative
 
@@ -15,10 +21,34 @@
 $cool-hue: 220
 $warm-hue: 45
 
-$desat-minor: hsla($cool-hue, 50%, 98%,.1)
+$desat-minor: hsla($cool-hue, 0%, 99%,.1)
 $desat-major: hsla($cool-hue, 98%, 98%,.3)
 
 $base-gray: hsla($warm-hue, 0%, 99%, 1)
+
+//BLACK AND WHITE
+$b1: hsla(0, 0%, 0%, .1)
+$b2: hsla(0, 0%, 0%, .2)
+$b3: hsla(0, 0%, 0%, .3)
+$b4: hsla(0, 0%, 0%, .4)
+$b5: hsla(0, 0%, 0%, .5)
+$b6: hsla(0, 0%, 0%, .6)
+$b7: hsla(0, 0%, 0%, .7)
+$b8: hsla(0, 0%, 0%, .8)
+$b9: hsla(0, 0%, 0%, .9)
+$b: hsla(0, 0%, 0%, 1)
+
+$w1: hsla(0, 0%, 100%, .1)
+$w2: hsla(0, 0%, 100%, .2)
+$w3: hsla(0, 0%, 100%, .3)
+$w4: hsla(0, 0%, 100%, .4)
+$w5: hsla(0, 0%, 100%, .5)
+$w6: hsla(0, 0%, 100%, .6)
+$w7: hsla(0, 0%, 100%, .7)
+$w8: hsla(0, 0%, 100%, .8)
+$w9: hsla(0, 0%, 100%, .9)
+$w: hsla(0, 0%, 100%, 1)
+
 
 //OTHER VARIABLES
 
@@ -67,7 +97,6 @@ $thread-padding: 1.5em
 
 @mixin threadbox
   border-left: 1px dotted #999
-  background: $desat-minor
 
 @mixin buttonbox
   border: 1px solid black
@@ -119,8 +148,8 @@ $iconset: iconset_wireframe
   +icon_resets
   background-image: url('../images/#{$icon}')
 
-//This applies to the annotator as a whole, plus styles specific to the .annotator-listing class
-.annotator-listing
+//This applies to the annotator as a whole, plus styles specific to the .a-listing class
+.a-listing
   list-style-type: none
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
   font-weight: normal
@@ -144,7 +173,7 @@ $iconset: iconset_wireframe
   button
     +buttonbox
 
-.annotator-component
+.a-component
   padding-left: 1em
   padding-right: 1em
   padding-top: 1em
@@ -152,12 +181,12 @@ $iconset: iconset_wireframe
 
 //ANNOTATOR LAYOUT STUFF
 
-.annotator-hl
+.a-hl
   background: rgba(255, 255, 10, 0.3)
 
 //ANNOTATOR
-.annotator-sidepane
-  background: white
+$sidepane-width: 510px
+.a-sidepane
   position: fixed
   top: 0
   right: 0
@@ -167,86 +196,45 @@ $iconset: iconset_wireframe
   padding:
     bottom: 1em
   overflow: auto
-  width: 510px
+  width: $sidepane-width
   border-left: 1px solid #ddd
   background-image: url("../images/noise_1.png")
-  +bigshadow
+  background-attachment: fixed
+
 
 //GLOBAL STYLES
 //Add settings in here if they will apply to the class globally. Visual styles, extends, padding, etc. Don't put margins or absolute positioning in here. Instead, use the object styles for things having to do with positioning.
 
 //MISC
-.annotator-tag
+.a-tag
   +tagbox
   padding: .1em .4em
   padding-bottom: .2em
 
-.annotator-time
+.a-time
   +secondarytext
 
-.annotator-heatmap
+$heatmap-width: 15px
+.a-heatmap
   position: absolute
   right: 0
   top: 0
   height: 100%
-  width: 1.5em
-  +smallshadow(0px, -2px)
+  width: $heatmap-width
   background: white
   border-left: 1px solid #bbb
-  .annotator-heatmap_tab
+  .a-heatmap_tab
     text-align: center
     +tabbox
     position: absolute
     top: 43%
     width: 3em
-    right: .2em
+    right: 0
     padding: .25em 0
     font-family: sans-serif
     font-size: 1em
     border: 1px solid #bbb
     border-right: none
-
-.annotator-controls
-  &.var1
-    position: absolute
-    top: 2em
-    left: -2.7em
-    background: $base-gray
-    border:
-      left: 1px dotted #999
-      top: 1px dotted #999
-      bottom: 1px dotted #999
-    z-index: 100
-    button
-      display: block
-      margin: .5em
-      height: 1.5em
-      width: 1.5em
-  &.var2
-    text-indent: 1em
-    margin-bottom: .5em
-    button
-      height: 1em
-      width: 1em
-    label
-      vertical-align: top
-      margin-right: 1em
-  &.var3
-    position: absolute
-    top: 50em
-    left: 10em
-    background: $base-gray
-    border: 1px solid #bbb
-    z-index: 100
-    +smallshadow
-    button
-      margin: .5em
-      height: 1.5em
-      width: 1.5em
-
-
-
-
 
 //ANNOTATOR EDITORS
 //This applies to the editors (writer, faver, and flagger)
@@ -259,17 +247,15 @@ $iconset: iconset_wireframe
     background: white
     +smallshadow(.2em, .2em)
     margin-bottom: 1em
-//    border-left: 1px dotted #999
-//    border-bottom: 1px dotted #999
 
-.annotator-writer
+.a-writer
   display: none
   +editorpresets
   .fake_fieldset
     +clearfix
     padding: .5em
     position: relative
-  .annotator-score
+  .a-score
     font-size: .8em
   textarea
     width: 100%
@@ -283,7 +269,7 @@ $iconset: iconset_wireframe
     float: left
     width: 80%
     vertical-align: bottom
-  .annotator-controls
+  .a-controls
     float: right
     padding-top: .5em
     button
@@ -292,107 +278,70 @@ $iconset: iconset_wireframe
     &button:last-child
       margin-right: 0
 
-.annotator-faver
-  +editorpresets
-  +clearfix
-  margin: 0
-  .fake_fieldset
-    z-index: 10
-    +clearfix
-    +whitebox
-    +smallshadow
-    padding: .5em
-    position: relative
-    .annotator-label
-      +secondarytext
-      font-size: 1.2em
-      float: left
-      vertical-align: middle
-  textarea
-    width: 100%
-    max-width: 90%
-    margin: 0
-    margin-left: 9%
-    float: right
-    min-height: 5em
-    padding: 0
-  input
-    float: left
-    width: 80%
-    vertical-align: bottom
-  .annotator-controls
-    float: left
-    padding-top: .25em
-    clear: none
-    button
-      margin-right: .25em
-    &button:last-child
-      margin-right: 0
 
-.annotator-flagger
-  +editorpresets
-  +clearfix
-  margin: 0
-  .fake_fieldset
-    z-index: 10
-    +clearfix
-    +whitebox
-    +smallshadow
-    padding: .5em
-    position: relative
-    text-align: center
-
+//CONTROLS
+.a-fakecontrols
+  width: 100%
+  height: 100%
+  background: white
+  z-index: 1
 
 
 //TABS
 //This applies to tab bars
-.annotator-tabs
+.a-tabs
   +clearfix
   margin-left: .5em
-  .annotator-tab
+  margin-right: .5em
+  .a-tab
     float: left
     padding: .25em .5em
     margin-right: .5em
     margin-bottom: -1px
-    +smallshadow
     +tabbox
+    +box-shadow(2px -10px 13px -8px $b2 inset)
     border-top-right-radius: .25em
     border-top-left-radius: .25em
     color: #999
-    &.annotator-selected
+    &.a-selected
+      +box-shadow(none)
       color: #333
       font-weight: bold
       background: hsla(0, 0%, 100%, 1)
 
 
+.a-content
+  &.a-closed
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    width: 100%
 
-
-.annotator-replies
+.a-replies
 
 
 //ANNOTATOR WIDGETS
-.annotator-reply
+.a-reply
   +threadbox
   padding-bottom: 1.5em
   line-height: 1.25em
   position: relative
   padding-top: .5em
   margin-left: $thread-padding
-  .annotator-meta
+  .a-meta
     padding-left: $thread-padding
-  .annotator-body
+  .a-body
     padding-left: $thread-padding
-//  background: hsla(0, 0%, 99%, .3)
 
-.annotator-annotation
-  +box-shadow(0px 0px 3em hsla(0, 0%, 0%, .2))
-  background: hsla(0, 0%, 100%, 1)
+.a-annotation
+  +smallshadow(-0px, -2px)
+  background: url("../images/noise_3.png")
   margin:
     left: .5em
     right: .5em
 
-.annotator-summary
-  @extend .annotator-reply
+.a-summary
+  @extend .a-reply
   border-left: none
   margin-left: .5em
   margin-right: .5em
@@ -408,34 +357,38 @@ $iconset: iconset_wireframe
     position: relative
     bottom: .1em
 
-.annotator-threadexp
-  font-family: mono
-  color: #666
-  box-sizing: border-box
-  text-align: center
+
+$threadexp-width: 17px
+.a-threadexp
+  height: $threadexp-width
+  width: $threadexp-width
+  border: 1px dotted #aaa
+  background-image: url("../images/minus_1.png")
+  background-size: 100% 100%
+  background-position: center
+  &.a-closed
+    background-image: url("../images/plus_1.png")
 
 //META
 //This applies to the bar at the top of annotations and replies.
-$threadexp-width: 1em
-.annotator-meta
+.a-meta
   +pie-clearfix
   position: relative
-  .annotator-user
+  .a-user
     float: left
     font-weight: bold
     font-size: 1.3em
-    line-height: 1.3em
     text-decoration: underline
-
-  .annotator-time
+  .a-time
     float: right
+    vertical-align: text-bottom
     margin-right: 1rem
-  .annotator-threadexp
+  .a-threadexp
     font-size: 1.8em
     font-weight: bold
     position: absolute
-    left: -.5em
-    width: 1em
+    left: -9px
+    top: 0
 
 //SCORE
 //This is for the score indicator part
@@ -443,7 +396,7 @@ $threadexp-width: 1em
 $scorewidth: 40px
 $scoreheight: $scorewidth
 
-.annotator-score
+.a-score
   width: $scorewidth
   height: $scoreheight
   overflow: hidden
@@ -451,34 +404,34 @@ $scoreheight: $scorewidth
   font-size: 14px
   text-align: center
   font-weight: bold
-  &.annotator-positive
+  &.a-positive
     background-image: url("../images/up_1.png")
     background-size: 100% 100%
-  &.annotator-negative
+  &.a-negative
     background-image: url("../images/down_1.png")
     background-size: 100% 100%
-  &.annotator-neutral
+  &.a-neutral
     background-image: url("../images/neutral_1.png")
     background-size: 100% 100%
 
 //BODY
-.annotator-body
+.a-body
   margin-top: .5em
-  padding-bottom: 1.5em
+  padding-bottom: 1em
   padding-right: 1rem
   position: relative
-  .annotator-score
+  .a-score
     position: absolute
     left: -$scorewidth / 2
-    &.annotator-positive
+    &.a-positive
       top: .2em
-    &.annotator-negative
+    &.a-negative
       top: -.2em
-    &.annotator-neutral
+    &.a-neutral
       top: -.2em
 
 //This applies to the excerpt of the source material, and possibly other excerpts.
-.annotator-excerpt
+.a-excerpt
   +excerptbox
   +smallshadow
   font-family: "Antic Slab", serif
@@ -491,7 +444,7 @@ $scoreheight: $scorewidth
   padding: 1em
 
 //BUTTONS AS ICONS
-.annotator-iconbutton
+.a-iconbutton
   border: none
   background: none
   +box-shadow(none)
@@ -501,63 +454,63 @@ $scoreheight: $scorewidth
   &:hover, :active
     opacity: .8
 
-button.annotator-write
+button.a-write
   +icon(pen_1)
-  @extend .annotator-iconbutton
+  @extend .a-iconbutton
   background-image: url('../images/pen_1.png')
 
-button.annotator-flag
+button.a-flag
   +icon(flag_1)
-  @extend .annotator-iconbutton
+  @extend .a-iconbutton
 
-button.annotator-fave
+button.a-fave
   +icon(fave_3)
-  @extend .annotator-iconbutton
+  @extend .a-iconbutton
 
-button.annotator-save
+button.a-save
   +icon(submit_1)
-  @extend .annotator-iconbutton
+  @extend .a-iconbutton
   width: 2em
   height: 2em
 
-button.annotator-delete
+button.a-delete
   +icon(delete_1)
-  @extend .annotator-iconbutton
+  @extend .a-iconbutton
   width: 2em
   height: 2em
 
-button.annotator-link
+button.a-link
   +icon(link_1)
-  @extend .annotator-iconbutton
+  @extend .a-iconbutton
   height: 2em
   width: 2em
 
-button.annotator-facebook
+button.a-facebook
   +icon(facebook_1)
-  @extend .annotator-iconbutton
+  @extend .a-iconbutton
   height: 2em
   width: 2em
 
-button.annotator-twitter
+button.a-twitter
   +icon(twitter_1)
-  @extend .annotator-iconbutton
+  @extend .a-iconbutton
   height: 2em
   width: 2em
 
-button.annotator-google
+button.a-google
   +icon(google_1)
-  @extend .annotator-iconbutton
+  @extend .a-iconbutton
   height: 2em
   width: 2em
 
-button.annotator-up
+button.a-up
   +icon(up_1)
-  @extend .annotator-iconbutton
+  @extend .a-iconbutton
   height: 1em
   width: 1.5em
 
-button.annotator-down
+button.a-down
   +icon(down_1)
-  @extend .annotator-iconbutton
+  @extend .a-iconbutton
   height: 1em
   width: 1.5em

@@ -1,4 +1,4 @@
-%blockquote.annotator-widget.annotator-excerpt
+%blockquote.a-widget.a-excerpt
   %p
     `(2) CYBER THREAT INTELLIGENCE- The term `cyber threat intelligence' means information in the possession of an element of the intelligence community directly pertaining to a vulnerability of, or threat to, a system or network of a government or private entity, including information pertaining to the protection of a system or network from--
   %p
@@ -6,38 +6,38 @@
   %p
     `(B) theft or misappropriation of private or government information, intellectual property, or personally identifiable information.
 
-%li.annotator-tabs
-  .annotator-tab.annotator-selected Best
-  .annotator-tab Hot
-  .annotator-tab Earliest
-  .annotator-tab Latest
-%li.annotator-widget.annotator-annotation
-  .annotator-reply
-    .annotator-meta.var1
-      .annotator-threadexp +
-      .annotator-user bo1024
-      .annotator-time posted 5 days ago - 5 replies
-    .annotator-body
-      .annotator-score.annotator-negative 25
-      %article.annotator-content
+%li.a-tabs
+  .a-tab.a-selected Best
+  .a-tab Hot
+  .a-tab Earliest
+  .a-tab Latest
+%li.a-widget.a-annotation
+  .a-reply
+    .a-meta.var1
+      .a-threadexp.open
+      .a-user bo1024
+      .a-time posted 5 days ago - 5 replies
+    .a-body
+      .a-score.a-negative 25
+      %article.a-content
         %p
           From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
-        .annotator-tags.var1
-          %span.annotator-tag GovernmentOverreach
+      .a-tags
+        %span.a-tag GovernmentOverreach
 
 
-      %form.annotator-component.annotator-writer
+      %form.a-component.a-writer
         .fake_fieldset
-          .annotator-score
-            .annotator-container
-              .annotator-dot
-              .annotator-label 12
-              .annotator-dot
+          .a-score
+            .a-container
+              .a-dot
+              .a-label 12
+              .a-dot
           %textarea{:placeholder => "Comments..."}
           %input{:placeholder => "Add a tag..."}
-          .annotator-controls
-            %button.annotator-save Save
-            %button.annotator-delete Delete
+          .a-controls
+            %button.a-save Save
+            %button.a-delete Delete
 
-    %ul.annotator-listing.annotator-replies
+    %ul.a-listing.a-replies
       = partial "reply-1.haml"
