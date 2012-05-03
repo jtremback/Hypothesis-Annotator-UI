@@ -10,7 +10,7 @@ $(document).ready(function() {
   $(".a-threadexp").click(function() {
     $(this).parents(".a-widget:eq(0)").children(".a-body").children(".a-content").slideToggle("fast");
     $(this).parents(".a-widget:eq(0)").children(".a-replies:eq(0)").slideToggle("fast");
-    $(this).toggleClass(".a-closed");
+    $(this).toggleClass("a-closed");
   });
 
   $("#a-bo1024").click(function() {

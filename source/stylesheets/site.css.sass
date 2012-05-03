@@ -11,6 +11,7 @@ body
 //SOURCE VIEWPORT
 #source
   margin-right: 0
+  padding-right: 40px
   overflow: auto
   position: relative
 
@@ -25,6 +26,12 @@ $desat-minor: hsla($cool-hue, 0%, 99%,.1)
 $desat-major: hsla($cool-hue, 98%, 98%,.3)
 
 $base-gray: hsla($warm-hue, 0%, 99%, 1)
+
+//STANCE COLORS
+
+$positive: #3aab39
+$negative: #d11c2b
+$neutral: #0171ba
 
 //BLACK AND WHITE
 $b1: hsla(0, 0%, 0%, .1)
@@ -78,8 +85,11 @@ $thread-padding: 1.5em
 @mixin bigshadow
   +box-shadow(0px 0px 50px hsla(0, 0%, 0%, 0.2))
 
-@mixin smallshadow($a: 2px, $b: 2px)
-  +box-shadow($a $b 1em hsla(0, 0%, 0%, .1))
+@mixin smallshadow($a: 2px, $b: 2px, $c: .1)
+  +box-shadow($a $b 1em hsla(0, 0%, 0%, $c))
+
+@mixin tinyshadow($a: 1px, $b: 1px, $c: .1)
+  +box-shadow($a $b 3px hsla(0, 0%, 0%, $c))
 
 @mixin medshadow($a: 2px, $b: 2px)
   +box-shadow($a $b 2em hsla(0, 0%, 0%, .1))
@@ -114,7 +124,7 @@ $thread-padding: 1.5em
 
 @mixin tabbox
   +smallshadow
-  background: hsla(0, 0%, 95%, 1)
+  background: hsla(0, 0%, 99%, 1)
   &:hover
     background: #eee
   &:active
@@ -181,8 +191,17 @@ $iconset: iconset_wireframe
 
 //ANNOTATOR LAYOUT STUFF
 
-.a-hl
-  background: rgba(255, 255, 10, 0.3)
+.a-hl_positive
+  background: rgba($positive, 0.3)
+  +tinyshadow(1px, 1px, .2)
+
+.a-hl_negative
+  background: rgba($negative, 0.3)
+  +tinyshadow(1px, 1px, .2)
+
+.a-hl_neutral
+  background: rgba($neutral, 0.3)
+  +tinyshadow(1px, 1px, .2)
 
 //ANNOTATOR
 $sidepane-width: 510px
@@ -214,7 +233,9 @@ $sidepane-width: 510px
 .a-time
   +secondarytext
 
+//HEATMAP
 $heatmap-width: 15px
+
 .a-heatmap
   position: absolute
   right: 0
@@ -223,18 +244,31 @@ $heatmap-width: 15px
   width: $heatmap-width
   background: white
   border-left: 1px solid #bbb
+  +smallshadow
   .a-heatmap_tab
     text-align: center
-    +tabbox
+    background: #666
+    color: #fff
+    text-shadow: 1px 1px 1px black
+    border-top-left-radius: 5px
+    border-bottom-left-radius: 5px
+    font-weight: bold
     position: absolute
-    top: 43%
-    width: 3em
+    top: 75%
+    width: 2em
     right: 0
     padding: .25em 0
     font-family: sans-serif
     font-size: 1em
-    border: 1px solid #bbb
-    border-right: none
+    +smallshadow
+  .a-gr_bg
+    stop-color: #fff
+  .a-gr_positive
+    stop-color: $positive + #222
+  .a-gr_negative
+    stop-color: $negative + #333
+  .a-gr_neutral
+    stop-color: $neutral + #666
 
 //ANNOTATOR EDITORS
 //This applies to the editors (writer, faver, and flagger)
@@ -335,30 +369,35 @@ $heatmap-width: 15px
 
 .a-annotation
   +smallshadow(-0px, -2px)
-  background: url("../images/noise_3.png")
+  background: white
   margin:
     left: .5em
     right: .5em
 
 .a-summary
   @extend .a-reply
+  position: relative
   border-left: none
-  margin-left: .5em
-  margin-right: .5em
-  margin-bottom: 1em
-  padding-left: $thread-padding
-  padding-bottom: 1em
-  padding-top: 1em
   background: hsla(0, 0%, 100%, 1)
-  +smallshadow
+  +smallshadow(2px, 3px, .2)
   cursor: pointer
+  margin:
+    left: 1em
+    right: 1em
+    top: 1em
+  padding:
+    left: $thread-padding
+    bottom: 1em
+    top: 1em
   &:hover
-    +box-shadow(.5em 0 1em hsla(0, 0%, 0%, .2))
-    position: relative
-    bottom: .1em
+    +smallshadow(2px, 4px, .2)
+    bottom: 1px
+  &:active
+    +smallshadow(2px, 3px, .2)
+    bottom: -1px
 
 
-$threadexp-width: 17px
+$threadexp-width: 12px
 .a-threadexp
   height: $threadexp-width
   width: $threadexp-width
@@ -368,6 +407,13 @@ $threadexp-width: 17px
   background-position: center
   &.a-closed
     background-image: url("../images/plus_1.png")
+    background-size: 100% 100%
+    background-position: center
+
+  &.a-dot
+    background-image: url("../images/dot_2.png")
+    background-size: 100% 100%
+    background-position: center
 
 //META
 //This applies to the bar at the top of annotations and replies.
@@ -387,8 +433,8 @@ $threadexp-width: 17px
     font-size: 1.8em
     font-weight: bold
     position: absolute
-    left: -9px
-    top: 0
+    left: -7px
+    bottom: -1px
 
 //SCORE
 //This is for the score indicator part
