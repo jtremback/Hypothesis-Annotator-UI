@@ -3,15 +3,12 @@
     %defs
       %linearGradient#heatmapGradient{:x1 => "0%", :x2 => "0%", :y1 => "0%", :y2 => "100%"}
         %stop.a-gr_bg{:offset => "0"}
-        %stop.a-gr_bg{:offset => "0.65"}
-        %stop.a-gr_neutral{:offset => "0.67"}
+        %stop.a-gr_bg{:offset => "0.67"}
         %stop.a-gr_positive{:offset => "0.69"}
-        %stop.a-gr_neutral{:offset => "0.71"}
         %stop.a-gr_negative{:offset => "0.72"}
         %stop.a-gr_neutral{:offset => "0.74"}
         %stop.a-gr_negative{:offset => "0.75"}
-        %stop.a-gr_neutral{:offset => "0.79"}
-        %stop.a-gr_bg{:offset => "0.84"}
+        %stop.a-gr_bg{:offset => "0.77"}
       %filter#heatBlend
         %feGaussianBlur{:stdDeviation => "2"}
     %rect{:fill => "url(#heatmapGradient)", :filter => "url(#heatBlend)", :height => "100%", :width => "100%", :x => "0", :y => "0"}
