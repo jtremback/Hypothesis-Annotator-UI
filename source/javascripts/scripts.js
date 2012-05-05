@@ -1,13 +1,39 @@
 $(document).ready(function() {
-//  $(".a-detail").hide();
-//  $(".a-sidepane").hide();
+  $(".a-detail").hide();
+  $(".a-sidepane").hide();
   $(".a-fakecontrols").hide();
   $(".a-writer").hide();
+  var view = "heatmap";
+
 
 //VIEW SWITCHER
-  $(".a-heatmap_tab").click(function() {
-    $(this).parents(".#source").css("margin-right", "510px");
-    $(".a-sidepane").show();
+  $(".a-heatmap_tab").click(function() { //catches clicks on heatmap tab
+    $("#source").css("margin-right", "510px"); //adjust margin
+    $(".a-sidepane").show(); //shows sidepane
+    view = "bucket"; //remembers that view is bucket
+  });
+
+  $("#a-xb9").click(function() { //catches clicks on summary
+    $(".a-bucket").hide(); //hides bucket
+    $(".a-detail").show();  //
+    view = "detail";
+  });
+
+
+//CONTENT CLICK BACKSTEPPER
+  $("#content").click(function() { //catches clicks on page content
+    //Bucket to heatmap view
+    if (view == "bucket") { //checks if view is bucket
+      $(".a-sidepane").hide(); //hides sidepane
+      $("#source").css("margin-right", "0px"); //normalizes source margin
+      view = "heatmap"; //remembers that view is heatmap
+    }
+    //Detail to bucket view
+    else if(view == "detail") { //checks if view is detail
+    $(".a-bucket").show(); //shows bucket
+    $(".a-detail").hide(); //hides detail
+    view = "bucket"; //remembers that view is detail
+    }
   });
 
 
@@ -31,6 +57,8 @@ $(document).ready(function() {
     $(this).children(".a-meta").children(".a-fakecontrols").fadeToggle(1000);
   });
 
+
+
 //WRITER SHOWER
   $(".a-write").click(function() {
 //Shows writer
@@ -42,16 +70,13 @@ $(document).ready(function() {
     $(this).parents(".a-writer:eq(0)").fadeOut();
   });
 
-//HOVER HILIGHTS
-  $(".a-summary").hover(function() {
-    var hash = $(this).attr("id");
-    alert(hash);
-  });
 
-//BUCKET VIEW TOGGLE
-  $("#a-xb9").click(function() {
-    $(".a-bucket").hide();
-    $(".a-detail").show();
-  });
+
+////HOVER HILIGHTS
+//  $(".a-summary").hover(function() {
+//    var hash = $(this).attr("id");
+//    alert(hash);
+//  });
+
 
 });

@@ -198,17 +198,17 @@ $iconset: iconset_wireframe
 
 //ANNOTATOR LAYOUT STUFF
 
-.a-hl_positive
-  background: rgba($positive, 0.3)
-  +tinyshadow(1px, 1px, .2)
+//.a-hl_positive
+//  background: rgba($positive, 0.3)
+//  +tinyshadow(1px, 1px, .2)
 
-.a-hl_negative
-  background: rgba($negative, 0.3)
-  +tinyshadow(1px, 1px, .2)
+//.a-hl_negative
+//  background: rgba($negative, 0.3)
+//  +tinyshadow(1px, 1px, .2)
 
-.a-hl_neutral
-  background: rgba($neutral, 0.3)
-  +tinyshadow(1px, 1px, .2)
+//.a-hl_neutral
+//  background: rgba($neutral, 0.3)
+//  +tinyshadow(1px, 1px, .2)
 
 //ANNOTATOR
 $sidepane-width: 510px
@@ -371,19 +371,15 @@ $heatmap-width: 15px
     font-family: sans-serif
 
 .a-summary
-  @extend .a-reply
+  .a-reply
+    border-left: none
   position: relative
-  border-left: none
   background: hsla(0, 0%, 100%, 1)
   +smallshadow(2px, 3px, .2)
   cursor: pointer
   margin:
     left: 1em
     right: 1em
-    top: 1em
-  padding:
-    left: $thread-padding
-    bottom: 1em
     top: 1em
   &:hover
     +smallshadow(2px, 4px, .2)

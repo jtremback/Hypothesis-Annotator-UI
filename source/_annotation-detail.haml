@@ -11,19 +11,27 @@
   .a-tab Hot
   .a-tab Earliest
   .a-tab Latest
-%li.a-widget.a-annotation
-  .a-reply
-    .a-meta
-      .a-threadexp.a-dot
-      .a-user bo1024
-      .a-time posted 5 days ago - 5 replies
-    .a-body
-      .a-score.a-negative 47
-      %article.a-content
-        %p
-          From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
-      .a-tags
-        %span.a-tag GovernmentOverreach
+
+%li.a-annotation
+  .a-widget.a-reply
+    .a-nothread
+      .a-meta
+        .a-fakecontrols
+          %button.a-write Reply
+          %button.a-fave Favorite
+          %button.a-flag Flag
+        .a-threadexp.a-dot
+        .a-user bo1024
+        .a-time posted 5 days ago - 5 replies
+      .a-body
+        .a-score.a-negative
+          %label 47
+        .a-content
+          %p
+            From my reading, it explicitly includes intellectual property as a cybersecurity issue unto itself. (I have no idea why this would be justified.)
+        .a-tags
+          %span.a-tag GovernmentOverreach
 
     %ul.a-listing.a-replies
+      = partial "writer.haml"
       = partial "reply-1.haml"
