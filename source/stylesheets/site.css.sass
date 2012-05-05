@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Antic+Slab)
 @import "cispa.css"
 @import compass
 
@@ -61,6 +60,8 @@ $w: hsla(0, 0%, 100%, 1)
 
 $thread-padding: 1.5em
 
+$scorewidth: 40px
+$scoreheight: $scorewidth
 
 //ANNOTATOR TEXT STYLES
 //Text styles have font size, color, decoration, spacing, etc. Use only for properties relating directly to the display of text. The style for body text is defined up in the resets and is the default.
@@ -276,60 +277,17 @@ $heatmap-width: 15px
   .a-gr_neutral
     stop-color: $neutral + #666
 
-//ANNOTATOR EDITORS
-//This applies to the editors (writer, faver, and flagger)
-
-@mixin editorpresets
-  z-index: 10
-  button
-    margin: 1em
-  .fake_fieldset
-    background: white
-    +smallshadow(.2em, .2em)
-    margin-bottom: 1em
-
-.a-writer
-  display: none
-  +editorpresets
-  .fake_fieldset
-    +clearfix
-    padding: .5em
-    position: relative
-  .a-score
-    font-size: .8em
-  textarea
-    width: 100%
-    max-width: 90%
-    margin: 0
-    float: right
-    min-height: 5em
-    padding: 0
-  input
-    float: left
-    width: 80%
-    vertical-align: bottom
-  .a-controls
-    float: right
-    padding-top: .5em
-    button
-      clear: none
-      margin-right: .25em
-    &button:last-child
-      margin-right: 0
-
-
 //CONTROLS
 .a-fakecontrols
-  margin-right: 1em
   position: absolute
   top: 0
   right: 0
   display: inline-block
   background: white
-  +box-shadow(-4px 0px 20px -15px black)
   z-index: 1
   button
     text-decoration: underline
+    cursor: pointer
     padding-left: 1.3em
     line-height: 1.2em
     background-size: 1em 1em
@@ -340,6 +298,10 @@ $heatmap-width: 15px
       background-image: url("../images/fave_1.png")
     &.a-flag
       background-image: url("../images/flag_1.png")
+    &.a-save
+      background-image: url("../images/submit_1.png")
+    &.a-delete
+      background-image: url("../images/delete_1.png")
 
 
 
@@ -379,7 +341,6 @@ $heatmap-width: 15px
 //ANNOTATOR WIDGETS
 .a-reply
   +threadbox
-  padding-bottom: 1.5em
   line-height: 1.25em
   position: relative
   padding-top: .5em
@@ -393,8 +354,6 @@ $heatmap-width: 15px
   &.a-closed
     .a-content
       display: none
-    .a-
-
 
 .a-annotation
   +smallshadow(-0px, -2px)
@@ -402,6 +361,14 @@ $heatmap-width: 15px
   margin:
     left: .5em
     right: .5em
+
+.a-writer
+  @extend .a-reply
+  +smallshadow
+  textarea
+    width: 100%
+    max-width: 100%
+    font-family: sans-serif
 
 .a-summary
   @extend .a-reply
@@ -425,6 +392,22 @@ $heatmap-width: 15px
     +smallshadow(2px, 3px, .2)
     bottom: -1px
 
+//BODY
+.a-nothread
+  padding-right: $thread-padding
+  padding-bottom: $thread-padding
+.a-body
+  margin-top: .5em
+  position: relative
+  .a-score
+    position: absolute
+    left: -$scorewidth / 2
+    &.a-positive
+      top: .2em
+    &.a-negative
+      top: -.2em
+    &.a-neutral
+      top: -.2em
 
 $threadexp-width: 12px
 .a-threadexp
@@ -438,7 +421,6 @@ $threadexp-width: 12px
     background-image: url("../images/plus_1.png")
     background-size: 100% 100%
     background-position: center
-
   &.a-dot
     background-image: url("../images/dot_2.png")
     background-size: 100% 100%
@@ -458,7 +440,6 @@ $threadexp-width: 12px
     position: absolute
     bottom: 0
     right: 0
-    margin-right: 1rem
   .a-threadexp
     font-size: 1.8em
     font-weight: bold
@@ -469,8 +450,6 @@ $threadexp-width: 12px
 //SCORE
 //This is for the score indicator part
 
-$scorewidth: 40px
-$scoreheight: $scorewidth
 
 .a-score
   width: $scorewidth
@@ -490,27 +469,12 @@ $scoreheight: $scorewidth
     background-image: url("../images/neutral_1.png")
     background-size: 100% 100%
 
-//BODY
-.a-body
-  margin-top: .5em
-  padding-bottom: 1em
-  padding-right: 1rem
-  position: relative
-  .a-score
-    position: absolute
-    left: -$scorewidth / 2
-    &.a-positive
-      top: .2em
-    &.a-negative
-      top: -.2em
-    &.a-neutral
-      top: -.2em
 
 //This applies to the excerpt of the source material, and possibly other excerpts.
 .a-excerpt
   +excerptbox
   +smallshadow
-  font-family: "Antic Slab", serif
+  font-family: serif
   font-size: 1.1em
   color: black
   margin-left: .5em

@@ -1,18 +1,20 @@
 %li.a-widget.a-reply
-  .a-meta
-    .a-fakecontrols
-      %button.a-write Reply
-      %button.a-fave Favorite
-      %button.a-flag Flag
-    .a-threadexp
-    .a-user jnt8686
-    .a-time posted 4 days ago
-  .a-body
-    .a-score.a-negative
-      %label 11
-    %article.a-content
-      %p
-        While you guys are technically correct, why does it seem like our government keeps passing laws that are designed to be confusing and misleading? I don't care what the nitpicky little reading could be, if a law appears at all to infringe upon our constitutional rights, it needs to be rewritten.
-    .a-tags
-      %span.a-tag Disagree
+  .a-nothread
+    .a-meta
+      .a-fakecontrols
+        %button.a-write Reply
+        %button.a-fave Favorite
+        %button.a-flag Flag
+      .a-threadexp
+      .a-user jnt8686
+      .a-time posted 4 days ago
+    .a-body
+      .a-score.a-negative
+        %label 11
+      %article.a-content
+        %p
+          While you guys are technically correct, why does it seem like our government keeps passing laws that are designed to be confusing and misleading? I don't care what the nitpicky little reading could be, if a law appears at all to infringe upon our constitutional rights, it needs to be rewritten.
+      .a-tags
+        %span.a-tag Disagree
   %ul.a-listing.a-replies
+    = partial "writer.haml"
