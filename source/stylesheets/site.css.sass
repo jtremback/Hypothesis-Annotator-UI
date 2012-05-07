@@ -159,18 +159,13 @@ $iconset: iconset_wireframe
   +icon_resets
   background-image: url('../images/#{$icon}')
 
-//This applies to the annotator as a whole, plus styles specific to the .a-listing class
-.a-listing
-  list-style-type: none
+#annotator
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
   font-weight: normal
   font-size: 13px
-  color: #666
   line-height: 1.2em
-  text-align: left
-  margin: 0
-  padding: 0
-  background: none
+  color: #666
+  overflow: hidden
   p
     margin: 0
     margin-bottom: .5em
@@ -178,9 +173,17 @@ $iconset: iconset_wireframe
     +invisibox
     +box-sizing(border-box)
     font: sans-serif
-    padding: .5em
     &:focus
       outline: none
+
+
+//This applies to the annotator as a whole, plus styles specific to the .a-listing class
+.a-listing
+  list-style-type: none
+  text-align: left
+  margin: 0
+  padding: 0
+  background: none
   button
     border: none
     padding: 0
@@ -228,8 +231,27 @@ $sidepane-width: 510px
   background-attachment: fixed
 
 
-//GLOBAL STYLES
-//Add settings in here if they will apply to the class globally. Visual styles, extends, padding, etc. Don't put margins or absolute positioning in here. Instead, use the object styles for things having to do with positioning.
+//ADDER
+.a-adder
+  border: 1px dotted #999
+  position: absolute
+  background-image: url("../images/noise_1.png")
+  +smallshadow
+  button
+    border: none
+    padding: 0
+    position: relative
+    background: none
+    &:hover
+    &:active
+      top: 1px
+    width: 2em
+    height: 2em
+    margin: .5em
+  .a-write
+    +icon("pen_1.png")
+  .a-fave
+    +icon("fave_1.png")
 
 //MISC
 .a-tag
