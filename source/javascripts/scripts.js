@@ -1,6 +1,7 @@
 $(document).ready(function() {
   $(".a-detail").hide();
   $(".a-sidepane").hide();
+  $(".a-bucket").hide();
   $(".a-fakecontrols").hide();
   $(".a-writer").hide();
   $(".a-adder").hide();
@@ -14,16 +15,18 @@ $(document).ready(function() {
     $("#source").css("margin-right", "510px");
     //shows sidepane
     $(".a-sidepane").show();
+    //shows bucket
+    $(".a-bucket").show();
     //remembers that view is bucket
     view = "bucket";
   });
 
     //catches clicks on summary
-  $("#a-xb9").click(function() {
+  $("#a-s-xb9").click(function() {
     //hides bucket
     $(".a-bucket").hide();
     //shows detail
-    $(".a-detail").show();
+    $("#a-d-xb9").show();
     //remembers that view is detail
     view = "detail";
   });
@@ -38,7 +41,9 @@ $(document).ready(function() {
     if (view == "bucket") {
       //hides sidepane
       $(".a-sidepane").hide();
-      //normalizes source margin
+      //shows bucket
+      $(".a-bucket").hide();
+      //resets source margin
       $("#source").css("margin-right", "0px");
       //remembers that view is heatmap
       view = "heatmap";
@@ -51,9 +56,12 @@ $(document).ready(function() {
       $(".a-bucket").show();
       //hides detail
       $(".a-detail").hide();
+      //hides writer
+      $(".a-writer").hide();
       //remembers that view is bucket
       view = "bucket";
     }
+
     //adder to heatmap view
     //check if view adder
     else if(view == "adder") {
@@ -86,7 +94,9 @@ $(document).ready(function() {
     //shows sidepane
     $(".a-sidepane").show();
     //shows detail
-    $(".a-detail").show();
+    $("#a-d-n3w").show();
+    //shows writer
+    $(".a-writer").show();
     //remembers that view is detail
     view = "detail";
   });
@@ -105,7 +115,7 @@ $(document).ready(function() {
   //CONTROL DISPLAY
   $(".a-nothread").hover(function() {
     //Shows controls
-    $(this).children(".a-meta").children(".a-fakecontrols").fadeToggle(1000);
+    $(this).children(".a-meta").children(".a-fakecontrols").fadeToggle(200);
   });
 
 
