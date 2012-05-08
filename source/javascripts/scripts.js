@@ -22,11 +22,11 @@ $(document).ready(function() {
   });
 
     //catches clicks on summary
-  $("#a-s-xb9").click(function() {
+  $("#a-xb9-s").click(function() {
     //hides bucket
     $(".a-bucket").hide();
     //shows detail
-    $("#a-d-xb9").show();
+    $("#a-xb9-d").show();
     //remembers that view is detail
     view = "detail";
   });
@@ -94,7 +94,7 @@ $(document).ready(function() {
     //shows sidepane
     $(".a-sidepane").show();
     //shows detail
-    $("#a-d-n3w").show();
+    $("#a-n3w-d").show();
     //shows writer
     $(".a-writer").show();
     //remembers that view is detail
@@ -111,39 +111,45 @@ $(document).ready(function() {
     $(this).toggleClass("a-closed");
   });
 
-
-  //CONTROL DISPLAY
-  $(".a-nothread").hover(function() {
-    //Shows controls
-    $(this).children(".a-meta").children(".a-fakecontrols").fadeToggle(200);
-  });
-
-
   //WRITER DISPLAY
   $(".a-write").click(function() {
     //Shows writer
     $(this).parents(".a-widget:eq(0)").find(".a-writer:eq(0)").fadeIn();
   });
 
-  $(".a-save").addClass(".a-delete").click(function() {
+  $(".a-delete").click(function() {
     //Hides writer
     $(this).parents(".a-writer:eq(0)").fadeOut();
   });
 
+  //CONTROL DISPLAY
+  $(".a-nothread").mouseenter(function() {
+    //Shows controls
+    $(this).children(".a-meta").children(".a-fakecontrols").fadeIn(200);
+  });
+  $(".a-nothread").mouseleave(function() {
+    //Hides controls
+    $(this).children(".a-meta").children(".a-fakecontrols").fadeOut(500);
+  });
+
+
+
+//HOVER HILIGHTS
+  $("#a-xb9-s").hover(function() {
+   $(".a-xb9").toggleClass("a-hl_negative")
+  });
+
+  $("#a-zb3-s").hover(function() {
+   $(".a-zb3").toggleClass("a-hl_positive")
+  });
+
+  $("#a-cd6-s").hover(function() {
+   $(".a-cd6").toggleClass("a-hl_negative")
+  });
+
+  $("#a-wf4-s").hover(function() {
+   $(".a-wf4").toggleClass("a-hl_neutral")
+  });
 
 
 }); ////END
-
-
-
-////HOVER HILIGHTS
-//  $(".a-summary").hover(function() {
-//    var hash = $(this).attr("id");
-//    alert(hash);
-//  });
-
-////ADDERPOP
-//  $("#content").click(function(e){
-//    $('.a-adder').show();
-//    $('.a-adder').css({'left': e.pageX, 'top': e.pageY});
-//  });
