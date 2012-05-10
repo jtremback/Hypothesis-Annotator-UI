@@ -461,24 +461,24 @@ $threadexp-width: 12px
     bottom: 0
     right: 0
   .a-threadexp
+    bottom: -1px
+    left: -7px
     font-size: 1.8em
     font-weight: bold
     position: absolute
-    left: -7px
-    bottom: -1px
 
 //SCORE
 //This is for the score indicator part
 
 
 .a-score
-  width: $scorewidth
-  height: $scoreheight
-  overflow: hidden
-  line-height: $scoreheight
   font-size: 14px
-  text-align: center
   font-weight: bold
+  height: $scoreheight
+  line-height: $scoreheight
+  overflow: hidden
+  text-align: center
+  width: $scorewidth
   &.a-positive
     background-image: url("../images/up_1.png")
     background-size: 100% 100%
@@ -494,13 +494,13 @@ $threadexp-width: 12px
 .a-excerpt
   +excerptbox
   +smallshadow
+  color: black
   font-family: serif
   font-size: 1.1em
-  color: black
+  margin-bottom: 1em
   margin-left: .5em
   margin-right: .5em
   margin-top: .5em
-  margin-bottom: 1em
   padding: 1em
 
 ////BUTTONS AS ICONS

@@ -1,0 +1,113 @@
+{
+  "content": ""
+  "score": "21",
+  "replies": "3",
+  "posted": MATH AND CONCATENATION GOES HERE,
+  "username": "bo1024",
+  "tag": "FactuallyIncorrect",
+  "tagspans": function() {
+    return function(text) {
+      return "<span class="annotator-tag">" + render(text)  + "</div>"
+    }
+  }
+}
+
+
+<li class="annotator-widget annotator-reply">
+  <div class="annotator-nothread">
+    <div class="annotator-meta">
+      <div class="annotator-controls">
+        <button class="annotator-write">Reply</button>
+        <button class="annotator-fave">Favorite</button>
+        <button class="annotator-flag">Flag</button>
+      </div>
+      <div class="annotator-threadexp"></div>
+      <div class="annotator-user">{{username}}</div>
+      <div class="annotator-info">{{posted}} - {{replies}} replies</div>
+    </div>
+    <div class="annotator-body">
+      <div class="annotator-score {{stance}}">
+        <label>{{score}}</label>
+      </div>
+      <div class="annotator-content">{{content}}</div>
+      <div class="annotator-tags">
+        {{#tagspans}}
+          {{tag}}
+        {{/tagspans}}
+    </div>
+    <div class="closeinfo"></div>
+=REPLIES LISTING=
+  </div>
+</li>
+
+==============================
+
+<li class="a-widget a-excerpt">
+  {{excerpt}}
+</li>
+
+==============================
+
+<li class="a-tabs">
+  {{#sorttabdivs}}
+    {{sorttab}}
+  {{/sorttabdivs}}
+</li>
+
+==============================
+
+<ol class="annotator-summary">
+  <li class="annotator-widget annotator-reply">
+    <div class="annotator-nothread">
+      <div class="annnotator-meta">
+        <div class="annotator-threadexp"></div>
+        <div class="annotator-user">{{username}}</div>
+        <div class="annotator-info">{{posted}} - {{replies}} replies</div>
+      </div>
+      <div class="annotator-body">
+        <div class="annotator-score {{stance}}">
+          <label>{{score}}</label>
+        </div>
+        <div class="annotator-content">{{content}}</div>
+        <div class="annotator-tags">
+          {{#tagspans}}
+            {{tag}}
+          {{/tagspans}}
+      </div>
+      <div class="annotator-closeinfo"></div>
+    </div>
+  </div>
+</li>
+
+===============================
+
+<ol class="annotator-annotation">
+  <li class="annotator-widget annotator-reply">
+    <div class="annotator-nothread">
+      <div class="annotator-meta">
+        <div class="annotator-controls">
+          <button class="annotator-save">Reply</button>
+          <button class="annotator-delete">Favorite</button>
+        </div>
+        <div class="annotator-threadexp"></div>
+        <div class="annotator-user">{{username}}</div>
+        <div class="annotator-info">{{posted}} - {{replies}} replies</div>
+      </div>
+      <div class="annotator-body">
+        <div class="annotator-score {{stance}}">
+          <label>{{score}}</label>
+        </div>
+        <div class="annotator-content">{{content}}</div>
+        <div class="annotator-tags">
+          {{#tagspans}}
+            {{tag}}
+          {{/tagspans}}
+      </div>
+      <div class="closeinfo"></div>
+      <ol class="annotator-listing annotator-replies">
+        {{#replies}}
+        {{/replies}}
+      </ol>
+    </div>
+  </li>
+</ol>
