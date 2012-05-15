@@ -136,19 +136,77 @@ $(document).ready(function() {
 
 //HOVER HILIGHTS
   $("#a-xb9-s").hover(function() {
-   $(".a-xb9").toggleClass("a-hl_negative")
+   $(".a-xb9").toggleClass("a-hl_negative");
   });
 
   $("#a-zb3-s").hover(function() {
-   $(".a-zb3").toggleClass("a-hl_positive")
+   $(".a-zb3").toggleClass("a-hl_positive");
   });
 
   $("#a-cd6-s").hover(function() {
-   $(".a-cd6").toggleClass("a-hl_negative")
+   $(".a-cd6").toggleClass("a-hl_negative");
   });
 
   $("#a-wf4-s").hover(function() {
-   $(".a-wf4").toggleClass("a-hl_neutral")
+   $(".a-wf4").toggleClass("a-hl_neutral");
+  });
+
+
+//STANCE TOGGLER
+  $(".a-scorecontrol> .a-top").mouseenter(function() {
+    //Shows positive stance
+    $(this).parents(".a-scorecontrol:eq(0)").addClass('a-temppositive');
+  });
+
+  $(".a-scorecontrol> .a-top").mouseleave(function() {
+    //Hides positive stance
+    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-temppositive');
+  });
+
+  $(".a-scorecontrol> .a-top").click(function() {
+    //Clears other stances
+    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-neutral');
+    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-negative');
+    //Activates positive stance
+    $(this).parents(".a-scorecontrol:eq(0)").addClass('a-positive');
+  });
+
+
+  $(".a-scorecontrol> .a-mid").mouseenter(function() {
+    //Shows neutral stance
+    $(this).parents(".a-scorecontrol:eq(0)").addClass('a-tempneutral');
+  });
+
+  $(".a-scorecontrol> .a-mid").mouseleave(function() {
+    //Hides neutral stance
+    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-tempneutral');
+  });
+
+  $(".a-scorecontrol> .a-mid").click(function() {
+    //Clears other stances
+    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-negative');
+    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-positive');
+    //Activates neutral stance
+    $(this).parents(".a-scorecontrol:eq(0)").addClass('a-neutral');
+  });
+
+
+  $(".a-scorecontrol> .a-bottom").mouseenter(function() {
+    //Shows negative stance
+    $(this).parents(".a-scorecontrol:eq(0)").addClass('a-tempnegative');
+  });
+
+  $(".a-scorecontrol> .a-bottom").mouseleave(function() {
+    //Hides negative stance
+    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-tempnegative');
+  });
+
+  $(".a-scorecontrol> .a-bottom").click(function() {
+    //Clears other stances
+    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-negative');
+    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-neutral');
+    //Activates negative stance
+    $(this).parents(".a-scorecontrol:eq(0)").addClass('a-negative');
   });
 
 

@@ -109,16 +109,16 @@ $scoreheight: $scorewidth
 @mixin threadbox
   border-left: 1px dotted #999
 
-//@mixin buttonbox
-//  border: 1px solid black
-//  border-radius: 3px
-//  padding: 0
-//  +box-shadow(0px 1px 0px #999)
-//  position: relative
-//  &:hover
-//  &:active
-//    top: 1px
-//    +box-shadow(none)
+@mixin buttonbox
+  position: relative
+  border: 1px solid black
+  border-radius: 3px
+  +box-shadow(0px 1px 0px #999)
+  position: relative
+  &:hover
+  &:active
+    top: 1px
+    +box-shadow(none)
 
 @mixin basebox
   background: $base-gray
@@ -269,6 +269,15 @@ $sidepane-width: 510px
 .a-time
   +secondarytext
 
+.a-buttonstyle
+  border: 1px solid #999
+  border-radius: 3px
+  +box-shadow(0px 1px 0px #999)
+  position: relative
+  &:active
+    top: 1px
+    +box-shadow(none)
+
 //HEATMAP
 $heatmap-width: 15px
 
@@ -358,86 +367,8 @@ $heatmap-width: 15px
       background: hsla(0, 0%, 100%, 1)
 
 
-.a-content
-  &.a-closed
-    white-space: nowrap
-    overflow: hidden
-    text-overflow: ellipsis
-    width: 100%
 
-.a-replies
-
-
-.a-reply
-  +threadbox
-  line-height: 1.25em
-  position: relative
-  padding-top: 1em
-  margin-left: $thread-padding
-  .a-meta
-    padding-left: $thread-padding
-  .a-body
-    padding-left: $thread-padding
-  &.noline
-    border-left: none
-  &.a-closed
-    .a-content
-      display: none
-
-.a-annotation
-  background: white
-  +smallshadow(-0px, -2px)
-  padding:
-    left: 0
-    top: 1em
-  margin:
-    left: .5em
-    right: .5em
-
-.a-writer
-  @extend .a-reply
-  +smallshadow
-  textarea
-    width: 100%
-    max-width: 100%
-    font-family: sans-serif
-
-
-.a-summary
-  .a-reply
-    border-left: none
-  position: relative
-  background: hsla(0, 0%, 100%, 1)
-  +smallshadow(2px, 3px, .2)
-  cursor: pointer
-  margin:
-    left: 1em
-    right: 1em
-    top: 1em
-  &:hover
-    +smallshadow(2px, 4px, .2)
-    bottom: 1px
-  &:active
-    +smallshadow(2px, 3px, .2)
-    bottom: -1px
-
-//BODY
-.a-nothread
-  padding-right: $thread-padding
-  padding-bottom: 1em
-.a-body
-  margin-top: .5em
-  position: relative
-  .a-score
-    position: absolute
-    left: -$scorewidth / 2
-    &.a-positive
-      top: .2em
-    &.a-negative
-      top: -.2em
-    &.a-neutral
-      top: -.2em
-
+//THREADEXP
 $threadexp-width: 12px
 .a-threadexp
   height: $threadexp-width
@@ -478,8 +409,6 @@ $threadexp-width: 12px
 
 //SCORE
 //This is for the score indicator part
-
-
 .a-score
   font-size: 14px
   font-weight: bold
@@ -488,6 +417,8 @@ $threadexp-width: 12px
   overflow: hidden
   text-align: center
   width: $scorewidth
+  background-image: url("../images/neutral_inact.png")
+  background-size: 100% 100%
   &.a-positive
     background-image: url("../images/up_1.png")
     background-size: 100% 100%
@@ -497,6 +428,75 @@ $threadexp-width: 12px
   &.a-neutral
     background-image: url("../images/neutral_1.png")
     background-size: 100% 100%
+
+.a-tinyscore
+  font-size: 14px
+  font-weight: bold
+  height: $scoreheight
+  line-height: $scoreheight
+  overflow: hidden
+  text-align: center
+  width: $scorewidth
+  &.a-positive
+    background-image: url("../images/uptiny_1.png")
+    background-size: 100% 100%
+  &.a-negative
+    background-image: url("../images/downtiny_1.png")
+    background-size: 100% 100%
+  &.a-neutral
+    background-image: url("../images/neutral_1.png")
+    background-size: 100% 100%
+
+
+.a-scorecontrol
+  position: relative
+  top: 0
+  font-size: 14px
+  font-weight: bold
+  height: $scoreheight
+  width: $scorewidth
+  line-height: $scoreheight
+  overflow: hidden
+  text-align: center
+  background-image: url("../images/neutral_inact.png")
+  background-size: 100% 100%
+  .a-top
+    position: absolute
+    top: 0
+    bottom: 66%
+    left: 0
+    right: 0
+  .a-mid
+    position: absolute
+    top: 33%
+    bottom: 33%
+    left: 0
+    right: 0
+  .a-bottom
+    position: absolute
+    top: 66%
+    bottom: 0
+    left: 0
+    right: 0
+  &.a-positive
+    background-image: url("../images/up_1.png")
+    background-size: 100% 100%
+  &.a-negative
+    background-image: url("../images/down_1.png")
+    background-size: 100% 100%
+  &.a-neutral
+    background-image: url("../images/neutral_1.png")
+    background-size: 100% 100%
+  &.a-temppositive
+    background-image: url("../images/up_1.png")
+    background-size: 100% 100%
+  &.a-tempnegative
+    background-image: url("../images/down_1.png")
+    background-size: 100% 100%
+  &.a-tempneutral
+    background-image: url("../images/neutral_1.png")
+    background-size: 100% 100%
+
 
 
 //This applies to the excerpt of the source material, and possibly other excerpts.
@@ -512,74 +512,135 @@ $threadexp-width: 12px
   margin-top: .5em
   padding: 1em
 
-////BUTTONS AS ICONS
-//.a-iconbutton
-//  border: none
-//  background: none
-//  +box-shadow(none)
-//  width: 1.8em
-//  height: 1.8em
-//  opacity: .4
-//  &:hover, :active
-//    opacity: .8
 
-//button.a-write
-//  +icon(pen_1)
-//  @extend .a-iconbutton
-//  background-image: url('../images/pen_1.png')
+.a-closecontent
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
 
-//button.a-flag
-//  +icon(flag_1)
-//  @extend .a-iconbutton
+.a-replies
 
-//button.a-fave
-//  +icon(fave_3)
-//  @extend .a-iconbutton
 
-//button.a-save
-//  +icon(submit_1)
-//  @extend .a-iconbutton
-//  width: 2em
-//  height: 2em
+.a-reply
+  +threadbox
+  line-height: 1.25em
+  position: relative
+  padding-top: 1em
+  margin-left: $thread-padding
+  .a-meta
+    padding-left: $thread-padding
+  .a-body
+    padding-left: $thread-padding
+    margin-top: .5em
+    position: relative
+  .a-nothread
+    padding-right: $thread-padding
+    padding-bottom: 1em
+  .a-score
+    position: absolute
+    left: -$scorewidth / 2
+    &.a-positive
+      top: .2em
+    &.a-negative
+      top: -.2em
+    &.a-neutral
+      top: -.2em
 
-//button.a-delete
-//  +icon(delete_1)
-//  @extend .a-iconbutton
-//  width: 2em
-//  height: 2em
+.a-reply
+  .a-collapsed
+    padding-right: $thread-padding
+    .a-meta
+      padding-left: thread-padding
+    .a-closecontent
+      padding-left: .5em
+    .a-body
+      +pie-clearfix
+      padding-left: $thread-padding
+      margin-top: .5em
+      position: relative
+      .a-left
+        float: left
+      .a-right
+        float: right
+    .a-tinyscore
+      position: absolute
+      left: -$scorewidth / 2
 
-//button.a-link
-//  +icon(link_1)
-//  @extend .a-iconbutton
-//  height: 2em
-//  width: 2em
 
-//button.a-facebook
-//  +icon(facebook_1)
-//  @extend .a-iconbutton
-//  height: 2em
-//  width: 2em
+.a-annotation
+  background: white
+  +smallshadow(-0px, -2px)
+  padding:
+    left: 0
+    top: 1em
+    bottom: 1em
+  margin:
+    left: .5em
+    right: .5em
 
-//button.a-twitter
-//  +icon(twitter_1)
-//  @extend .a-iconbutton
-//  height: 2em
-//  width: 2em
+//EDITOR
+.a-writer
+  line-height: 1.25em
+  position: relative
+  padding-top: 1em
+  margin-left: $thread-padding
+  +smallshadow
+  textarea
+    width: 100%
+    max-width: 100%
+    min-height: 8em
+    font-family: sans-serif
+  .a-meta
+    padding-left: $thread-padding * 2
+  .a-body
+    padding-left: $thread-padding * 2
+  &.a-closed
+    .a-content
+      display: none
+  .a-nothread
+    padding-right: $thread-padding
+    padding-bottom: 1em
+  .a-body
+    margin-top: .5em
+    position: relative
+  .a-scorecontrol
+    position: absolute
+    top: .8em
+    z-index: 1
 
-//button.a-google
-//  +icon(google_1)
-//  @extend .a-iconbutton
-//  height: 2em
-//  width: 2em
+//BUTTONBAR
+.a-buttonbar
+  padding: 1em
+  padding-left: $thread-padding * 2
+  button
+    cursor: pointer
+    padding: .5em
+    padding-left: 1.5em
+    line-height: 1.2em
+    background-size: 1em 1em
+    background-repeat: no-repeat
+    background-position: 10% 50%
+    &.a-save
+      background-image: url("../images/submit_1.png")
+      +buttonbox
+    &.a-delete
+      background-image: url("../images/delete_1.png")
 
-//button.a-up
-//  +icon(up_1)
-//  @extend .a-iconbutton
-//  height: 1em
-//  width: 1.5em
 
-//button.a-down
-//  +icon(down_1)
-//  @extend .a-iconbutton
-//  height: 1em
-//  width: 1.5em
+.a-summary
+  .a-reply
+    border-left: none
+  position: relative
+  background: hsla(0, 0%, 100%, 1)
+  +smallshadow(2px, 3px, .2)
+  cursor: pointer
+  margin:
+    left: 1em
+    right: 1em
+    top: 1em
+  &:hover
+    +smallshadow(2px, 4px, .2)
+    bottom: 1px
+  &:active
+    +smallshadow(2px, 3px, .2)
+    bottom: -1px
