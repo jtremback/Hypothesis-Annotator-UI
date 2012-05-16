@@ -59,9 +59,9 @@ $w: hsla(0, 0%, 100%, 1)
 //OTHER VARIABLES
 
 $thread-padding: 1.5em
-
-$scorewidth: 40px
-$scoreheight: $scorewidth
+$score-width: 40px
+$score-height: $score-width
+$sidepane-width: 510px
 
 //ANNOTATOR TEXT STYLES
 //Text styles have font size, color, decoration, spacing, etc. Use only for properties relating directly to the display of text. The style for body text is defined up in the resets and is the default.
@@ -74,8 +74,9 @@ $scoreheight: $scorewidth
   line-height: 1.2em
   text-align: left
 
+
 @mixin primarytext
-  color: #666
+  font-size: 14px
   font-weight: bold
 
 @mixin secondarytext
@@ -141,10 +142,11 @@ $scoreheight: $scorewidth
   box-shadow: none
 
 @mixin tagbox
-  background: #ddd
+  background: #f3f3f3
   color: #666
   border-radius: 2px
   border: 1px solid #999
+  +box-shadow(1px 1px 10px hsla(0, 0%, 0%, .05))
 
 //ICON IMAGES
 //This class provides some useful defaults for setting icon images.
@@ -221,7 +223,6 @@ $iconset: iconset_wireframe
   +tinyshadow(1px, 1px, .2)
 
 //ANNOTATOR
-$sidepane-width: 510px
 .a-sidepane
   position: fixed
   top: 0
@@ -237,83 +238,66 @@ $sidepane-width: 510px
   background-image: url("../images/noise_1.png")
   background-attachment: fixed
 
+//TAB BAR
+.a-tabs
+  +clearfix
+  margin-left: .5em
+  margin-right: .5em
+  .a-tab
+    float: left
+    padding: .25em .5em
+    margin-right: .5em
+    margin-bottom: -1px
+    +tabbox
+    +box-shadow(2px -10px 13px -8px $b2 inset)
+    border-top-right-radius: .25em
+    border-top-left-radius: .25em
+    color: #999
+    &.a-selected
+      +box-shadow(none)
+      color: #333
+      font-weight: bold
+      background: hsla(0, 0%, 100%, 1)
 
-//ADDER
-.a-adder
-  border: 1px dotted #999
-  position: absolute
-  background-image: url("../images/noise_1.png")
-  +smallshadow
-  button
-    border: none
-    padding: 0
-    position: relative
-    background: none
-    &:hover
-    &:active
-      top: 1px
-    width: 2em
-    height: 2em
-    margin: .5em
-  .a-write
-    +icon("pen_1.png")
-  .a-fave
-    +icon("fave_1.png")
 
-//MISC
-.a-tag
-  +tagbox
-  padding: .1em .4em
-  padding-bottom: .2em
 
-.a-time
-  +secondarytext
-
-.a-buttonstyle
-  border: 1px solid #999
-  border-radius: 3px
-  +box-shadow(0px 1px 0px #999)
+//META BAR
+.a-meta
+  +pie-clearfix
   position: relative
-  &:active
-    top: 1px
-    +box-shadow(none)
-
-//HEATMAP
-$heatmap-width: 15px
-
-.a-heatmap
-  position: absolute
-  right: 0
-  top: 0
-  height: 100%
-  width: $heatmap-width
-  background: white
-  border-left: 1px solid #bbb
-  +smallshadow
-  .a-heatmap_tab
-    text-align: center
-    background: #666
-    color: #fff
-    text-shadow: 1px 1px 1px black
-    border-top-left-radius: 5px
-    border-bottom-left-radius: 5px
+  .a-user
+    float: left
+    font-weight: bold
+    font-size: 1.3em
+    text-decoration: underline
+  .a-time
+    float: right
+    display: inline-block
+    vertical-align: bottom
+  .a-threadexp
+    bottom: -1px
+    left: -7px
+    font-size: 1.8em
     font-weight: bold
     position: absolute
-    top: 75%
-    width: 2em
-    right: 0
-    padding: .25em 0
-    font-family: sans-serif
-    font-size: 1em
-    +smallshadow
-  .a-gr_bg
-    stop-color: #fff
-  .a-gr_positive
-    stop-color: $positive + #222
-  .a-gr_negative
-    stop-color: $negative + #333
-  .a-gr_neutral
-    stop-color: $neutral + #666
+
+//THREADEXP
+$threadexp-width: 12px
+.a-threadexp
+  height: $threadexp-width
+  width: $threadexp-width
+  border: 1px dotted #aaa
+  background-image: url("../images/minus_1.png")
+  background-size: 100% 100%
+  background-position: center
+  &.a-closed
+    background-image: url("../images/plus_1.png")
+    background-size: 100% 100%
+    background-position: center
+  &.a-dot
+    background-image: url("../images/dot_2.png")
+    background-size: 100% 100%
+    background-position: center
 
 //CONTROLS
 .a-fakecontrols
@@ -343,80 +327,15 @@ $heatmap-width: 15px
 
 
 
-
-//TABS
-//This applies to tab bars
-.a-tabs
-  +clearfix
-  margin-left: .5em
-  margin-right: .5em
-  .a-tab
-    float: left
-    padding: .25em .5em
-    margin-right: .5em
-    margin-bottom: -1px
-    +tabbox
-    +box-shadow(2px -10px 13px -8px $b2 inset)
-    border-top-right-radius: .25em
-    border-top-left-radius: .25em
-    color: #999
-    &.a-selected
-      +box-shadow(none)
-      color: #333
-      font-weight: bold
-      background: hsla(0, 0%, 100%, 1)
-
-
-
-//THREADEXP
-$threadexp-width: 12px
-.a-threadexp
-  height: $threadexp-width
-  width: $threadexp-width
-  border: 1px dotted #aaa
-  background-image: url("../images/minus_1.png")
-  background-size: 100% 100%
-  background-position: center
-  &.a-closed
-    background-image: url("../images/plus_1.png")
-    background-size: 100% 100%
-    background-position: center
-  &.a-dot
-    background-image: url("../images/dot_2.png")
-    background-size: 100% 100%
-    background-position: center
-
-//META
-//This applies to the bar at the top of annotations and replies.
-.a-meta
-  +pie-clearfix
-  position: relative
-  .a-user
-    float: left
-    font-weight: bold
-    font-size: 1.3em
-    text-decoration: underline
-  .a-time
-    position: absolute
-    bottom: 0
-    right: 0
-  .a-threadexp
-    bottom: -1px
-    left: -7px
-    font-size: 1.8em
-    font-weight: bold
-    position: absolute
-
-//SCORE
-//This is for the score indicator part
+//SCORE BADGE
 .a-score
   font-size: 14px
   font-weight: bold
-  height: $scoreheight
-  line-height: $scoreheight
+  height: $score-height
+  line-height: $score-height
   overflow: hidden
   text-align: center
-  width: $scorewidth
+  width: $score-width
   background-image: url("../images/neutral_inact.png")
   background-size: 100% 100%
   &.a-positive
@@ -432,11 +351,11 @@ $threadexp-width: 12px
 .a-tinyscore
   font-size: 14px
   font-weight: bold
-  height: $scoreheight
-  line-height: $scoreheight
+  height: $score-height
+  line-height: $score-height
   overflow: hidden
   text-align: center
-  width: $scorewidth
+  width: $score-width
   &.a-positive
     background-image: url("../images/uptiny_1.png")
     background-size: 100% 100%
@@ -447,15 +366,15 @@ $threadexp-width: 12px
     background-image: url("../images/neutral_1.png")
     background-size: 100% 100%
 
-
+//SCORE CONTROL
 .a-scorecontrol
   position: relative
   top: 0
   font-size: 14px
   font-weight: bold
-  height: $scoreheight
-  width: $scorewidth
-  line-height: $scoreheight
+  height: $score-height
+  width: $score-width
+  line-height: $score-height
   overflow: hidden
   text-align: center
   background-image: url("../images/neutral_inact.png")
@@ -497,9 +416,100 @@ $threadexp-width: 12px
     background-image: url("../images/neutral_1.png")
     background-size: 100% 100%
 
+//ADDER
+.a-adder
+  border: 1px dotted #999
+  position: absolute
+  background-image: url("../images/noise_1.png")
+  +smallshadow
+  button
+    border: none
+    padding: 0
+    position: relative
+    background: none
+    &:hover
+    &:active
+      top: 1px
+    width: 2em
+    height: 2em
+    margin: .5em
+  .a-write
+    +icon("pen_1.png")
+  .a-fave
+    +icon("fave_1.png")
+
+//TAG
+.a-tag
+  +tagbox
+  padding: .1em .4em
+  padding-bottom: .2em
+  vertical-align: bottom
+
+//TIME IN META BAR
+.a-time
+  +secondarytext
+
+//COOL BUTTON STYLE
+.a-buttonstyle
+  border: 1px solid #999
+  border-radius: 3px
+  +box-shadow(0px 1px 0px #999)
+  position: relative
+  &:active
+    top: 1px
+    +box-shadow(none)
+
+//HEATMAP
+$heatmap-width: 15px
+.a-heatmap
+  position: absolute
+  right: 0
+  top: 0
+  height: 100%
+  width: $heatmap-width
+  background: white
+  border-left: 1px solid #bbb
+  +smallshadow
+  .a-heatmap_tab
+    text-align: center
+    background: #666
+    color: #fff
+    text-shadow: 1px 1px 1px black
+    border-top-left-radius: 5px
+    border-bottom-left-radius: 5px
+    font-weight: bold
+    position: absolute
+    top: 75%
+    width: 2em
+    right: 0
+    padding: .25em 0
+    font-family: sans-serif
+    font-size: 1em
+    +smallshadow
+  .a-gr_bg
+    stop-color: #fff
+  .a-gr_positive
+    stop-color: $positive + #222
+  .a-gr_negative
+    stop-color: $negative + #333
+  .a-gr_neutral
+    stop-color: $neutral + #666
 
 
-//This applies to the excerpt of the source material, and possibly other excerpts.
+//ANNOTATION
+.a-annotation
+  background: white
+  +smallshadow(-0px, -2px)
+  padding:
+    left: 0
+    top: 1em
+    bottom: 1em
+  margin:
+    left: .5em
+    right: .5em
+
+
+//EXCERPT
 .a-excerpt
   +excerptbox
   +smallshadow
@@ -512,121 +522,103 @@ $threadexp-width: 12px
   margin-top: .5em
   padding: 1em
 
-
-.a-closecontent
-  overflow: hidden
-  text-overflow: ellipsis
-  white-space: nowrap
-
-.a-replies
-
-
+//REPLY OBJECT, FULL AND COLLAPSED
 .a-reply
   +threadbox
   line-height: 1.25em
   position: relative
   padding-top: 1em
   margin-left: $thread-padding
+
   .a-meta
     padding-left: $thread-padding
   .a-body
     padding-left: $thread-padding
-    margin-top: .5em
+    margin-top: .6em
     position: relative
   .a-nothread
     padding-right: $thread-padding
     padding-bottom: 1em
   .a-score
     position: absolute
-    left: -$scorewidth / 2
+    left: -$score-width / 2
     &.a-positive
       top: .2em
     &.a-negative
       top: -.2em
     &.a-neutral
       top: -.2em
+  .a-bottombar
+    margin-top: .8em
+    +pie-clearfix
+    .a-left
+      float: left
+    .a-right
+      float: right
+      position: relative
+      top: .26em
+  .a-repliesbadge
+    display: inline-block
+    position: relative
+    left: $thread-padding
+    +primarytext
+    .a-blocker
+      display: inline-block
+      padding: .25em
+      margin-right: .5em
+    .a-offset_1
+      padding: .25em
+      background: white
+      position: absolute
+      top: 0px
+      left: 1px
+      border: 1px solid #ddd
+      +rotate(15deg)
 
-.a-reply
+    .a-offset_2
+      padding: .25em
+      background: white
+      position: absolute
+      top: -1px
+      left: -1px
+      border: 1px solid #ccc
+      +rotate(-10deg)
+
+    .a-inner
+      padding: .25em
+      background: white
+      position: absolute
+      top: 0
+      left: 0
+      border: 1px solid #aaa
+
   .a-collapsed
+    font-size: .9em
     padding-right: $thread-padding
-    .a-meta
-      padding-left: thread-padding
-    .a-closecontent
+    .a-content
       padding-left: .5em
+      overflow: hidden
+      text-overflow: ellipsis
+      -o-text-overflow: ellipsis
+      white-space: nowrap
+      position: relative
+      bottom: -.3em
     .a-body
       +pie-clearfix
-      padding-left: $thread-padding
       margin-top: .5em
-      position: relative
       .a-left
+        font-weight: bold
         float: left
       .a-right
         float: right
+        margin-top: .25em
     .a-tinyscore
       position: absolute
-      left: -$scorewidth / 2
+      left: -$score-width / 2
+    .a-tag
+      padding: .1em .3em
 
-
-.a-annotation
-  background: white
-  +smallshadow(-0px, -2px)
-  padding:
-    left: 0
-    top: 1em
-    bottom: 1em
-  margin:
-    left: .5em
-    right: .5em
-
-//EDITOR
-.a-writer
-  line-height: 1.25em
-  position: relative
-  padding-top: 1em
-  margin-left: $thread-padding
-  +smallshadow
-  textarea
-    width: 100%
-    max-width: 100%
-    min-height: 8em
-    font-family: sans-serif
-  .a-meta
-    padding-left: $thread-padding * 2
-  .a-body
-    padding-left: $thread-padding * 2
-  &.a-closed
-    .a-content
-      display: none
-  .a-nothread
-    padding-right: $thread-padding
-    padding-bottom: 1em
-  .a-body
-    margin-top: .5em
-    position: relative
-  .a-scorecontrol
-    position: absolute
-    top: .8em
-    z-index: 1
-
-//BUTTONBAR
-.a-buttonbar
-  padding: 1em
-  padding-left: $thread-padding * 2
-  button
-    cursor: pointer
-    padding: .5em
-    padding-left: 1.5em
-    line-height: 1.2em
-    background-size: 1em 1em
-    background-repeat: no-repeat
-    background-position: 10% 50%
-    &.a-save
-      background-image: url("../images/submit_1.png")
-      +buttonbox
-    &.a-delete
-      background-image: url("../images/delete_1.png")
-
-
+//BUCKET VIEW REPLY SUMMARIES
 .a-summary
   .a-reply
     border-left: none
@@ -644,3 +636,30 @@ $threadexp-width: 12px
   &:active
     +smallshadow(2px, 3px, .2)
     bottom: -1px
+
+//EDITOR
+.a-writer
+  line-height: 1.25em
+  position: relative
+  padding-top: 1em
+  margin-left: $thread-padding
+  +smallshadow
+  textarea
+    width: 100%
+    max-width: 100%
+    min-height: 8em
+    font-family: sans-serif
+  .a-meta
+    padding-left: $thread-padding * 2
+  .a-body
+    padding-left: $thread-padding * 2
+  .a-nothread
+    padding-right: $thread-padding
+    padding-bottom: 1em
+  .a-body
+    margin-top: .5em
+    position: relative
+  .a-scorecontrol
+    position: absolute
+    top: .8em
+    z-index: 1

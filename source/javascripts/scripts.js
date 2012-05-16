@@ -5,6 +5,7 @@ $(document).ready(function() {
   $(".a-fakecontrols").hide();
   $(".a-writer").hide();
   $(".a-adder").hide();
+  $(".a-collapsed").hide();
   var view = "heatmap";
 
 
@@ -103,10 +104,10 @@ $(document).ready(function() {
 
   //COMMENT COLLAPSER
   $(".a-threadexp").click(function() {
-    //Traverses to content and toggles it
-    $(this).parents(".a-widget:eq(0)").find(".a-content").slideToggle("fast");
-    //Traverses to replies listing and toggles it
-    $(this).parents(".a-widget:eq(0)").children(".a-replies:eq(0)").slideToggle("fast");
+    //Traverses to collapsed view and fades toggles
+    $(this).parents(".a-widget:eq(0)").find(".a-collapsed").toggle();
+    //Traverses to all full views below comment and shrinks them
+    $(this).parents(".a-widget:eq(0)").find(".a-full").toggle();
     //Switches plus/minus
     $(this).toggleClass("a-closed");
   });
