@@ -14,102 +14,41 @@ body
   overflow: auto
   position: relative
 
-//GLOBAL STUFF FOR ANNOTATOR
-//COLORS
-//
-
-$cool-hue: 220
-$warm-hue: 45
-
-$desat-minor: hsla($cool-hue, 0%, 99%,.1)
-$desat-major: hsla($cool-hue, 98%, 98%,.3)
-
-$base-gray: hsla($warm-hue, 0%, 99%, 1)
-
 //STANCE COLORS
-
 $positive: #3aab39
 $negative: #d11c2b
 $neutral: #0171ba
 
-//BLACK AND WHITE
-$b1: hsla(0, 0%, 0%, .1)
-$b2: hsla(0, 0%, 0%, .2)
-$b3: hsla(0, 0%, 0%, .3)
-$b4: hsla(0, 0%, 0%, .4)
-$b5: hsla(0, 0%, 0%, .5)
-$b6: hsla(0, 0%, 0%, .6)
-$b7: hsla(0, 0%, 0%, .7)
-$b8: hsla(0, 0%, 0%, .8)
-$b9: hsla(0, 0%, 0%, .9)
-$b: hsla(0, 0%, 0%, 1)
-
-$w1: hsla(0, 0%, 100%, .1)
-$w2: hsla(0, 0%, 100%, .2)
-$w3: hsla(0, 0%, 100%, .3)
-$w4: hsla(0, 0%, 100%, .4)
-$w5: hsla(0, 0%, 100%, .5)
-$w6: hsla(0, 0%, 100%, .6)
-$w7: hsla(0, 0%, 100%, .7)
-$w8: hsla(0, 0%, 100%, .8)
-$w9: hsla(0, 0%, 100%, .9)
-$w: hsla(0, 0%, 100%, 1)
-
-
 //OTHER VARIABLES
-
 $thread-padding: 1.5em
 $score-width: 40px
 $score-height: $score-width
 $sidepane-width: 510px
 
 //ANNOTATOR TEXT STYLES
-//Text styles have font size, color, decoration, spacing, etc. Use only for properties relating directly to the display of text. The style for body text is defined up in the resets and is the default.
-
-@mixin bodytext
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
-  font-weight: normal
-  font-size: 13px
-  color: hsla($warm-hue, 10%, 40%, 1)
-  line-height: 1.2em
-  text-align: left
-
-
 @mixin primarytext
-  font-size: 14px
   font-weight: bold
+  font-size: 1.3em
 
 @mixin secondarytext
+  font-size: 1.1em
+  font-weight: bold
+
+@mixin tertiarytext
   color: #666
   font-size: .8em
 
 //ANNOTATOR SHADOW STYLES
-@mixin bigshadow
-  +box-shadow(0px 0px 50px hsla(0, 0%, 0%, 0.2))
-
 @mixin smallshadow($a: 2px, $b: 2px, $c: .1)
   +box-shadow($a $b 1em hsla(0, 0%, 0%, $c))
 
 @mixin tinyshadow($a: 1px, $b: 1px, $c: .1)
   +box-shadow($a $b 3px hsla(0, 0%, 0%, $c))
 
-@mixin medshadow($a: 2px, $b: 2px)
-  +box-shadow($a $b 2em hsla(0, 0%, 0%, .1))
+@mixin medshadow($a: 2px, $b: 2px, $c: .1)
+  +box-shadow($a $b 2em hsla(0, 0%, 0%, $c))
 
 //ANNOTATOR BOX STYLES
-//Box styles have borders, backgrounds, and shadows. Visual effects that do not mess with the positioning much.
-@mixin whitebox
-  background: white
-  @include bodytext
-
-@mixin excerptbox
-  background: white
-  font-family: serif
-  font-size: 1.1em
-
-@mixin threadbox
-  border-left: 1px dotted #999
-
 @mixin buttonbox
   position: relative
   border: 1px solid black
@@ -121,17 +60,6 @@ $sidepane-width: 510px
     top: 1px
     +box-shadow(none)
 
-@mixin basebox
-  background: $base-gray
-
-@mixin tabbox
-  +smallshadow
-  background: hsla(0, 0%, 99%, 1)
-  &:hover
-    background: #eee
-  &:active
-    box-shadow: none
-
 @mixin invisibox
   &:active
     border: none
@@ -141,16 +69,7 @@ $sidepane-width: 510px
   outline: none
   box-shadow: none
 
-@mixin tagbox
-  background: #f3f3f3
-  color: #666
-  border-radius: 2px
-  border: 1px solid #999
-  +box-shadow(1px 1px 10px hsla(0, 0%, 0%, .05))
-
 //ICON IMAGES
-//This class provides some useful defaults for setting icon images.
-//It has a variable allowing you to switch between iconsets (folders inside /images directory)
 $iconset: iconset_wireframe
 @mixin icon_resets
   background-repeat: no-repeat
@@ -178,8 +97,6 @@ $iconset: iconset_wireframe
     &:focus
       outline: none
 
-
-//This applies to the annotator as a whole, plus styles specific to the .a-listing class
 .a-listing
   list-style-type: none
   text-align: left
@@ -194,11 +111,6 @@ $iconset: iconset_wireframe
     &:hover
     &:active
       top: 1px
-
-.a-component
-  padding-left: 1em
-  padding-right: 1em
-  padding-top: 1em
 
 //LOGO
 .hypothesis-logo
@@ -248,11 +160,15 @@ $iconset: iconset_wireframe
     padding: .25em .5em
     margin-right: .5em
     margin-bottom: -1px
-    +tabbox
-    +box-shadow(2px -10px 13px -8px $b2 inset)
+    background: hsla(0, 0%, 99%, 1)
+    +box-shadow(2px -10px 13px -8px hsla(0, 0%, 0%, .2) inset)
     border-top-right-radius: .25em
     border-top-left-radius: .25em
     color: #999
+    &:hover
+      background: #eee
+    &:active
+      box-shadow: none
     &.a-selected
       +box-shadow(none)
       color: #333
@@ -267,8 +183,7 @@ $iconset: iconset_wireframe
   position: relative
   .a-user
     float: left
-    font-weight: bold
-    font-size: 1.3em
+    +primarytext
     text-decoration: underline
   .a-time
     float: right
@@ -434,20 +349,26 @@ $threadexp-width: 12px
     height: 2em
     margin: .5em
   .a-write
-    +icon("pen_1.png")
+    background-image: url('../images/pen_1.png')
+    background-size: 100% 100%
   .a-fave
-    +icon("fave_1.png")
+    background-image: url('../images/fave_1.png')
+    background-size: 100% 100%
 
 //TAG
 .a-tag
-  +tagbox
+  background: #f3f3f3
+  color: #666
+  border-radius: 2px
+  border: 1px solid #999
   padding: .1em .4em
   padding-bottom: .2em
   vertical-align: bottom
+  +box-shadow(1px 1px 10px hsla(0, 0%, 0%, .05))
 
 //TIME IN META BAR
 .a-time
-  +secondarytext
+  +tertiarytext
 
 //COOL BUTTON STYLE
 .a-buttonstyle
@@ -495,7 +416,6 @@ $heatmap-width: 15px
   .a-gr_neutral
     stop-color: $neutral + #666
 
-
 //ANNOTATION
 .a-annotation
   background: white
@@ -508,11 +428,12 @@ $heatmap-width: 15px
     left: .5em
     right: .5em
 
-
 //EXCERPT
 .a-excerpt
-  +excerptbox
   +smallshadow
+  background: white
+  font-family: serif
+  font-size: 1.1em
   color: black
   font-family: serif
   font-size: 1.1em
@@ -524,12 +445,11 @@ $heatmap-width: 15px
 
 //REPLY OBJECT, FULL AND COLLAPSED
 .a-reply
-  +threadbox
+  border-left: 1px dotted #999
   line-height: 1.25em
   position: relative
   padding-top: 1em
   margin-left: $thread-padding
-
   .a-meta
     padding-left: $thread-padding
   .a-body
@@ -556,41 +476,33 @@ $heatmap-width: 15px
     .a-right
       float: right
       position: relative
-      top: .26em
+
   .a-repliesbadge
     display: inline-block
     position: relative
     left: $thread-padding
-    +primarytext
+    +secondarytext
     .a-blocker
       display: inline-block
       padding: .25em
       margin-right: .5em
-    .a-offset_1
-      padding: .25em
-      background: white
-      position: absolute
-      top: 0px
-      left: 1px
-      border: 1px solid #ddd
-      +rotate(15deg)
-
-    .a-offset_2
-      padding: .25em
-      background: white
-      position: absolute
-      top: -1px
-      left: -1px
-      border: 1px solid #ccc
-      +rotate(-10deg)
-
     .a-inner
       padding: .25em
       background: white
       position: absolute
+      border: 1px solid #aaa
       top: 0
       left: 0
-      border: 1px solid #aaa
+    .a-offset_1
+      @extend .a-inner
+      top: 0px
+      left: 1px
+      +rotate(15deg)
+    .a-offset_2
+      @extend .a-inner
+      top: -1px
+      left: -1px
+      +rotate(-10deg)
 
   .a-collapsed
     font-size: .9em
