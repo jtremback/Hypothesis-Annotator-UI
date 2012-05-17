@@ -1,33 +1,33 @@
 $(document).ready(function() {
-  $(".a-detail").hide();
-  $(".a-sidepane").hide();
-  $(".a-bucket").hide();
-  $(".a-fakecontrols").hide();
-  $(".a-writer").hide();
-  $(".a-adder").hide();
-  $(".a-collapsed").hide();
+  $(".hyp-detail").hide();
+  $(".hyp-sidepane").hide();
+  $(".hyp-bucket").hide();
+  $(".hyp-fakecontrols").hide();
+  $(".hyp-writer").hide();
+  $(".hyp-adder").hide();
+  $(".hyp-collapsed").hide();
   var view = "heatmap";
 
 
   //VIEW SWITCHER
   //catches clicks on heatmap tab
-  $(".a-heatmap_tab").click(function() {
+  $(".hyp-heatmap_tab").click(function() {
     //adjust margin
     $("#source").css("margin-right", "510px");
     //shows sidepane
-    $(".a-sidepane").show();
+    $(".hyp-sidepane").show();
     //shows bucket
-    $(".a-bucket").show();
+    $(".hyp-bucket").show();
     //remembers that view is bucket
     view = "bucket";
   });
 
     //catches clicks on summary
-  $("#a-xb9-s").click(function() {
+  $(".hyp-xb9-s").click(function() {
     //hides bucket
-    $(".a-bucket").hide();
+    $(".hyp-bucket").hide();
     //shows detail
-    $("#a-xb9-d").show();
+    $(".hyp-xb9-d").show();
     //remembers that view is detail
     view = "detail";
   });
@@ -41,9 +41,9 @@ $(document).ready(function() {
     //checks if view is bucket
     if (view == "bucket") {
       //hides sidepane
-      $(".a-sidepane").hide();
+      $(".hyp-sidepane").hide();
       //shows bucket
-      $(".a-bucket").hide();
+      $(".hyp-bucket").hide();
       //resets source margin
       $("#source").css("margin-right", "0px");
       //remembers that view is heatmap
@@ -54,11 +54,11 @@ $(document).ready(function() {
     //checks if view is detail
     else if(view == "detail") {
       //shows bucket
-      $(".a-bucket").show();
+      $(".hyp-bucket").show();
       //hides detail
-      $(".a-detail").hide();
+      $(".hyp-detail").hide();
       //hides writer
-      $(".a-writer").hide();
+      $(".hyp-writer").hide();
       //remembers that view is bucket
       view = "bucket";
     }
@@ -67,7 +67,7 @@ $(document).ready(function() {
     //check if view adder
     else if(view == "adder") {
       //hide adder
-      $('.a-adder').hide();
+      $(".hyp-adder").hide();
       //change to heatmap view
       view = "heatmap"
     }
@@ -75,13 +75,13 @@ $(document).ready(function() {
 
   //CONTENT SELECT ADDERPOP
   //catches mouseup (should use select, not working)
-  $('#source').mouseup(function(e) {
+  $("#source").mouseup(function(e) {
     //check if heatmap view
     if(view == "heatmap") {
       //show adder
-      $('.a-adder').show();
+      $(".hyp-adder").show();
       //position adder to cursor
-      $('.a-adder').css({'left': e.pageX, 'top': e.pageY});
+      $(".hyp-adder").css({"left": e.pageX, "top": e.pageY});
       //change to adder view
       view = "adder"
     }
@@ -89,125 +89,125 @@ $(document).ready(function() {
 
   //ADDERCLICK ANNOTATE
   //catches click
-  $('.a-adder> .a-write').click(function() {
+  $(".hyp-adder> .hyp-write").click(function() {
     //hide adder
-    $('.a-adder').hide();
+    $(".hyp-adder").hide();
     //shows sidepane
-    $(".a-sidepane").show();
+    $(".hyp-sidepane").show();
     //shows detail
-    $("#a-n3w-d").show();
+    $(".hyp-n3w-d").show();
     //shows writer
-    $(".a-writer").show();
+    $(".hyp-writer").show();
     //remembers that view is detail
     view = "detail";
   });
 
   //COMMENT COLLAPSER
-  $(".a-threadexp").click(function() {
+  $(".hyp-threadexp").click(function() {
     //Traverses to collapsed view and fades toggles
-    $(this).parents(".a-widget:eq(0)").find(".a-collapsed").toggle();
+    $(this).parents(".hyp-widget:eq(0)").find(".hyp-collapsed").toggle();
     //Traverses to all full views below comment and shrinks them
-    $(this).parents(".a-widget:eq(0)").find(".a-full").toggle();
+    $(this).parents(".hyp-widget:eq(0)").find(".hyp-full").toggle();
     //Switches plus/minus
-    $(this).toggleClass("a-closed");
+    $(this).toggleClass(".hyp-closed");
   });
 
   //WRITER DISPLAY
-  $(".a-write").click(function() {
+  $(".hyp-write").click(function() {
     //Shows writer
-    $(this).parents(".a-widget:eq(0)").find(".a-writer:eq(0)").fadeIn();
+    $(this).parents(".hyp-widget:eq(0)").find(".hyp-writer:eq(0)").fadeIn();
   });
 
-  $(".a-delete").click(function() {
+  $(".hyp-delete").click(function() {
     //Hides writer
-    $(this).parents(".a-writer:eq(0)").fadeOut();
+    $(this).parents(".hyp-writer:eq(0)").fadeOut();
   });
 
   //CONTROL DISPLAY
-  $(".a-nothread").mouseenter(function() {
+  $(".hyp-nothread").mouseenter(function() {
     //Shows controls
-    $(this).children(".a-meta").children(".a-fakecontrols").fadeIn(200);
+    $(this).children(".hyp-meta").children(".hyp-fakecontrols").fadeIn(200);
   });
-  $(".a-nothread").mouseleave(function() {
+  $(".hyp-nothread").mouseleave(function() {
     //Hides controls
-    $(this).children(".a-meta").children(".a-fakecontrols").fadeOut(500);
+    $(this).children(".hyp-meta").children(".hyp-fakecontrols").fadeOut(500);
   });
 
 
 
 //HOVER HILIGHTS
-  $("#a-xb9-s").hover(function() {
-   $(".a-xb9").toggleClass("a-hl_negative");
+  $(".hyp-xb9-s").hover(function() {
+   $(".hyp-xb9").toggleClass(".hyp-hl_negative");
   });
 
-  $("#a-zb3-s").hover(function() {
-   $(".a-zb3").toggleClass("a-hl_positive");
+  $(".hyp-zb3-s").hover(function() {
+   $(".hyp-zb3").toggleClass(".hyp-hl_positive");
   });
 
-  $("#a-cd6-s").hover(function() {
-   $(".a-cd6").toggleClass("a-hl_negative");
+  $(".hyp-cd6-s").hover(function() {
+   $(".hyp-cd6").toggleClass(".hyp-hl_negative");
   });
 
-  $("#a-wf4-s").hover(function() {
-   $(".a-wf4").toggleClass("a-hl_neutral");
+  $(".hyp-wf4-s").hover(function() {
+   $(".hyp-wf4").toggleClass(".hyp-hl_neutral");
   });
 
 
 //STANCE TOGGLER
-  $(".a-scorecontrol> .a-top").mouseenter(function() {
+  $(".hyp-scorecontrol> .hyp-top").mouseenter(function() {
     //Shows positive stance
-    $(this).parents(".a-scorecontrol:eq(0)").addClass('a-temppositive');
+    $(this).parents(".hyp-scorecontrol:eq(0)").addClass(".hyp-temppositive");
   });
 
-  $(".a-scorecontrol> .a-top").mouseleave(function() {
+  $(".hyp-scorecontrol> .hyp-top").mouseleave(function() {
     //Hides positive stance
-    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-temppositive');
+    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-temppositive");
   });
 
-  $(".a-scorecontrol> .a-top").click(function() {
+  $(".hyp-scorecontrol> .hyp-top").click(function() {
     //Clears other stances
-    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-neutral');
-    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-negative');
+    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-neutral");
+    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-negative");
     //Activates positive stance
-    $(this).parents(".a-scorecontrol:eq(0)").addClass('a-positive');
+    $(this).parents(".hyp-scorecontrol:eq(0)").addClass(".hyp-positive");
   });
 
 
-  $(".a-scorecontrol> .a-mid").mouseenter(function() {
+  $(".hyp-scorecontrol> .hyp-mid").mouseenter(function() {
     //Shows neutral stance
-    $(this).parents(".a-scorecontrol:eq(0)").addClass('a-tempneutral');
+    $(this).parents(".hyp-scorecontrol:eq(0)").addClass(".hyp-tempneutral");
   });
 
-  $(".a-scorecontrol> .a-mid").mouseleave(function() {
+  $(".hyp-scorecontrol> .hyp-mid").mouseleave(function() {
     //Hides neutral stance
-    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-tempneutral');
+    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-tempneutral");
   });
 
-  $(".a-scorecontrol> .a-mid").click(function() {
+  $(".hyp-scorecontrol> .hyp-mid").click(function() {
     //Clears other stances
-    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-negative');
-    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-positive');
+    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-negative");
+    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-positive");
     //Activates neutral stance
-    $(this).parents(".a-scorecontrol:eq(0)").addClass('a-neutral');
+    $(this).parents(".hyp-scorecontrol:eq(0)").addClass(".hyp-neutral");
   });
 
 
-  $(".a-scorecontrol> .a-bottom").mouseenter(function() {
+  $(".hyp-scorecontrol> .hyp-bottom").mouseenter(function() {
     //Shows negative stance
-    $(this).parents(".a-scorecontrol:eq(0)").addClass('a-tempnegative');
+    $(this).parents(".hyp-scorecontrol:eq(0)").addClass(".hyp-tempnegative");
   });
 
-  $(".a-scorecontrol> .a-bottom").mouseleave(function() {
+  $(".hyp-scorecontrol> .hyp-bottom").mouseleave(function() {
     //Hides negative stance
-    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-tempnegative');
+    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-tempnegative");
   });
 
-  $(".a-scorecontrol> .a-bottom").click(function() {
+  $(".hyp-scorecontrol> .hyp-bottom").click(function() {
     //Clears other stances
-    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-negative');
-    $(this).parents(".a-scorecontrol:eq(0)").removeClass('a-neutral');
+    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-negative");
+    $(this).parents(".hyp-scorecontrol:eq(0)").removeClass(".hyp-neutral");
     //Activates negative stance
-    $(this).parents(".a-scorecontrol:eq(0)").addClass('a-negative');
+    $(this).parents(".hyp-scorecontrol:eq(0)").addClass(".hyp-negative");
   });
 
 

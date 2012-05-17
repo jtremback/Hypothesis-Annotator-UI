@@ -98,7 +98,7 @@ $iconset: iconset_wireframe;
     &:focus {
       outline: none; } } }
 
-.a-listing {
+.hyp-listing {
   list-style-type: none;
   text-align: left;
   margin: 0;
@@ -124,20 +124,20 @@ $iconset: iconset_wireframe;
 
 //ANNOTATOR LAYOUT STUFF
 
-.a-hl_positive {
+.hyp-hl_positive {
   background: rgba($positive, 0.3);
   @include tinyshadow(1px, 1px, 0.2); }
 
-.a-hl_negative {
+.hyp-hl_negative {
   background: rgba($negative, 0.3);
   @include tinyshadow(1px, 1px, 0.2); }
 
-.a-hl_neutral {
+.hyp-hl_neutral {
   background: rgba($neutral, 0.3);
   @include tinyshadow(1px, 1px, 0.2); }
 
 //ANNOTATOR
-.a-sidepane {
+.hyp-sidepane {
   position: fixed;
   top: 0;
   right: 0;
@@ -153,11 +153,11 @@ $iconset: iconset_wireframe;
   background-attachment: fixed; }
 
 //TAB BAR
-.a-tabs {
+.hyp-tabs {
   @include clearfix;
   margin-left: 0.5em;
   margin-right: 0.5em;
-  .a-tab {
+  .hyp-tab {
     float: left;
     padding: 0.25em 0.5em;
     margin-right: 0.5em;
@@ -171,25 +171,25 @@ $iconset: iconset_wireframe;
       background: #eeeeee; }
     &:active {
       box-shadow: none; }
-    &.a-selected {
+    &.hyp-selected {
       @include box-shadow(none);
       color: #333333;
       font-weight: bold;
       background: hsla(0, 0%, 100%, 1); } } }
 
 //META BAR
-.a-meta {
+.hyp-meta {
   @include pie-clearfix;
   position: relative;
-  .a-user {
+  .hyp-user {
     float: left;
     @include primarytext;
     text-decoration: underline; }
-  .a-time {
+  .hyp-time {
     float: right;
     display: inline-block;
     vertical-align: bottom; }
-  .a-threadexp {
+  .hyp-threadexp {
     bottom: -1px;
     left: -7px;
     font-size: 1.8em;
@@ -198,24 +198,24 @@ $iconset: iconset_wireframe;
 
 //THREADEXP
 $threadexp-width: 12px;
-.a-threadexp {
+.hyp-threadexp {
   height: $threadexp-width;
   width: $threadexp-width;
   border: 1px dotted #aaaaaa;
   background-image: url("../images/minus_1.png");
   background-size: 100% 100%;
   background-position: center;
-  &.a-closed {
+  &.hyp-closed {
     background-image: url("../images/plus_1.png");
     background-size: 100% 100%;
     background-position: center; }
-  &.a-dot {
+  &.hyp-dot {
     background-image: url("../images/dot_2.png");
     background-size: 100% 100%;
     background-position: center; } }
 
 //CONTROLS
-.a-fakecontrols {
+.hyp-fakecontrols {
   position: absolute;
   top: 0;
   right: 0;
@@ -229,19 +229,19 @@ $threadexp-width: 12px;
     line-height: 1.2em;
     background-size: 1em 1em;
     background-repeat: no-repeat;
-    &.a-write {
+    &.hyp-write {
       background-image: url("../images/pen_1.png"); }
-    &.a-fave {
+    &.hyp-fave {
       background-image: url("../images/fave_1.png"); }
-    &.a-flag {
+    &.hyp-flag {
       background-image: url("../images/flag_1.png"); }
-    &.a-save {
+    &.hyp-save {
       background-image: url("../images/submit_1.png"); }
-    &.a-delete {
+    &.hyp-delete {
       background-image: url("../images/delete_1.png"); } } }
 
 //SCORE BADGE
-.a-score {
+.hyp-score {
   font-size: 14px;
   font-weight: bold;
   height: $score-height;
@@ -251,17 +251,17 @@ $threadexp-width: 12px;
   width: $score-width;
   background-image: url("../images/neutral_inact.png");
   background-size: 100% 100%;
-  &.a-positive {
+  &.hyp-positive {
     background-image: url("../images/up_1.png");
     background-size: 100% 100%; }
-  &.a-negative {
+  &.hyp-negative {
     background-image: url("../images/down_1.png");
     background-size: 100% 100%; }
-  &.a-neutral {
+  &.hyp-neutral {
     background-image: url("../images/neutral_1.png");
     background-size: 100% 100%; } }
 
-.a-tinyscore {
+.hyp-tinyscore {
   font-size: 14px;
   font-weight: bold;
   height: $score-height;
@@ -269,18 +269,18 @@ $threadexp-width: 12px;
   overflow: hidden;
   text-align: center;
   width: $score-width;
-  &.a-positive {
+  &.hyp-positive {
     background-image: url("../images/uptiny_1.png");
     background-size: 100% 100%; }
-  &.a-negative {
+  &.hyp-negative {
     background-image: url("../images/downtiny_1.png");
     background-size: 100% 100%; }
-  &.a-neutral {
+  &.hyp-neutral {
     background-image: url("../images/neutral_1.png");
     background-size: 100% 100%; } }
 
 //SCORE CONTROL
-.a-scorecontrol {
+.hyp-scorecontrol {
   position: relative;
   top: 0;
   font-size: 14px;
@@ -292,45 +292,45 @@ $threadexp-width: 12px;
   text-align: center;
   background-image: url("../images/neutral_inact.png");
   background-size: 100% 100%;
-  .a-top {
+  .hyp-top {
     position: absolute;
     top: 0;
     bottom: 66%;
     left: 0;
     right: 0; }
-  .a-mid {
+  .hyp-mid {
     position: absolute;
     top: 33%;
     bottom: 33%;
     left: 0;
     right: 0; }
-  .a-bottom {
+  .hyp-bottom {
     position: absolute;
     top: 66%;
     bottom: 0;
     left: 0;
     right: 0; }
-  &.a-positive {
+  &.hyp-positive {
     background-image: url("../images/up_1.png");
     background-size: 100% 100%; }
-  &.a-negative {
+  &.hyp-negative {
     background-image: url("../images/down_1.png");
     background-size: 100% 100%; }
-  &.a-neutral {
+  &.hyp-neutral {
     background-image: url("../images/neutral_1.png");
     background-size: 100% 100%; }
-  &.a-temppositive {
+  &.hyp-temppositive {
     background-image: url("../images/up_1.png");
     background-size: 100% 100%; }
-  &.a-tempnegative {
+  &.hyp-tempnegative {
     background-image: url("../images/down_1.png");
     background-size: 100% 100%; }
-  &.a-tempneutral {
+  &.hyp-tempneutral {
     background-image: url("../images/neutral_1.png");
     background-size: 100% 100%; } }
 
 //ADDER
-.a-adder {
+.hyp-adder {
   border: 1px dotted #999999;
   position: absolute;
   background-image: url("../images/noise_1.png");
@@ -346,15 +346,15 @@ $threadexp-width: 12px;
     width: 2em;
     height: 2em;
     margin: 0.5em; }
-  .a-write {
+  .hyp-write {
     background-image: url("../images/pen_1.png");
     background-size: 100% 100%; }
-  .a-fave {
+  .hyp-fave {
     background-image: url("../images/fave_1.png");
     background-size: 100% 100%; } }
 
 //TAG
-.a-tag {
+.hyp-tag {
   background: #f3f3f3;
   color: #666666;
   border-radius: 2px;
@@ -365,11 +365,11 @@ $threadexp-width: 12px;
   @include box-shadow(1px 1px 10px hsla(0, 0%, 0%, 0.05)); }
 
 //TIME IN META BAR
-.a-time {
+.hyp-time {
   @include tertiarytext; }
 
 //COOL BUTTON STYLE
-.a-buttonstyle {
+.hyp-buttonstyle {
   border: 1px solid #999999;
   border-radius: 3px;
   @include box-shadow(0px 1px 0px #999999);
@@ -381,7 +381,7 @@ $threadexp-width: 12px;
 //HEATMAP
 $heatmap-width: 15px;
 
-.a-heatmap {
+.hyp-heatmap {
   position: absolute;
   right: 0;
   top: 0;
@@ -390,7 +390,7 @@ $heatmap-width: 15px;
   background: white;
   border-left: 1px solid #bbbbbb;
   @include smallshadow;
-  .a-heatmap_tab {
+  .hyp-heatmap_tab {
     text-align: center;
     background: #666666;
     color: white;
@@ -406,17 +406,17 @@ $heatmap-width: 15px;
     font-family: sans-serif;
     font-size: 1em;
     @include smallshadow; }
-  .a-gr_bg {
+  .hyp-gr_bg {
     stop-color: white; }
-  .a-gr_positive {
+  .hyp-gr_positive {
     stop-color: $positive + #222222; }
-  .a-gr_negative {
+  .hyp-gr_negative {
     stop-color: $negative + #333333; }
-  .a-gr_neutral {
+  .hyp-gr_neutral {
     stop-color: $neutral + #666666; } }
 
 //ANNOTATION
-.a-annotation {
+.hyp-annotation {
   background: white;
   @include smallshadow(0px, -2px);
   padding: {
@@ -428,7 +428,7 @@ $heatmap-width: 15px;
     right: 0.5em; }; }
 
 //EXCERPT
-.a-excerpt {
+.hyp-excerpt {
   @include smallshadow;
   background: white;
   font-family: serif;
@@ -443,68 +443,68 @@ $heatmap-width: 15px;
   padding: 1em; }
 
 //REPLY OBJECT, FULL AND COLLAPSED
-.a-reply {
+.hyp-reply {
   border-left: 1px dotted #999999;
   line-height: 1.25em;
   position: relative;
   padding-top: 1em;
   margin-left: $thread-padding;
-  .a-meta {
+  .hyp-meta {
     padding-left: $thread-padding; }
-  .a-body {
+  .hyp-body {
     padding-left: $thread-padding;
     margin-top: 0.6em;
     position: relative; }
-  .a-nothread {
+  .hyp-nothread {
     padding-right: $thread-padding;
     padding-bottom: 1em; }
-  .a-score {
+  .hyp-score {
     position: absolute;
     left: -$score-width / 2;
-    &.a-positive {
+    &.hyp-positive {
       top: 0.2em; }
-    &.a-negative {
+    &.hyp-negative {
       top: -0.2em; }
-    &.a-neutral {
+    &.hyp-neutral {
       top: -0.2em; } }
-  .a-bottombar {
+  .hyp-bottombar {
     margin-top: 0.8em;
     @include pie-clearfix;
-    .a-left {
+    .hyp-left {
       float: left; }
-    .a-right {
+    .hyp-right {
       float: right;
       position: relative; } }
-  .a-repliesbadge {
+  .hyp-repliesbadge {
     display: inline-block;
     position: relative;
     left: $thread-padding;
     @include secondarytext;
-    .a-blocker {
+    .hyp-blocker {
       display: inline-block;
       padding: 0.25em;
       margin-right: 0.5em; }
-    .a-inner {
+    .hyp-inner {
       padding: 0.25em;
       background: white;
       position: absolute;
       border: 1px solid #aaaaaa;
       top: 0;
       left: 0; }
-    .a-offset_1 {
-      @extend .a-inner;
+    .hyp-offset_1 {
+      @extend .hyp-inner;
       top: 0px;
       left: 1px;
       @include rotate(15deg); }
-    .a-offset_2 {
-      @extend .a-inner;
+    .hyp-offset_2 {
+      @extend .hyp-inner;
       top: -1px;
       left: -1px;
       @include rotate(-10deg); } }
-  .a-collapsed {
+  .hyp-collapsed {
     font-size: 0.9em;
     padding-right: $thread-padding;
-    .a-content {
+    .hyp-content {
       padding-left: 0.5em;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -512,24 +512,24 @@ $heatmap-width: 15px;
       white-space: nowrap;
       position: relative;
       bottom: -0.3em; }
-    .a-body {
+    .hyp-body {
       @include pie-clearfix;
       margin-top: 0.5em;
-      .a-left {
+      .hyp-left {
         font-weight: bold;
         float: left; }
-      .a-right {
+      .hyp-right {
         float: right;
         margin-top: 0.25em; } }
-    .a-tinyscore {
+    .hyp-tinyscore {
       position: absolute;
       left: -$score-width / 2; }
-    .a-tag {
+    .hyp-tag {
       padding: 0.1em 0.3em; } } }
 
 //BUCKET VIEW REPLY SUMMARIES
-.a-summary {
-  .a-reply {
+.hyp-summary {
+  .hyp-reply {
     border-left: none; }
   position: relative;
   background: hsla(0, 0%, 100%, 1);
@@ -547,7 +547,7 @@ $heatmap-width: 15px;
     bottom: -1px; } }
 
 //EDITOR
-.a-writer {
+.hyp-writer {
   line-height: 1.25em;
   position: relative;
   padding-top: 1em;
@@ -558,17 +558,17 @@ $heatmap-width: 15px;
     max-width: 100%;
     min-height: 8em;
     font-family: sans-serif; }
-  .a-meta {
+  .hyp-meta {
     padding-left: $thread-padding * 2; }
-  .a-body {
+  .hyp-body {
     padding-left: $thread-padding * 2; }
-  .a-nothread {
+  .hyp-nothread {
     padding-right: $thread-padding;
     padding-bottom: 1em; }
-  .a-body {
+  .hyp-body {
     margin-top: 0.5em;
     position: relative; }
-  .a-scorecontrol {
+  .hyp-scorecontrol {
     position: absolute;
     top: 0.8em;
     z-index: 1; } }
