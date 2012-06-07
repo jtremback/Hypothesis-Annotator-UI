@@ -98,20 +98,20 @@ $iconset: iconset_wireframe;
     &:focus {
       outline: none; } } }
 
-.hyp-listing {
-  list-style-type: none;
-  text-align: left;
-  margin: 0;
-  padding: 0;
-  background: none;
-  button {
-    border: none;
-    padding: 0;
-    position: relative;
-    background: none;
-    &:hover {}
-    &:active {
-      top: 1px; } } }
+//.hyp-listing {
+//  list-style-type: none;
+//  text-align: left;
+//  margin: 0;
+//  padding: 0;
+//  background: none;
+//  button {
+//    border: none;
+//    padding: 0;
+//    position: relative;
+//    background: none;
+//    &:hover {}
+//    &:active {
+//      top: 1px; } } }l
 
 //LOGO
 .hypothesis-logo {
@@ -123,7 +123,6 @@ $iconset: iconset_wireframe;
   color: $negative; }
 
 //ANNOTATOR LAYOUT STUFF
-
 .hyp-hl_positive {
   background: rgba($positive, 0.3);
   @include tinyshadow(1px, 1px, 0.2); }
@@ -261,24 +260,6 @@ $threadexp-width: 12px;
     background-image: url("../images/neutral_1.png");
     background-size: 100% 100%; } }
 
-.hyp-tinyscore {
-  font-size: 14px;
-  font-weight: bold;
-  height: $score-height;
-  line-height: $score-height;
-  overflow: hidden;
-  text-align: center;
-  width: $score-width;
-  &.hyp-positive {
-    background-image: url("../images/uptiny_1.png");
-    background-size: 100% 100%; }
-  &.hyp-negative {
-    background-image: url("../images/downtiny_1.png");
-    background-size: 100% 100%; }
-  &.hyp-neutral {
-    background-image: url("../images/neutral_1.png");
-    background-size: 100% 100%; } }
-
 //SCORE CONTROL
 .hyp-scorecontrol {
   position: relative;
@@ -329,6 +310,26 @@ $threadexp-width: 12px;
     background-image: url("../images/neutral_1.png");
     background-size: 100% 100%; } }
 
+//TINY SCORE
+.hyp-tinyscore {
+  font-size: 14px;
+  font-weight: bold;
+  height: $score-height;
+  line-height: $score-height;
+  overflow: hidden;
+  text-align: center;
+  width: $score-width;
+  &.hyp-positive {
+    background-image: url("../images/uptiny_1.png");
+    background-size: 100% 100%; }
+  &.hyp-negative {
+    background-image: url("../images/downtiny_1.png");
+    background-size: 100% 100%; }
+  &.hyp-neutral {
+    background-image: url("../images/neutral_1.png");
+    background-size: 100% 100%; } }
+
+
 //ADDER
 .hyp-adder {
   border: 1px dotted #999999;
@@ -355,6 +356,7 @@ $threadexp-width: 12px;
 
 //TAG
 .hyp-tag {
+  display: inline-block;
   background: #f3f3f3;
   color: #666666;
   border-radius: 2px;
@@ -442,13 +444,19 @@ $heatmap-width: 15px;
   margin-top: 0.5em;
   padding: 1em; }
 
-//REPLY OBJECT, FULL AND COLLAPSED
-.hyp-reply {
-  border-left: 1px dotted #999999;
+//BASE ANNOTATION OBJECT
+@mixin base-annotation {
   line-height: 1.25em;
   position: relative;
   padding-top: 1em;
   margin-left: $thread-padding;
+
+  }
+
+//ANNOTATION DETAIL
+.hyp-reply {
+  @include base-annotation;
+  border-left: 1px dotted #999999;
   .hyp-meta {
     padding-left: $thread-padding; }
   .hyp-body {
@@ -458,6 +466,7 @@ $heatmap-width: 15px;
   .hyp-nothread {
     padding-right: $thread-padding;
     padding-bottom: 1em; }
+
   .hyp-score {
     position: absolute;
     left: -$score-width / 2;
@@ -467,6 +476,7 @@ $heatmap-width: 15px;
       top: -0.2em; }
     &.hyp-neutral {
       top: -0.2em; } }
+
   .hyp-bottombar {
     margin-top: 0.8em;
     @include pie-clearfix;
@@ -475,6 +485,7 @@ $heatmap-width: 15px;
     .hyp-right {
       float: right;
       position: relative; } }
+
   .hyp-repliesbadge {
     display: inline-block;
     position: relative;
@@ -501,6 +512,7 @@ $heatmap-width: 15px;
       top: -1px;
       left: -1px;
       @include rotate(-10deg); } }
+
   .hyp-collapsed {
     font-size: 0.9em;
     padding-right: $thread-padding;
@@ -527,10 +539,36 @@ $heatmap-width: 15px;
     .hyp-tag {
       padding: 0.1em 0.3em; } } }
 
+
+//EDITOR
+.hyp-writer {
+  background: white;
+  @include base-annotation;
+  @include smallshadow;
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: 8em;
+    font-family: sans-serif; }
+  .hyp-innerwrap {
+    position: relative;
+    margin: .5em; }
+  .hyp-meta {
+    padding-left: $thread-padding * 2; }
+  .hyp-body {
+    padding-left: $thread-padding * 2;
+    margin-top: 0.5em;
+    position: relative; }
+  .hyp-nothread {
+    padding-right: $thread-padding;
+    padding-bottom: 1em; }
+  .hyp-scorecontrol {
+    position: absolute;
+    z-index: 1; } }
+
 //BUCKET VIEW REPLY SUMMARIES
 .hyp-summary {
-  .hyp-reply {
-    border-left: none; }
+  line-height: 1.25em;
   position: relative;
   background: hsla(0, 0%, 100%, 1);
   @include smallshadow(2px, 3px, 0.2);
@@ -539,36 +577,56 @@ $heatmap-width: 15px;
     left: 1em;
     right: 1em;
     top: 1em; };
+  padding: 1em;
   &:hover {
     @include smallshadow(2px, 4px, 0.2);
     bottom: 1px; }
   &:active {
     @include smallshadow(2px, 3px, 0.2);
-    bottom: -1px; } }
-
-//EDITOR
-.hyp-writer {
-  line-height: 1.25em;
-  position: relative;
-  padding-top: 1em;
-  margin-left: $thread-padding;
-  @include smallshadow;
-  textarea {
-    width: 100%;
-    max-width: 100%;
-    min-height: 8em;
-    font-family: sans-serif; }
+    bottom: -1px; }
+  .hyp-innerwrap {
+    position: relative;
+    }
   .hyp-meta {
-    padding-left: $thread-padding * 2; }
+//    padding-left: $thread-padding * 2;
+    }
   .hyp-body {
-    padding-left: $thread-padding * 2; }
+//    padding-left: $thread-padding * 2;
+    }
   .hyp-nothread {
-    padding-right: $thread-padding;
-    padding-bottom: 1em; }
+//    padding-right: $thread-padding;
+//    padding-bottom: 1em;
+    }
   .hyp-body {
     margin-top: 0.5em;
-    position: relative; }
-  .hyp-scorecontrol {
+    position: relative;
+    }
+
+  .hyp-bottombar {
+    margin-top: 0.8em;
+    @include pie-clearfix;
+    .hyp-left {
+      float: left; }
+    .hyp-right {
+      float: right;
+      position: relative; } }
+
+  .hyp-repliesbadge {
+    display: inline-block;
+    position: relative;
+    @include secondarytext;
+    display: none;
+    }
+
+  .hyp-score {
+    display: none;
     position: absolute;
     top: 0.8em;
-    z-index: 1; } }
+    &.hyp-positive {
+      top: 0.2em; }
+    &.hyp-negative {
+      top: -0.2em; }
+    &.hyp-neutral {
+      top: -0.2em; } }
+
+    }

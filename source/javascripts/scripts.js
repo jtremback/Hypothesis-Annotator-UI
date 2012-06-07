@@ -3,7 +3,7 @@ $(document).ready(function() {
   $(".hyp-sidepane").hide();
   $(".hyp-bucket").hide();
   $(".hyp-fakecontrols").hide();
-  $(".hyp-writer").hide();
+//  $(".hyp-writer").hide();
   $(".hyp-adder").hide();
   $(".hyp-collapsed").hide();
   var view = "heatmap";
@@ -104,7 +104,7 @@ $(document).ready(function() {
 
   //COMMENT COLLAPSER
   $(".hyp-threadexp").click(function() {
-    //Traverses to collapsed view and fades toggles
+    //Traverses to collapsed view and toggles
     $(this).parents(".hyp-widget:eq(0)").find(".hyp-collapsed").toggle();
     //Traverses to all full views below comment and shrinks them
     $(this).parents(".hyp-widget:eq(0)").find(".hyp-full").toggle();
